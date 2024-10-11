@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import AppShell from "../components/AppShell";
 import { ThemeProvider } from "../components/theme-provider";
 import "./globals.css";
 
@@ -11,7 +12,7 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Ammar - SWE",
+  title: "Ammar | SWE",
   description: "Software Engineer, Frontend Focused.",
 };
 
@@ -21,10 +22,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} antialiased`}>
+    <html className={`${inter.variable} antialiased`} lang="en">
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <AppShell>{children}</AppShell>
         </ThemeProvider>
       </body>
     </html>

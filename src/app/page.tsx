@@ -1,11 +1,13 @@
 "use client";
 import { useTheme } from "next-themes";
+import Image from "next/image";
+import TooltipWrapper from "../components/Tooltip/TooltipWrapper";
 
 export default function Home() {
   const { setTheme } = useTheme();
 
   return (
-    <div className="w-screen h-screen flex flex-col gap-4 items-center justify-center">
+    <div className="flex flex-col gap-4 items-center justify-center">
       <h1 className="text-4xl font-bold">Heading</h1>
       <p>Paragraph</p>
       <button
@@ -32,6 +34,23 @@ export default function Home() {
       >
         System
       </button>
+
+      <TooltipWrapper
+        tooltipContent="World of Warcraft"
+        side="bottom"
+        sideOffset={20}
+      >
+        <div className="flex items-center gap-2 cursor-pointer text-xl">
+          <Image
+            className="cursor-pointer"
+            src="/logo2.svg"
+            alt="Logo"
+            width={62}
+            height={62}
+          />{" "}
+          Test
+        </div>
+      </TooltipWrapper>
     </div>
   );
 }
