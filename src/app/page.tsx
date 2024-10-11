@@ -40,7 +40,7 @@ export default function Home() {
         side="bottom"
         sideOffset={20}
       >
-        <div className="flex items-center gap-2 cursor-pointer text-xl">
+        <div className="flex items-center gap-2 cursor-pointer text-x">
           <Image
             className="cursor-pointer"
             src="/logo2.svg"
