@@ -32,10 +32,10 @@ export default function TooltipWrapper({
             // Border-color
             "border-secondary-foreground",
             // Border sides and shadow for each side
-            "data-[side=top]:border-b data-[side=top]:shadow-tooltip-b",
-            "data-[side=bottom]:border-t data-[side=bottom]:shadow-tooltip-t",
-            "data-[side=right]:border-l data-[side=right]:shadow-tooltip-r",
-            "data-[side=left]:border-r data-[side=left]:shadow-tooltip-l"
+            "data-[side=top]:border-b dark:data-[side=top]:shadow-tooltip-b",
+            "data-[side=bottom]:border-t dark:data-[side=bottom]:shadow-tooltip-t",
+            "data-[side=right]:border-l dark:data-[side=right]:shadow-tooltip-r",
+            "data-[side=left]:border-r dark:data-[side=left]:shadow-tooltip-l"
           )}
           side={side}
           sideOffset={sideOffset}
