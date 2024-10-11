@@ -11,7 +11,7 @@ export default function TooltipWrapper({
   delayDuration = 0,
   tooltipContent,
   side = "bottom",
-  sideOffset = 4,
+  sideOffset = 10,
 }: {
   children: React.ReactNode;
   delayDuration?: number;
@@ -25,8 +25,14 @@ export default function TooltipWrapper({
         <TooltipTrigger asChild>{children}</TooltipTrigger>
         <TooltipContent
           className={cn(
+            // Shape (Padding, width, height etc)
+            "py-2.5",
+            // Background color and text color
             "bg-muted dark:bg-popover text-popover-foreground",
-            "border-secondary-foreground data-[side=top]:border-b data-[side=top]:shadow-tooltip-b",
+            // Border-color
+            "border-secondary-foreground",
+            // Border sides and shadow for each side
+            "data-[side=top]:border-b data-[side=top]:shadow-tooltip-b",
             "data-[side=bottom]:border-t data-[side=bottom]:shadow-tooltip-t",
             "data-[side=right]:border-l data-[side=right]:shadow-tooltip-r",
             "data-[side=left]:border-r data-[side=left]:shadow-tooltip-l"

@@ -57,6 +57,8 @@ const config: Config = {
           "8px 10px 10px -13px rgba(255,255,255,1), -8px 9px 10px -13px rgba(255,255,255,1), 0px 23px 40px -10px rgba(255,255,255,1)",
         "tooltip-t":
           "8px -10px 10px -13px rgba(255,255,255,1), -8px -9px 10px -13px rgba(255,255,255,1), 0px -23px 40px -10px rgba(255,255,255,1)",
+        "tooltip-r": "-12px 0px 12px -10px rgba(255,255,255,1)",
+        "tooltip-l": "12px 0px 12px -10px rgba(255,255,255,1)",
       },
     },
   },

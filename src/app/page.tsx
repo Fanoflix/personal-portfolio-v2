@@ -45,8 +45,8 @@ export default function Home() {
             className="cursor-pointer"
             src="/logo2.svg"
             alt="Logo"
-            width={62}
-            height={62}
+            width={32}
+            height={32}
           />{" "}
           Test
         </div>
