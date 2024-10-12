@@ -12,12 +12,14 @@ export default function TooltipWrapper({
   tooltipContent,
   side = "bottom",
   sideOffset = 10,
+  contentClassName,
 }: {
   children: React.ReactNode;
   delayDuration?: number;
   tooltipContent: React.ReactNode;
   side?: "top" | "bottom" | "left" | "right";
   sideOffset?: number;
+  contentClassName?: string;
 }) {
   return (
     <TooltipProvider>
@@ -37,7 +39,10 @@ export default function TooltipWrapper({
             "data-[side=right]:border-l dark:data-[side=right]:shadow-tooltip-r",
             "data-[side=left]:border-r dark:data-[side=left]:shadow-tooltip-l",
             // Slide and zoom animations
-            "data-[side=bottom]:slide-in-from-top-3"
+            "data-[side=bottom]:slide-in-from-top-3",
+            // Text classes
+            "text-text",
+            contentClassName
           )}
           side={side}
           sideOffset={sideOffset}
