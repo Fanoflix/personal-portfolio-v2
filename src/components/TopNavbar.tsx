@@ -1,39 +1,47 @@
 "use client";
-import { useTheme } from "next-themes";
 import Image from "next/image";
+import NavIconButton from "../features/TopNavbar/components/NavIconButton";
+import ToggleTheme from "../features/TopNavbar/components/ToggleTheme";
+import { iconHeightWidth } from "../features/TopNavbar/constants";
 export default function Navbar() {
-  const { setTheme } = useTheme();
-
   return (
-    <nav className="flex items-end justify-end">
-      <div className="flex items-center gap-2">
-        <Image src="/icons/wow100x100.png" alt="Logo" width={20} height={20} />
-        <h1 className="text-2xl font-bold">Ammar</h1>
-        <button
-          onClick={() => {
-            setTheme("dark");
-          }}
-          className="bg-blue-500 text-white px-4 py-2 rounded-md"
-        >
-          Dark
-        </button>
-        <button
-          onClick={() => {
-            setTheme("light");
-          }}
-          className="bg-blue-500 text-white px-4 py-2 rounded-md"
-        >
-          Light
-        </button>
-        <button
-          onClick={() => {
-            setTheme("system");
-          }}
-          className="bg-blue-500 text-white px-4 py-2 rounded-md"
-        >
-          System
-        </button>
-      </div>
+    <nav className="h-12 flex items-center justify-end gap-6 pr-7">
+      <NavIconButton href="https://github.com/fanoflix" tooltipContent="Github">
+        <Image
+          src="/icons/github.svg"
+          alt="Github"
+          width={iconHeightWidth}
+          height={iconHeightWidth}
+        />
+      </NavIconButton>
+
+      <NavIconButton
+        href="https://www.linkedin.com/in/ammar-nasir/"
+        tooltipContent="LinkedIn"
+      >
+        <Image
+          src="/icons/linkedin.svg"
+          alt="LinkedIn"
+          width={iconHeightWidth}
+          height={iconHeightWidth}
+        />
+      </NavIconButton>
+
+      <NavIconButton
+        href="https://stackoverflow.com/users/16470281/fanoflix"
+        tooltipContent="Stackoverflow"
+      >
+        <Image
+          src="/icons/stackoverflow.svg"
+          alt="Stackoverflow"
+          width={iconHeightWidth}
+          height={iconHeightWidth}
+        />
+      </NavIconButton>
+
+      <NavIconButton href="#" tooltipContent="Theme">
+        <ToggleTheme />
+      </NavIconButton>
     </nav>
   );
 }

@@ -13,7 +13,11 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-24 items-center justify-center">
       <h1 className="text-4xl font-bold">Heading</h1>
-      <p>Paragraph</p>
+
+      <div className="flex flex-col gap-2">
+        <p className="text-text">Light Paragraph</p>
+        <p>Paragraph</p>
+      </div>
 
       <TooltipWrapper
         tooltipContent="World of Warcraft"
