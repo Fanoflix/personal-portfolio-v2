@@ -26,7 +26,7 @@ export default function TooltipWrapper({
         <TooltipContent
           className={cn(
             // Shape (Padding, width, height etc)
-            "py-2.5",
+            "py-2",
             // Background color and text color
             "bg-muted dark:bg-popover text-popover-foreground",
             // Border-color
@@ -35,7 +35,9 @@ export default function TooltipWrapper({
             "data-[side=top]:border-b dark:data-[side=top]:shadow-tooltip-b",
             "data-[side=bottom]:border-t dark:data-[side=bottom]:shadow-tooltip-t",
             "data-[side=right]:border-l dark:data-[side=right]:shadow-tooltip-r",
-            "data-[side=left]:border-r dark:data-[side=left]:shadow-tooltip-l"
+            "data-[side=left]:border-r dark:data-[side=left]:shadow-tooltip-l",
+            // Slide and zoom animations
+            "data-[side=bottom]:slide-in-from-top-3"
           )}
           side={side}
           sideOffset={sideOffset}

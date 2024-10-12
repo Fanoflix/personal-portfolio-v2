@@ -1,10 +1,10 @@
 import { PropsWithChildren } from "react";
-import Navbar from "./Navbar";
+import TopNavbar from "./TopNavbar";
 
 export default function AppShell({ children }: PropsWithChildren) {
   return (
     <div className="p-6 flex flex-col">
-      <Navbar />
+      <TopNavbar />
       {children}
     </div>
   );
