@@ -11,7 +11,7 @@ export default function TooltipWrapper({
   delayDuration = 0,
   tooltipContent,
   side = "bottom",
-  sideOffset = 10,
+  sideOffset = 25,
   contentClassName,
 }: {
   children: React.ReactNode;

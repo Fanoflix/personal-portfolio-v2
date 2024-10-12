@@ -6,13 +6,16 @@ import { iconHeightWidth } from "../constants";
 export default function ToggleTheme() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [isRotating, setIsRotating] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const toggleTheme = () => {
+    setIsRotating(true);
     setTheme(theme === "light" ? "dark" : "light");
+    setTimeout(() => setIsRotating(false), 250); // Reset after animation
   };
 
   if (!mounted) return null;
@@ -22,8 +25,8 @@ export default function ToggleTheme() {
   };
 
   const iconWrapperStyle = {
-    transition: "transform 1s ease",
-    transform: "rotate(360deg)",
+    transition: "transform 500ms ease",
+    transform: isRotating ? "rotateZ(360deg)" : "rotateZ(-360deg)",
   };
 
   return (

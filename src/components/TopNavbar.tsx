@@ -29,7 +29,7 @@ export default function Navbar() {
 
       <NavIconButton
         href="https://stackoverflow.com/users/16470281/fanoflix"
-        tooltipContent="Stackoverflow"
+        tooltipContent="StackOverflow"
       >
         <Image
           src="/icons/stackoverflow.svg"
