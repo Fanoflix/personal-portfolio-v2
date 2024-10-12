@@ -1,8 +1,15 @@
 "use client";
+import { useEffect, useState } from "react";
 import MyLogo from "../components/MyLogo/MyLogo";
 import TooltipWrapper from "../components/Tooltip/TooltipWrapper";
 
 export default function Home() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <div className="flex flex-col gap-24 items-center justify-center">
       <h1 className="text-4xl font-bold">Heading</h1>
@@ -20,9 +27,7 @@ export default function Home() {
 
       <div className="flex gap-2 items-center justify-center"></div>
 
-      <div>
-        <MyLogo />
-      </div>
+      <div>{isMounted && <MyLogo />}</div>
     </div>
   );
 }

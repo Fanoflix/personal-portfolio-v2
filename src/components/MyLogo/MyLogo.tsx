@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/src/lib/utils";
 import anime from "animejs";
 import { useCallback, useEffect, useMemo } from "react";
@@ -160,8 +161,13 @@ export default function MyLogo() {
     spikeRTopTimeLine,
   ]);
 
+  let isAnimationAlreadyPlayed = false;
   useEffect(() => {
-    morphLogoForward();
+    if (!isAnimationAlreadyPlayed) {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      isAnimationAlreadyPlayed = true;
+      morphLogoForward();
+    }
   }, []);
 
   return (
