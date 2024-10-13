@@ -15,13 +15,15 @@ export default function ToggleTheme() {
 
   const toggleTheme = () => {
     toggleRotation();
-    setTheme(theme === "light" ? "dark" : "light");
+    setTimeout(() => {
+      setTheme(theme === "light" ? "dark" : "light");
+    }, 250);
   };
 
   if (!mounted) return null;
 
   const iconWrapperStyle = {
-    transition: "transform 350ms ease",
+    transition: "transform 360ms ease-in",
     transform: isRotating ? "rotateZ(360deg)" : "rotateZ(0deg)",
   };
 
