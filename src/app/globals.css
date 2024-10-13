@@ -81,6 +81,10 @@
     @apply text-4xl font-bold;
   }
 
+  h2 {
+    @apply text-2xl font-medium;
+  }
+
   p {
     @apply text-text leading-[1.8];
   }
