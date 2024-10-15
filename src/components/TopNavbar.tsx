@@ -5,7 +5,7 @@ import ToggleTheme from "../features/TopNavbar/components/ToggleTheme";
 import { iconHeightWidth } from "../features/TopNavbar/constants";
 export default function Navbar() {
   return (
-    <nav className="h-12 flex items-center justify-end gap-6 pr-7">
+    <nav className="h-12 w-full flex items-center justify-end gap-6 pr-7">
       <NavIconButton href="https://github.com/fanoflix" tooltipContent="Github">
         <Image
           src="/icons/github.svg"
