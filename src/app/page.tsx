@@ -36,7 +36,7 @@ export default function Home() {
           />{" "}
           and{" "}
           <InlineImageWithTooltip
-            alt="Diablo"
+            alt="World of Warcraft"
             src={"/icons/wow100x100.png"}
             tooltipContent="World of Warcraft"
           />
