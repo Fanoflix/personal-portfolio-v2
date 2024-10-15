@@ -17,7 +17,8 @@ export default function InlineImageWithTooltip({
   return (
     <TooltipWrapper side="top" sideOffset={10} tooltipContent={tooltipContent}>
       <Image
-        className="inline-block"
+        className="cursor-pointer
+         inline-block"
         alt={alt}
         src={src}
         width={width ?? 27}
