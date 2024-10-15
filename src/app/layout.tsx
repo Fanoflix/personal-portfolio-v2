@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import localFont from "next/font/local";
 import AppShell from "../components/AppShell";
 import { ThemeProvider } from "../components/ThemeProvider/theme-provider";
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html className={`${inter.variable} antialiased`} lang="en">
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="system">
           <AppShell>{children}</AppShell>
         </ThemeProvider>
       </body>
