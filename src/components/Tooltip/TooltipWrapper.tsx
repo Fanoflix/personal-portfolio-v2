@@ -41,7 +41,7 @@ export default function TooltipWrapper({
             // Slide and zoom animations
             "data-[side=bottom]:slide-in-from-top-3",
             // Text classes
-            "text-text",
+            "",
             contentClassName
           )}
           side={side}
