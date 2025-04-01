@@ -2,7 +2,7 @@
 
 import { TableHeader } from "@/src/components/DataTable/table";
 import { cn } from "@/src/lib/utils";
-import type { ColumnDef } from "@tanstack/react-table";
+import { type ColumnDef } from "@tanstack/react-table";
 import { Work, WORK_LABELS } from "./types";
 
 export const columns: ColumnDef<Work, string>[] = [
@@ -18,8 +18,8 @@ export const columns: ColumnDef<Work, string>[] = [
       </TableHeader>
     ),
     cell: ({ row }) => <p className="font-medium">{row.getValue("year")}</p>,
-    minSize: 120,
-    maxSize: 200,
+    minSize: 80,
+    maxSize: 80,
   },
   {
     accessorKey: "project.name",
@@ -30,8 +30,8 @@ export const columns: ColumnDef<Work, string>[] = [
         {row.getValue("project")}
       </div>
     ),
-    minSize: 600,
-    maxSize: 900,
+    minSize: 500,
+    maxSize: 500,
   },
   {
     id: "category",
@@ -45,7 +45,8 @@ export const columns: ColumnDef<Work, string>[] = [
         Category
       </TableHeader>
     ),
-    minSize: 200,
+    minSize: 150,
+    maxSize: 150,
     cell: ({ row }) => {
       const label = WORK_LABELS[row.original.project.label];
 

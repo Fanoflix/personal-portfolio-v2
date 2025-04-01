@@ -3,6 +3,7 @@
 import { DataTable } from "@/src/components/DataTable/DataTable";
 import { SortingState } from "@tanstack/react-table";
 import { useState } from "react";
+import { StaggeredContainer } from "../framer-animations/components/StaggeredContainer";
 import { columns } from "./columns";
 import { Work } from "./types";
 
@@ -242,10 +243,9 @@ export default function Page() {
     },
     {
       desc: true,
-      id: "label",
+      id: "category",
     },
   ]);
-  console.log(sortingState);
 
   if (!MOCK_DATA || !MOCK_DATA.length) {
     return <p>....</p>;
@@ -253,14 +253,19 @@ export default function Page() {
 
   return (
     <div className="container mx-auto py-10">
-      <h1 className="text-2xl font-semibold mb-6">Payments</h1>
-      <DataTable
-        columns={columns}
-        data={MOCK_DATA}
-        sortingState={sortingState}
-        setSortingState={setSortingState}
-        isFirstColumnSticky
-      />
+      <StaggeredContainer containerClassName="flex flex-col gap-4">
+        <h1 className="text-2xl font-semibold">Work</h1>
+
+        <p>This is my life&apos;s work, laid bare in a table.</p>
+
+        <DataTable
+          columns={columns}
+          data={MOCK_DATA}
+          sortingState={sortingState}
+          setSortingState={setSortingState}
+          isFirstColumnSticky
+        />
+      </StaggeredContainer>
     </div>
   );
 }

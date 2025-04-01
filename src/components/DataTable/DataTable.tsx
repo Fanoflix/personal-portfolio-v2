@@ -19,6 +19,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/src/components/DataTable/table";
+import { dataTableRowVariants } from "@/src/features/framer-animations/variants";
 import { cn } from "@/src/lib/utils";
 import { Dispatch, SetStateAction, useMemo } from "react";
 
@@ -42,10 +43,7 @@ export function DataTable<TData, TValue>({
   const table = useReactTable({
     data,
     columns,
-    defaultColumn: {
-      minSize: 60,
-      maxSize: 800,
-    },
+    defaultColumn: undefined,
     getCoreRowModel: getCoreRowModel(),
     ...(isSortingEnabled && {
       onSortingChange: setSortingState,
@@ -64,57 +62,33 @@ export function DataTable<TData, TValue>({
     enableSortingRemoval: false, // disable the ability to remove sorting on columns (always none -> asc -> desc -> asc)
   });
 
-  /**
-   * Instead of calling `column.getSize()` on every render for every header
-   * and especially every data cell (very expensive),
-   * we will calculate all column sizes at once at the root table level in a useMemo
-   * and pass the column sizes down as CSS variables to the <table> element.
-   */
-  const columnSizeVars = useMemo(() => {
-    const headers = table.getFlatHeaders();
-    const colSizes: { [key: string]: number } = {};
-    for (let i = 0; i < headers.length; i++) {
-      const header = headers[i]!;
-      colSizes[`--header-${header.id}-size`] = header.getSize();
-      colSizes[`--col-${header.column.id}-size`] = header.column.getSize();
-    }
-    return colSizes;
-  }, [table.getState().columnSizingInfo, table.getState().columnSizing]);
-
   return (
     <div className="rounded-md border border-border">
-      <Table
-        style={{
-          ...columnSizeVars,
-        }}
-      >
+      <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow
               key={headerGroup.id}
               className="border-border bg-muted/40"
             >
-              {headerGroup.headers.map((header) => {
-                console.log(header.getContext());
-
-                return (
-                  <TableHead
-                    key={header.id}
-                    className="font-semibold text-muted-foreground/70"
-                    style={{
-                      // ...columnSizeVars,
-                      width: `calc(var(--header-${header?.id}-size) * 1px)`,
-                    }}
-                  >
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </TableHead>
-                );
-              })}
+              {headerGroup.headers.map((header) => (
+                <TableHead
+                  key={header.id}
+                  className="font-semibold text-muted-foreground/70"
+                  style={{
+                    minWidth: header.column.columnDef.minSize,
+                    maxWidth: header.column.columnDef.maxSize,
+                    width: header.column.columnDef.size,
+                  }}
+                >
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                </TableHead>
+              ))}
             </TableRow>
           ))}
         </TableHeader>
@@ -154,31 +128,36 @@ function AnimatedTableRow<TData>({
 }) {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0,
+    delay: 100,
   });
+
+  const MotionTableCell = useMemo(() => motion.create(TableCell), []);
 
   return (
     <TableRow
       ref={ref}
       data-state={row.getIsSelected() && "selected"}
-      className="border-border"
+      className={cn("border-border")}
     >
       {row.getVisibleCells().map((cell, cellIndex) => (
-        <motion.td
+        <MotionTableCell
           key={cell.id}
+          style={{
+            minWidth: cell.column.columnDef.minSize,
+            maxWidth: cell.column.columnDef.maxSize,
+            width: cell.column.columnDef.size,
+          }}
           className={cn(
             "p-3 align-middle",
             !cellIndex && isFirstColumnSticky && "border border-r"
           )}
-          initial={{ opacity: 0, x: 40 }}
-          animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
-          transition={{
-            duration: 0.5,
-            ease: "easeOut",
-          }}
+          variants={dataTableRowVariants}
+          initial={"hidden"}
+          animate={inView ? "visible" : "hidden"}
         >
           {flexRender(cell.column.columnDef.cell, cell.getContext())}
-        </motion.td>
+        </MotionTableCell>
       ))}
     </TableRow>
   );

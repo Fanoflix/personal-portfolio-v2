@@ -89,7 +89,8 @@
     @apply text-xl font-medium;
   }
 
-  p {
+  p,
+  span {
     @apply text-text leading-[1.8];
   }
 }
