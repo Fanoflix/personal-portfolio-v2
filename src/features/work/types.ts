@@ -1,7 +1,7 @@
 export type Work = {
   id: string;
   project: WorkProject;
-  year: number;
+  date: string;
 };
 
 export type WorkProject = {

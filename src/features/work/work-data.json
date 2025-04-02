@@ -1,0 +1,111 @@
+{
+  "2025": [
+    {
+      "id": "work-2025-1",
+      "project": {
+        "id": "project-ai-assistant",
+        "name": "AI Assistant Platform",
+        "label": "highImpact"
+      },
+      "date": "March 15, 2025"
+    },
+    {
+      "id": "work-2025-2",
+      "project": {
+        "id": "project-data-viz",
+        "name": "Data Visualization Framework",
+        "label": "highImpact"
+      },
+      "date": "June 22, 2025"
+    },
+    {
+      "id": "work-2025-3",
+      "project": {
+        "id": "project-ml-pipeline",
+        "name": "ML Pipeline Automation",
+        "label": "majorContribution"
+      },
+      "date": "October 5, 2025"
+    }
+  ],
+  "2024": [
+    {
+      "id": "work-2024-1",
+      "project": {
+        "id": "project-cloud-sync",
+        "name": "Cloud Sync Engine",
+        "label": "sideProject"
+      },
+      "date": "February 18, 2024"
+    },
+    {
+      "id": "work-2024-2",
+      "project": {
+        "id": "project-ui-library",
+        "name": "UI Component Library",
+        "label": "majorContribution"
+      },
+      "date": "July 30, 2024"
+    }
+  ],
+  "2023": [
+    {
+      "id": "work-2023-1",
+      "project": {
+        "id": "project-auth-system",
+        "name": "Authentication System",
+        "label": "majorContribution"
+      },
+      "date": "April 10, 2023"
+    },
+    {
+      "id": "work-2023-2",
+      "project": {
+        "id": "project-analytics",
+        "name": "Analytics Dashboard",
+        "label": "majorContribution"
+      },
+      "date": "November 5, 2023"
+    }
+  ],
+  "2022": [
+    {
+      "id": "work-2022-1",
+      "project": {
+        "id": "project-api-gateway",
+        "name": "API Gateway",
+        "label": "majorContribution"
+      },
+      "date": "January 23, 2022"
+    },
+    {
+      "id": "work-2022-2",
+      "project": {
+        "id": "project-mobile-app",
+        "name": "Mobile App Framework",
+        "label": "majorContribution"
+      },
+      "date": "August 14, 2022"
+    }
+  ],
+  "2021": [
+    {
+      "id": "work-2021-1",
+      "project": {
+        "id": "project-cms",
+        "name": "Content Management System",
+        "label": "majorContribution"
+      },
+      "date": "May 7, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    }
+  ]
+}

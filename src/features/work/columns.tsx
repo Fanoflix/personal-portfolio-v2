@@ -1,25 +1,48 @@
 "use client";
 
-import { TableHeader } from "@/src/components/DataTable/table";
 import { cn } from "@/src/lib/utils";
 import { type ColumnDef } from "@tanstack/react-table";
-import { Work, WORK_LABELS } from "./types";
+import { WORK_LABELS } from "./types";
+import { WorkWithSubRows } from "./WorkPage";
 
-export const columns: ColumnDef<Work, string>[] = [
+export const columns: ColumnDef<WorkWithSubRows, string>[] = [
   {
-    accessorKey: "year",
+    id: "date",
+    accessorFn: (row) => new Date(row.date).getFullYear().toString(),
+    sortingFn: "datetime",
     header: ({ column }) => (
-      <TableHeader
+      <div
+        className="cursor-pointer"
         onClick={() => {
           column.toggleSorting(column.getIsSorted() === "asc", true);
         }}
       >
-        Year
-      </TableHeader>
+        Moment
+      </div>
     ),
-    cell: ({ row }) => <p className="font-medium">{row.getValue("year")}</p>,
-    minSize: 80,
-    maxSize: 80,
+    cell: ({ row }) => {
+      const date = new Date(row.original.date);
+      const monthName = date.toLocaleString("default", { month: "short" });
+      const year = date.getFullYear();
+      const childRowClassName = "text-secondary";
+
+      return (
+        <div className="font-medium text-xs md:text-sm">
+          <span
+            className={cn(
+              "text-primary",
+              !row.getCanExpand() && childRowClassName
+            )}
+          >
+            {year}
+          </span>
+          <span className={childRowClassName}>, {monthName}</span>
+        </div>
+      );
+    },
+    minSize: 100,
+    size: 60,
+    maxSize: 60,
   },
   {
     accessorKey: "project.name",
@@ -36,15 +59,7 @@ export const columns: ColumnDef<Work, string>[] = [
   {
     id: "category",
     accessorFn: (row) => WORK_LABELS[row.project.label].weight.toString(),
-    header: ({ column }) => (
-      <TableHeader
-        onClick={() => {
-          column.toggleSorting(column.getIsSorted() === "asc", true);
-        }}
-      >
-        Category
-      </TableHeader>
-    ),
+    header: "Category",
     minSize: 150,
     maxSize: 150,
     cell: ({ row }) => {

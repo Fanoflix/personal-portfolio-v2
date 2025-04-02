@@ -6,240 +6,21 @@ import { useState } from "react";
 import { StaggeredContainer } from "../framer-animations/components/StaggeredContainer";
 import { columns } from "./columns";
 import { Work } from "./types";
+import WORK_DATA from "./work-data.json";
 
-const MOCK_DATA: Work[] = [
-  {
-    id: "work-1",
-    project: {
-      id: "work-project-abc",
-      name: "23asdasdasdasdasdasdasdas das dasd asd asdasd a scv sdv sdv sdv sdv sdv4",
-      label: "sideProject",
-    },
-    year: 2023,
-  },
-  {
-    id: "work-2",
-    project: {
-      id: "work-project-abc",
-      name: "caasd asd asd asd asczxc bvfgdg ",
-      label: "highImpact",
-    },
-    year: 2022,
-  },
-  {
-    id: "work-3",
-    project: {
-      id: "work-project-abc",
-      name: "abvdfhg dfhdf hfdh hf bv",
-      label: "sideProject",
-    },
-    year: 2024,
-  },
-  {
-    id: "work-4",
-    project: {
-      id: "work-project-abc",
-      name: "asd ",
-      label: "sideProject",
-    },
-    year: 2023,
-  },
-  {
-    id: "work-5",
-    project: {
-      id: "work-project-abc",
-      name: "234",
-      label: "minorContribution",
-    },
-    year: 2022,
-  },
-  {
-    id: "work-6",
-    project: {
-      id: "work-project-abc",
-      name: "TRest",
-      label: "highImpact",
-    },
-    year: 2024,
-  },
-  {
-    id: "work-7",
-    project: {
-      id: "work-project-abc",
-      name: "TRest",
-      label: "highImpact",
-    },
-    year: 2024,
-  },
-  {
-    id: "work-8",
-    project: {
-      id: "work-project-abc",
-      name: "asd ",
-      label: "majorContribution",
-    },
-    year: 2021,
-  },
-  {
-    id: "work-9",
-    project: {
-      id: "work-project-abc",
-      name: "TRest",
-      label: "sideProject",
-    },
-    year: 2024,
-  },
-  {
-    id: "work-10",
-    project: {
-      id: "work-project-abc",
-      name: "234",
-      label: "sideProject",
-    },
-    year: 2023,
-  },
-  {
-    id: "work-11",
-    project: {
-      id: "work-project-abc",
-      name: "TRest",
-      label: "highImpact",
-    },
-    year: 2022,
-  },
-  {
-    id: "work-12",
-    project: {
-      id: "work-project-abc",
-      name: "234",
-      label: "highImpact",
-    },
-    year: 2024,
-  },
-  {
-    id: "work-13",
-    project: {
-      id: "work-project-abc",
-      name: "asd",
-      label: "minorContribution",
-    },
-    year: 2022,
-  },
-  {
-    id: "work-14",
-    project: {
-      id: "work-project-abc",
-      name: "ca",
-      label: "sideProject",
-    },
-    year: 2023,
-  },
-  {
-    id: "work-15",
-    project: {
-      id: "work-project-abc",
-      name: "asd",
-      label: "sideProject",
-    },
-    year: 2024,
-  },
-  {
-    id: "work-16",
-    project: {
-      id: "work-project-abc",
-      name: "TRest",
-      label: "minorContribution",
-    },
-    year: 2024,
-  },
-  {
-    id: "work-17",
-    project: {
-      id: "work-project-abc",
-      name: "asd",
-      label: "sideProject",
-    },
-    year: 2024,
-  },
-  {
-    id: "work-18",
-    project: {
-      id: "work-project-abc",
-      name: "asd",
-      label: "sideProject",
-    },
-    year: 2024,
-  },
-  {
-    id: "work-19",
-    project: {
-      id: "work-project-abc",
-      name: "234",
-      label: "minorContribution",
-    },
-    year: 2023,
-  },
-  {
-    id: "work-20",
-    project: {
-      id: "work-project-abc",
-      name: "asd ",
-      label: "majorContribution",
-    },
-    year: 2021,
-  },
-  {
-    id: "work-21",
-    project: {
-      id: "work-project-abc",
-      name: "TRest",
-      label: "sideProject",
-    },
-    year: 2023,
-  },
-  {
-    id: "work-22",
-    project: {
-      id: "work-project-abc",
-      name: "TRest",
-      label: "minorContribution",
-    },
-    year: 2022,
-  },
-  {
-    id: "work-23",
-    project: {
-      id: "work-project-abc",
-      name: "asd",
-      label: "highImpact",
-    },
-    year: 2021,
-  },
-  {
-    id: "work-24",
-    project: {
-      id: "work-project-abc",
-      name: "asd",
-      label: "highImpact",
-    },
-    year: 2024,
-  },
-  {
-    id: "work-25",
-    project: {
-      id: "work-project-abc",
-      name: "abvbv",
-      label: "sideProject",
-    },
-    year: 2021,
-  },
-];
+type WorkByYear = {
+  [year: string]: Work[];
+};
+
+export type WorkWithSubRows = Work & {
+  subRows?: Work[];
+};
 
 export default function Page() {
   const [sortingState, setSortingState] = useState<SortingState>([
     {
       desc: true,
-      id: "year",
+      id: "date",
     },
     {
       desc: true,
@@ -247,7 +28,23 @@ export default function Page() {
     },
   ]);
 
-  if (!MOCK_DATA || !MOCK_DATA.length) {
+  // Process the data to create a hierarchical structure with years as parent rows
+  const processedData: WorkWithSubRows[] = Object.entries(
+    WORK_DATA as WorkByYear
+  ).map((yearData) => {
+    const entries = yearData[1];
+    // Use the first entry of each year as the parent
+    const parentRow: WorkWithSubRows = { ...entries[0] };
+
+    // Add all other entries as subRows (excluding the first one which is the parent)
+    if (entries.length > 1) {
+      parentRow.subRows = entries.slice(1);
+    }
+
+    return parentRow;
+  });
+
+  if (!processedData.length) {
     return <p>....</p>;
   }
 
@@ -260,10 +57,13 @@ export default function Page() {
 
         <DataTable
           columns={columns}
-          data={MOCK_DATA}
+          data={processedData}
           sortingState={sortingState}
           setSortingState={setSortingState}
-          isFirstColumnSticky
+          noBottomBorder
+          // rowClassName={(row) =>
+          //   Boolean(row.project.label === "highImpact") ? "bg-purple-200/5" : ""
+          // }
         />
       </StaggeredContainer>
     </div>

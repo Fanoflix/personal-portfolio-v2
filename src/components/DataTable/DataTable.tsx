@@ -27,17 +27,19 @@ import { Dispatch, SetStateAction, useMemo } from "react";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
-  isFirstColumnSticky?: boolean;
   sortingState?: SortingState;
   setSortingState?: Dispatch<SetStateAction<SortingState>>;
+  noBottomBorder?: boolean;
+  rowClassName?: string | ((row: TData) => string);
 }
 
-export function DataTable<TData, TValue>({
+export function DataTable<TData extends { subRows?: TData[] }, TValue>({
   columns,
   data,
   sortingState,
   setSortingState,
-  isFirstColumnSticky,
+  noBottomBorder,
+  rowClassName,
 }: DataTableProps<TData, TValue>) {
   const isSortingEnabled = Boolean(setSortingState) && Boolean(sortingState);
 
@@ -46,7 +48,10 @@ export function DataTable<TData, TValue>({
     columns,
     defaultColumn: undefined,
     getCoreRowModel: getCoreRowModel(),
+    // Row expansion options
     getExpandedRowModel: getExpandedRowModel(),
+    getSubRows: (row) => row.subRows,
+    // Sorting options
     ...(isSortingEnabled && {
       onSortingChange: setSortingState,
       getSortedRowModel: getSortedRowModel(),
@@ -55,6 +60,7 @@ export function DataTable<TData, TValue>({
       ...(isSortingEnabled && {
         sorting: sortingState,
       }),
+      expanded: true,
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isMultiSortEvent: (_e) => true, // bypassess the requirement of pressing a modifier key to trigger a multi sort. This makes sure that multi sort gets triggered on regular click.
@@ -71,12 +77,11 @@ export function DataTable<TData, TValue>({
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow
               key={headerGroup.id}
-              className="border-border bg-muted/40"
+              className="border-border bg-muted/20"
             >
               {headerGroup.headers.map((header) => (
                 <TableHead
                   key={header.id}
-                  className="font-semibold text-muted-foreground/70"
                   style={{
                     minWidth: header.column.columnDef.minSize,
                     maxWidth: header.column.columnDef.maxSize,
@@ -102,7 +107,8 @@ export function DataTable<TData, TValue>({
                 <AnimatedTableRow
                   key={row.id}
                   row={row}
-                  isFirstColumnSticky={isFirstColumnSticky}
+                  noBottomBorder={noBottomBorder}
+                  rowClassName={rowClassName}
                 />
               ))
           ) : (
@@ -123,10 +129,12 @@ export function DataTable<TData, TValue>({
 
 function AnimatedTableRow<TData>({
   row,
-  isFirstColumnSticky,
+  noBottomBorder,
+  rowClassName,
 }: {
   row: Row<TData>;
-  isFirstColumnSticky?: boolean;
+  noBottomBorder?: boolean;
+  rowClassName?: string | ((row: TData) => string);
 }) {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -140,9 +148,16 @@ function AnimatedTableRow<TData>({
     <TableRow
       ref={ref}
       data-state={row.getIsSelected() && "selected"}
-      className={cn("border-border")}
+      className={cn(
+        "border-border",
+        noBottomBorder && "border-b-0",
+        row.getCanExpand() && "border-t border-border/50",
+        typeof rowClassName === "function"
+          ? rowClassName(row.original)
+          : rowClassName
+      )}
     >
-      {row.getVisibleCells().map((cell, cellIndex) => (
+      {row.getVisibleCells().map((cell) => (
         <MotionTableCell
           key={cell.id}
           style={{
@@ -150,10 +165,7 @@ function AnimatedTableRow<TData>({
             maxWidth: cell.column.columnDef.maxSize,
             width: cell.column.columnDef.size,
           }}
-          className={cn(
-            "p-3 align-middle",
-            !cellIndex && isFirstColumnSticky && "border border-r"
-          )}
+          className={cn("py-2 px-3 align-middle")}
           variants={dataTableRowVariants}
           initial={"hidden"}
           animate={inView ? "visible" : "hidden"}
