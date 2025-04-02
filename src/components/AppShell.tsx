@@ -13,12 +13,12 @@ export default function AppShell({ children }: PropsWithChildren) {
     <div className="p-6 flex flex-col items-center">
       <TopNavbar />
       <SiteNavbar />
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         <motion.section
           className="w-full"
           key={pathname}
           variants={layoutVariants}
-          initial="hidden"
+          initial="fromHidden"
           animate="visible"
         >
           {children}

@@ -1,11 +1,11 @@
 import { Variants } from "framer-motion";
 
 export const layoutVariants: Variants = {
-  hidden: {
+  fromHidden: {
     opacity: 0,
     y: 15,
-    scale: 0.96,
-    transformOrigin: "0% 80%",
+    scale: 0.99,
+    transformOrigin: "0% 50%",
   },
   visible: {
     opacity: 1,
@@ -32,7 +32,7 @@ export const dataTableRowVariants: Variants = {
     rotateY: 0,
     transformOrigin: "0% 100%",
     transition: {
-      delay: 0.4,
+      delay: 0,
       duration: 0.4,
       ease: "easeOut",
     },

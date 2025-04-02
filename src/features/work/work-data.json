@@ -26,6 +26,78 @@
         "label": "majorContribution"
       },
       "date": "October 5, 2025"
+    },
+    {
+      "id": "work-2025-2",
+      "project": {
+        "id": "project-data-viz",
+        "name": "Data Visualization Framework",
+        "label": "highImpact"
+      },
+      "date": "June 22, 2025"
+    },
+    {
+      "id": "work-2025-3",
+      "project": {
+        "id": "project-ml-pipeline",
+        "name": "ML Pipeline Automation",
+        "label": "majorContribution"
+      },
+      "date": "October 5, 2025"
+    },
+    {
+      "id": "work-2025-2",
+      "project": {
+        "id": "project-data-viz",
+        "name": "Data Visualization Framework",
+        "label": "highImpact"
+      },
+      "date": "June 22, 2025"
+    },
+    {
+      "id": "work-2025-3",
+      "project": {
+        "id": "project-ml-pipeline",
+        "name": "ML Pipeline Automation",
+        "label": "majorContribution"
+      },
+      "date": "October 5, 2025"
+    },
+    {
+      "id": "work-2025-2",
+      "project": {
+        "id": "project-data-viz",
+        "name": "Data Visualization Framework",
+        "label": "highImpact"
+      },
+      "date": "June 22, 2025"
+    },
+    {
+      "id": "work-2025-3",
+      "project": {
+        "id": "project-ml-pipeline",
+        "name": "ML Pipeline Automation",
+        "label": "majorContribution"
+      },
+      "date": "October 5, 2025"
+    },
+    {
+      "id": "work-2025-2",
+      "project": {
+        "id": "project-data-viz",
+        "name": "Data Visualization Framework",
+        "label": "highImpact"
+      },
+      "date": "June 22, 2025"
+    },
+    {
+      "id": "work-2025-3",
+      "project": {
+        "id": "project-ml-pipeline",
+        "name": "ML Pipeline Automation",
+        "label": "majorContribution"
+      },
+      "date": "October 5, 2025"
     }
   ],
   "2024": [
@@ -46,6 +118,42 @@
         "label": "majorContribution"
       },
       "date": "July 30, 2024"
+    },
+    {
+      "id": "work-2024-1",
+      "project": {
+        "id": "project-cloud-sync",
+        "name": "Cloud Sync Engine",
+        "label": "sideProject"
+      },
+      "date": "February 18, 2024"
+    },
+    {
+      "id": "work-2024-1",
+      "project": {
+        "id": "project-cloud-sync",
+        "name": "Cloud Sync Engine",
+        "label": "sideProject"
+      },
+      "date": "February 18, 2024"
+    },
+    {
+      "id": "work-2024-1",
+      "project": {
+        "id": "project-cloud-sync",
+        "name": "Cloud Sync Engine",
+        "label": "sideProject"
+      },
+      "date": "February 18, 2024"
+    },
+    {
+      "id": "work-2024-1",
+      "project": {
+        "id": "project-cloud-sync",
+        "name": "Cloud Sync Engine",
+        "label": "sideProject"
+      },
+      "date": "February 18, 2024"
     }
   ],
   "2023": [
@@ -97,6 +205,177 @@
         "label": "majorContribution"
       },
       "date": "May 7, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021"
     },
     {
       "id": "work-2021-2",
