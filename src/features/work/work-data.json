@@ -3,388 +3,170 @@
     {
       "id": "work-2025-1",
       "project": {
+        "id": "project-ml-pipeline",
+        "name": "ML Pipeline Automation",
+        "label": "majorContribution"
+      },
+      "date": "October 5, 2025",
+      "category": "AI & Machine Learning"
+    },
+    {
+      "id": "work-2025-2",
+      "project": {
+        "id": "project-data-viz",
+        "name": "Data Visualization Framework",
+        "label": "majorContribution"
+      },
+      "date": "July 22, 2025",
+      "category": "Data Science"
+    },
+    {
+      "id": "work-2025-3",
+      "project": {
+        "id": "project-data-viz",
+        "name": "Data Visualization Framework 2.0",
+        "label": "sideProject"
+      },
+      "date": "June 22, 2025",
+      "category": "Frontend Development"
+    },
+    {
+      "id": "work-2025-4",
+      "project": {
         "id": "project-ai-assistant",
         "name": "AI Assistant Platform",
-        "label": "highImpact"
+        "label": "minorContribution"
       },
-      "date": "March 15, 2025"
+      "date": "March 15, 2025",
+      "category": "AI & Machine Learning"
     },
     {
-      "id": "work-2025-2",
+      "id": "work-2025-5",
       "project": {
-        "id": "project-data-viz",
-        "name": "Data Visualization Framework",
-        "label": "highImpact"
-      },
-      "date": "June 22, 2025"
-    },
-    {
-      "id": "work-2025-3",
-      "project": {
-        "id": "project-ml-pipeline",
-        "name": "ML Pipeline Automation",
+        "id": "project-analytics",
+        "name": "Real-time Analytics System",
         "label": "majorContribution"
       },
-      "date": "October 5, 2025"
-    },
-    {
-      "id": "work-2025-2",
-      "project": {
-        "id": "project-data-viz",
-        "name": "Data Visualization Framework",
-        "label": "highImpact"
-      },
-      "date": "June 22, 2025"
-    },
-    {
-      "id": "work-2025-3",
-      "project": {
-        "id": "project-ml-pipeline",
-        "name": "ML Pipeline Automation",
-        "label": "majorContribution"
-      },
-      "date": "October 5, 2025"
-    },
-    {
-      "id": "work-2025-2",
-      "project": {
-        "id": "project-data-viz",
-        "name": "Data Visualization Framework",
-        "label": "highImpact"
-      },
-      "date": "June 22, 2025"
-    },
-    {
-      "id": "work-2025-3",
-      "project": {
-        "id": "project-ml-pipeline",
-        "name": "ML Pipeline Automation",
-        "label": "majorContribution"
-      },
-      "date": "October 5, 2025"
-    },
-    {
-      "id": "work-2025-2",
-      "project": {
-        "id": "project-data-viz",
-        "name": "Data Visualization Framework",
-        "label": "highImpact"
-      },
-      "date": "June 22, 2025"
-    },
-    {
-      "id": "work-2025-3",
-      "project": {
-        "id": "project-ml-pipeline",
-        "name": "ML Pipeline Automation",
-        "label": "majorContribution"
-      },
-      "date": "October 5, 2025"
-    },
-    {
-      "id": "work-2025-2",
-      "project": {
-        "id": "project-data-viz",
-        "name": "Data Visualization Framework",
-        "label": "highImpact"
-      },
-      "date": "June 22, 2025"
-    },
-    {
-      "id": "work-2025-3",
-      "project": {
-        "id": "project-ml-pipeline",
-        "name": "ML Pipeline Automation",
-        "label": "majorContribution"
-      },
-      "date": "October 5, 2025"
+      "date": "January 22, 2025",
+      "category": "Data Science"
     }
   ],
   "2024": [
     {
       "id": "work-2024-1",
       "project": {
-        "id": "project-cloud-sync",
-        "name": "Cloud Sync Engine",
-        "label": "sideProject"
-      },
-      "date": "February 18, 2024"
-    },
-    {
-      "id": "work-2024-2",
-      "project": {
         "id": "project-ui-library",
         "name": "UI Component Library",
         "label": "majorContribution"
       },
-      "date": "July 30, 2024"
+      "date": "July 30, 2024",
+      "category": "Frontend Development"
     },
     {
-      "id": "work-2024-1",
+      "id": "work-2024-2",
       "project": {
         "id": "project-cloud-sync",
         "name": "Cloud Sync Engine",
         "label": "sideProject"
       },
-      "date": "February 18, 2024"
+      "date": "February 18, 2024",
+      "category": "Cloud Infrastructure"
     },
     {
-      "id": "work-2024-1",
+      "id": "work-2024-3",
       "project": {
-        "id": "project-cloud-sync",
-        "name": "Cloud Sync Engine",
-        "label": "sideProject"
+        "id": "project-accessibility",
+        "name": "Accessibility Toolkit",
+        "label": "minorContribution"
       },
-      "date": "February 18, 2024"
-    },
-    {
-      "id": "work-2024-1",
-      "project": {
-        "id": "project-cloud-sync",
-        "name": "Cloud Sync Engine",
-        "label": "sideProject"
-      },
-      "date": "February 18, 2024"
-    },
-    {
-      "id": "work-2024-1",
-      "project": {
-        "id": "project-cloud-sync",
-        "name": "Cloud Sync Engine",
-        "label": "sideProject"
-      },
-      "date": "February 18, 2024"
+      "date": "January 5, 2024",
+      "category": "Frontend Development"
     }
   ],
   "2023": [
     {
       "id": "work-2023-1",
       "project": {
-        "id": "project-auth-system",
-        "name": "Authentication System",
-        "label": "majorContribution"
-      },
-      "date": "April 10, 2023"
-    },
-    {
-      "id": "work-2023-2",
-      "project": {
         "id": "project-analytics",
         "name": "Analytics Dashboard",
         "label": "majorContribution"
       },
-      "date": "November 5, 2023"
+      "date": "November 5, 2023",
+      "category": "Data Science"
+    },
+    {
+      "id": "work-2023-2",
+      "project": {
+        "id": "project-auth-system",
+        "name": "Authentication System",
+        "label": "majorContribution"
+      },
+      "date": "April 10, 2023",
+      "category": "Security"
+    },
+    {
+      "id": "work-2023-3",
+      "project": {
+        "id": "project-devops",
+        "name": "CI/CD Pipeline Optimization",
+        "label": "sideProject"
+      },
+      "date": "February 15, 2023",
+      "category": "DevOps"
     }
   ],
   "2022": [
     {
       "id": "work-2022-1",
       "project": {
-        "id": "project-api-gateway",
-        "name": "API Gateway",
-        "label": "majorContribution"
+        "id": "project-mobile-app",
+        "name": "Mobile App Framework",
+        "label": "minorContribution"
       },
-      "date": "January 23, 2022"
+      "date": "August 14, 2022",
+      "category": "Mobile Development"
     },
     {
       "id": "work-2022-2",
       "project": {
-        "id": "project-mobile-app",
-        "name": "Mobile App Framework",
+        "id": "project-api-gateway",
+        "name": "API Gateway",
         "label": "majorContribution"
       },
-      "date": "August 14, 2022"
+      "date": "January 23, 2022",
+      "category": "Backend Development"
     }
   ],
   "2021": [
     {
       "id": "work-2021-1",
       "project": {
+        "id": "project-e-commerce",
+        "name": "E-Commerce Platform",
+        "label": "majorContribution"
+      },
+      "date": "September 28, 2021",
+      "category": "Full Stack Development"
+    },
+    {
+      "id": "work-2021-2",
+      "project": {
         "id": "project-cms",
         "name": "Content Management System",
         "label": "majorContribution"
       },
-      "date": "May 7, 2021"
+      "date": "May 7, 2021",
+      "category": "Backend Development"
     },
     {
-      "id": "work-2021-2",
+      "id": "work-2021-3",
       "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
+        "id": "project-state-management",
+        "name": "State Management Library",
+        "label": "sideProject"
       },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
-    },
-    {
-      "id": "work-2021-2",
-      "project": {
-        "id": "project-e-commerce",
-        "name": "E-Commerce Platform",
-        "label": "majorContribution"
-      },
-      "date": "September 28, 2021"
+      "date": "February 12, 2021",
+      "category": "Frontend Development"
     }
   ]
 }

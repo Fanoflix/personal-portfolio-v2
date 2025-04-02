@@ -48,8 +48,11 @@ export default function Page() {
           sortingState={sortingState}
           setSortingState={setSortingState}
           noBottomBorder
+          // TODO: Gather feedback on this.
           // rowClassName={(row) =>
-          //   Boolean(row.project.label === "highImpact") ? "bg-purple-200/5" : ""
+          //   Boolean(row.project.label === "highImpact")
+          //     ? "bg-gradient-to-r from-orange-900/10 via-70% via-transparent to-transparent"
+          //     : ""
           // }
         />
       </StaggeredContainer>
@@ -62,10 +65,6 @@ function useWorkData() {
     {
       desc: true,
       id: "date",
-    },
-    {
-      desc: true,
-      id: "category",
     },
   ]);
 

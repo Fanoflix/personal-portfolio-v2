@@ -66,12 +66,20 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
       const label = WORK_LABELS[row.original.project.label];
 
       return (
-        <p className="flex min-w-0 truncate">
+        <p className="flex gap-1 items-center min-w-0 overflow-visible">
           <span
             key={label.name}
-            className={cn("p-1 text-xs rounded-[4px]", label.className)}
+            className={cn(
+              "flex items-center gap-1 text-xs font-medium overflow-visible",
+              label.className
+            )}
           >
             {label.name}
+            {label.meta?.icon && (
+              <label.meta.icon
+                className={cn("inline w-4 h-4", label.meta.iconClassName)}
+              />
+            )}
           </span>
         </p>
       );

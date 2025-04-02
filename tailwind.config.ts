@@ -1,9 +1,26 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   darkMode: ["class"],
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
+    fontSize: {
+      xs: "11px", // Default is 12px
+      sm: "13px", // Default is 14px
+      base: "15px", // Default is 16px
+      lg: "17px", // Default is 18px
+      xl: "19px", // Default is 20px
+      "2xl": "23px", // Default is 24px
+      "3xl": "29px", // Default is 30px
+      "4xl": "35px", // Default is 36px
+      "5xl": "47px", // Default is 48px
+      "6xl": "59px", // Default is 60px
+      "7xl": "71px", // Default is 72px
+      "8xl": "95px", // Default is 96px
+      "9xl": "127px", // Default is 128px
+    },
     extend: {
       colors: {
         background: "hsl(var(--background))",
@@ -61,8 +78,23 @@ const config: Config = {
         "tooltip-r": "-12px 0px 12px -10px rgba(255,255,255,1)",
         "tooltip-l": "12px 0px 12px -10px rgba(255,255,255,1)",
       },
+      dropShadow: {
+        orange: "0 0 5px rgba(249, 115, 22, 0.8)",
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    animate,
+    plugin(function ({ addUtilities }) {
+      const iconGlowUtilities = {
+        ".iconGlow-orange": {
+          filter:
+            "drop-shadow(0 0 2px rgba(220, 115, 22, 1)) drop-shadow(0 0 5px rgba(220, 115, 22, 1)) drop-shadow(0 0 10px rgba(220, 115, 22, 0.6))",
+        },
+      };
+
+      addUtilities(iconGlowUtilities);
+    }),
+  ],
 };
 export default config;
