@@ -256,7 +256,7 @@ export default function Page() {
       <StaggeredContainer containerClassName="flex flex-col gap-4">
         <h1 className="text-2xl font-semibold">Work</h1>
 
-        <p>This is my life&apos;s work, laid bare in a table.</p>
+        <p>This is some of my life&apos;s work, laid bare in a table.</p>
 
         <DataTable
           columns={columns}
