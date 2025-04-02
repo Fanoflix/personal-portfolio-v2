@@ -63,7 +63,7 @@ export function DataTable<TData extends { subRows?: TData[] }, TValue>({
       expanded: true,
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    isMultiSortEvent: (_e) => true, // bypassess the requirement of pressing a modifier key to trigger a multi sort. This makes sure that multi sort gets triggered on regular click.
+    isMultiSortEvent: (_e) => true, // bypasses the requirement of pressing a modifier key to trigger a multi sort. This makes sure that multi sort gets triggered on regular click.
     enableMultiSort: true,
     maxMultiSortColCount: 2, // max 2 columns can be multi sorted at the same time
     enableMultiRemove: false, // disable the ability to remove multi-sorts

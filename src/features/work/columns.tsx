@@ -8,7 +8,10 @@ import { WorkWithSubRows } from "./WorkPage";
 export const columns: ColumnDef<WorkWithSubRows, string>[] = [
   {
     id: "date",
-    accessorFn: (row) => new Date(row.date).getFullYear().toString(),
+    accessorFn: (row) => {
+      const date = new Date(row.date);
+      return date.toISOString();
+    },
     sortingFn: "datetime",
     header: ({ column }) => (
       <div

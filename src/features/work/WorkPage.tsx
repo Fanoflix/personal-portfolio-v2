@@ -63,8 +63,8 @@ export default function Page() {
 function useWorkData() {
   const [sortingState, setSortingState] = useState<SortingState>([
     {
-      desc: true,
       id: "date",
+      desc: true,
     },
   ]);
 
@@ -72,7 +72,25 @@ function useWorkData() {
 
   // Process the data to create a hierarchical structure with years as parent rows
   const allProcessedData: WorkWithSubRows[] = useMemo(() => {
-    return Object.entries(WORK_DATA as WorkByYear).map((yearData) => {
+    // First sort the entries within each year by date (descending)
+    const sortedData = Object.entries(WORK_DATA as WorkByYear).map(
+      ([year, entries]) => {
+        // Sort entries by date descending
+        const sortedEntries = [...entries].sort((a, b) => {
+          const dateA = new Date(a.date);
+          const dateB = new Date(b.date);
+          return dateB.getTime() - dateA.getTime();
+        });
+
+        return [year, sortedEntries] as [string, Work[]];
+      }
+    );
+
+    // Sort the years descending (2025, 2024, etc.)
+    sortedData.sort((a, b) => Number(b[0]) - Number(a[0]));
+
+    // Process into hierarchical structure
+    return sortedData.map((yearData) => {
       const entries = yearData[1];
       // Use the first entry of each year as the parent
       const parentRow: WorkWithSubRows = { ...entries[0] };

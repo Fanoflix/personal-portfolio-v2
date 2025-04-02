@@ -89,7 +89,7 @@ const config: Config = {
       const iconGlowUtilities = {
         ".iconGlow-orange": {
           filter:
-            "drop-shadow(0 0 2px rgba(220, 115, 22, 1)) drop-shadow(0 0 5px rgba(220, 115, 22, 1)) drop-shadow(0 0 10px rgba(220, 115, 22, 0.6))",
+            "drop-shadow(0 0 4px rgba(240, 100, 200, 0.8)) drop-shadow(-2px -5px 10px rgba(255, 100, 100, 1)) drop-shadow(2px 5px 5px rgba(50, 220, 50, 0.4))",
         },
       };
 

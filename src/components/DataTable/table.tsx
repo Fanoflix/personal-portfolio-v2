@@ -1,18 +1,97 @@
 import { cn } from "@/src/lib/utils";
+import { useTheme } from "next-themes";
 import * as React from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
->(({ className, ...props }, ref) => (
-  <div className="relative w-full overflow-auto">
-    <table
-      ref={ref}
-      className={cn("w-full caption-bottom text-sm", className)}
-      {...props}
-    />
-  </div>
-));
+>(({ className, ...props }, ref) => {
+  const { theme } = useTheme();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const tableContainerRef = useRef<HTMLDivElement>(null);
+  const [showFiller, setShowFiller] = useState(true);
+  const [fillerHeight, setFillerHeight] = useState(0);
+
+  // Check if we need to show the filler div
+  useEffect(() => {
+    const updateFiller = () => {
+      if (!containerRef.current || !tableContainerRef.current) return;
+
+      const containerHeight = 800; // Minimum container height
+      const tableHeight = tableContainerRef.current.offsetHeight;
+
+      if (tableHeight >= containerHeight) {
+        setShowFiller(false);
+      } else {
+        setShowFiller(true);
+        setFillerHeight(containerHeight - tableHeight);
+      }
+    };
+
+    // Run initially and add resize listener
+    updateFiller();
+    window.addEventListener("resize", updateFiller);
+
+    // Create a MutationObserver to watch for changes in the table content
+    const observer = new MutationObserver(updateFiller);
+    if (tableContainerRef.current) {
+      observer.observe(tableContainerRef.current, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+      });
+    }
+
+    return () => {
+      window.removeEventListener("resize", updateFiller);
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative w-full"
+      style={{ minHeight: "800px" }}
+    >
+      <div ref={tableContainerRef} className="overflow-auto">
+        <table
+          ref={ref}
+          className={cn("w-full caption-bottom text-sm", className)}
+          {...props}
+        />
+      </div>
+      {showFiller && theme === "dark" ? (
+        <div
+          style={{
+            height: `${fillerHeight}px`,
+            backgroundImage: `repeating-linear-gradient(
+            45deg,
+            rgb(25, 25, 25) 20px,
+            transparent 21px,
+            transparent 27px,
+            rgb(25, 25, 25) 28px
+          )`,
+          }}
+        />
+      ) : (
+        <div
+          style={{
+            height: `${fillerHeight}px`,
+            backgroundImage: `repeating-linear-gradient(
+            45deg,
+            rgb(220, 220, 220) 20px,
+            transparent 21px,
+            transparent 27px,
+            rgb(220, 220, 220) 28px
+          )`,
+          }}
+        />
+      )}
+    </div>
+  );
+});
 Table.displayName = "Table";
 
 const TableHeader = React.forwardRef<

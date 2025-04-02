@@ -1,4 +1,4 @@
-import { FlameIcon, LucideProps } from "lucide-react";
+import { Flame, LucideProps } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 
 export type Work = {
@@ -37,8 +37,8 @@ export const WORK_LABELS: Record<WorkLabels, WorkLabel> = {
     className: "p-1 h-7 text-orange-500 dark:text-orange-400",
     weight: 4,
     meta: {
-      icon: FlameIcon,
-      iconClassName: "iconGlow-orange text-orange-500 dark:text-orange-200",
+      icon: Flame,
+      iconClassName: "iconGlow-orange text-orange-500 dark:text-orange-300",
     },
   },
   minorContribution: {
