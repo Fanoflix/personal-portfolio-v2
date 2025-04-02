@@ -1,5 +1,5 @@
+"use client";
 import { cn } from "@/src/lib/utils";
-import { useTheme } from "next-themes";
 import * as React from "react";
 import { useEffect, useRef, useState } from "react";
 
@@ -7,7 +7,6 @@ const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => {
-  const { theme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
   const tableContainerRef = useRef<HTMLDivElement>(null);
   const [showFiller, setShowFiller] = useState(true);
@@ -62,7 +61,7 @@ const Table = React.forwardRef<
           {...props}
         />
       </div>
-      {showFiller && theme === "dark" ? (
+      {showFiller && (
         <div
           style={{
             height: `${fillerHeight}px`,
@@ -72,19 +71,6 @@ const Table = React.forwardRef<
             transparent 21px,
             transparent 27px,
             rgb(25, 25, 25) 28px
-          )`,
-          }}
-        />
-      ) : (
-        <div
-          style={{
-            height: `${fillerHeight}px`,
-            backgroundImage: `repeating-linear-gradient(
-            45deg,
-            rgb(220, 220, 220) 20px,
-            transparent 21px,
-            transparent 27px,
-            rgb(220, 220, 220) 28px
           )`,
           }}
         />
