@@ -1,7 +1,7 @@
 import { Variants } from "framer-motion";
 
 export const layoutVariants: Variants = {
-  fromHidden: {
+  hidden: {
     opacity: 0,
     y: 15,
     scale: 0.99,
@@ -35,6 +35,19 @@ export const dataTableRowVariants: Variants = {
       delay: 0,
       duration: 0.4,
       ease: "easeOut",
+    },
+  },
+};
+
+export const filtersBarVariants: Variants = {
+  hidden: {
+    x: -100,
+  },
+  visible: {
+    x: 0,
+    transition: {
+      duration: 0.3,
+      ease: "anticipate",
     },
   },
 };

@@ -18,7 +18,7 @@ export default function AppShell({ children }: PropsWithChildren) {
           className="w-full"
           key={pathname}
           variants={layoutVariants}
-          initial="fromHidden"
+          initial="hidden"
           animate="visible"
         >
           {children}

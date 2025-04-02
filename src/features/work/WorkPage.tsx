@@ -2,9 +2,10 @@
 
 import { DataTable } from "@/src/components/DataTable/DataTable";
 import { SortingState } from "@tanstack/react-table";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { StaggeredContainer } from "../framer-animations/components/StaggeredContainer";
 import { columns } from "./columns";
+import { FiltersBar } from "./FiltersBar";
 import { Work } from "./types";
 import WORK_DATA from "./work-data.json";
 
@@ -17,32 +18,13 @@ export type WorkWithSubRows = Work & {
 };
 
 export default function Page() {
-  const [sortingState, setSortingState] = useState<SortingState>([
-    {
-      desc: true,
-      id: "date",
-    },
-    {
-      desc: true,
-      id: "category",
-    },
-  ]);
-
-  // Process the data to create a hierarchical structure with years as parent rows
-  const processedData: WorkWithSubRows[] = Object.entries(
-    WORK_DATA as WorkByYear
-  ).map((yearData) => {
-    const entries = yearData[1];
-    // Use the first entry of each year as the parent
-    const parentRow: WorkWithSubRows = { ...entries[0] };
-
-    // Add all other entries as subRows (excluding the first one which is the parent)
-    if (entries.length > 1) {
-      parentRow.subRows = entries.slice(1);
-    }
-
-    return parentRow;
-  });
+  const {
+    processedData,
+    sortingState,
+    setSortingState,
+    filterState,
+    setFilterState,
+  } = useWorkData();
 
   if (!processedData.length) {
     return <p>....</p>;
@@ -54,6 +36,11 @@ export default function Page() {
         <h1 className="text-2xl font-semibold">Work</h1>
 
         <p>This is some of my life&apos;s work, laid bare in a table.</p>
+
+        <FiltersBar
+          setFilterState={setFilterState}
+          activeFilter={filterState}
+        />
 
         <DataTable
           columns={columns}
@@ -68,4 +55,65 @@ export default function Page() {
       </StaggeredContainer>
     </div>
   );
+}
+
+function useWorkData() {
+  const [sortingState, setSortingState] = useState<SortingState>([
+    {
+      desc: true,
+      id: "date",
+    },
+    {
+      desc: true,
+      id: "category",
+    },
+  ]);
+
+  const [filterState, setFilterState] = useState<string>("");
+
+  // Process the data to create a hierarchical structure with years as parent rows
+  const allProcessedData: WorkWithSubRows[] = useMemo(() => {
+    return Object.entries(WORK_DATA as WorkByYear).map((yearData) => {
+      const entries = yearData[1];
+      // Use the first entry of each year as the parent
+      const parentRow: WorkWithSubRows = { ...entries[0] };
+
+      // Add all other entries as subRows (excluding the first one which is the parent)
+      if (entries.length > 1) {
+        parentRow.subRows = entries.slice(1);
+      }
+
+      return parentRow;
+    });
+  }, []);
+
+  // Apply year filtering if a filterState is set
+  const processedData = useMemo(() => {
+    if (!filterState) return allProcessedData;
+
+    return allProcessedData.filter((row) => {
+      // Check if the year in the date matches the filter
+      if (row.date?.includes(filterState)) return true;
+
+      // Also check subrows if present
+      if (row.subRows?.some((subRow) => subRow.date?.includes(filterState))) {
+        // If any subrows match, filter those subrows and keep the parent
+        const filteredSubRows = row.subRows.filter((subRow) =>
+          subRow.date?.includes(filterState)
+        );
+
+        return { ...row, subRows: filteredSubRows };
+      }
+
+      return false;
+    });
+  }, [allProcessedData, filterState]);
+
+  return {
+    processedData,
+    sortingState,
+    setSortingState,
+    filterState,
+    setFilterState,
+  };
 }
