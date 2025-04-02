@@ -3,6 +3,7 @@ import {
   type ColumnDef,
   flexRender,
   getCoreRowModel,
+  getExpandedRowModel,
   getSortedRowModel,
   Row,
   SortingState,
@@ -45,6 +46,7 @@ export function DataTable<TData, TValue>({
     columns,
     defaultColumn: undefined,
     getCoreRowModel: getCoreRowModel(),
+    getExpandedRowModel: getExpandedRowModel(),
     ...(isSortingEnabled && {
       onSortingChange: setSortingState,
       getSortedRowModel: getSortedRowModel(),

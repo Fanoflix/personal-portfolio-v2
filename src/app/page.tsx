@@ -14,10 +14,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-24 items-center justify-center">
-      <div className="flex flex-col gap-12 w-[30rem]">
+      <div className="flex flex-col gap-12 sm:w-[30rem] px-4 sm:px-0">
         <div className="flex items-center gap-12">
           <div>{isMounted && <MyLogo />}</div>
-          <h1>Muhammad Ammar</h1>
+          <h2>Muhammad Ammar</h2>
         </div>
 
         <StaggeredContainer containerClassName="flex flex-col gap-5">
