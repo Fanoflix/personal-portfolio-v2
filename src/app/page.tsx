@@ -14,23 +14,23 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-24 items-center justify-center">
-      <div className="flex flex-col gap-12 sm:w-[30rem] px-4 sm:px-0">
+      <div className="flex flex-col gap-12 sm:w-[32rem] px-4 sm:px-0">
         <div className="flex items-center gap-12">
           <div>{isMounted && <MyLogo />}</div>
           <h2>Muhammad Ammar</h2>
         </div>
 
         <StaggeredContainer containerClassName="flex flex-col gap-5">
-          <span>
+          <p>
             I am Ammar. 25y. Software Engineer, focused on the Frontend. Working
             at a{" "}
             <InlineLink href="https://www.ycombinator.com/">
               YC Tech Startup W23
             </InlineLink>
             .
-          </span>
+          </p>
 
-          <span>
+          <p>
             Currently in stealth mode. Passionate about writing efficient,
             readable, and well-structured code. Currently working with a
             high-performing team with a hyper-bias for action. I aim to lead any
@@ -47,11 +47,9 @@ export default function Home() {
               tooltipContent="World of Warcraft"
             />
             .
-          </span>
+          </p>
 
-          <span>
-            Also, I am into sketching. Leave a message, let&apos;s talk.
-          </span>
+          <p>Also, I am into sketching. Leave a message, let&apos;s talk.</p>
         </StaggeredContainer>
       </div>
     </div>
