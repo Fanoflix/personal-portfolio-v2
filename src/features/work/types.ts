@@ -33,7 +33,7 @@ export type WorkLabel = {
 
 export const WORK_LABELS: Record<WorkLabels, WorkLabel> = {
   majorContribution: {
-    name: "High Impact",
+    name: "Major Contribution",
     className: "p-1 h-7 text-orange-500 dark:text-orange-400",
     weight: 4,
     meta: {

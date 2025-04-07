@@ -50,8 +50,8 @@ export default function Page() {
           noBottomBorder
           // TODO: Gather feedback on this.
           // rowClassName={(row) =>
-          //   Boolean(row.project.label === "highImpact")
-          //     ? "bg-gradient-to-r from-orange-900/10 via-70% via-transparent to-transparent"
+          //   Boolean(row.project.label === "majorContribution")
+          //     ? "bg-gradient-to-r from-orange-900/40 via-50% via-orange-900/5 to-transparent"
           //     : ""
           // }
         />
@@ -83,7 +83,7 @@ function useWorkData() {
         });
 
         return [year, sortedEntries] as [string, Work[]];
-      }
+      },
     );
 
     // Sort the years descending (2025, 2024, etc.)
@@ -116,7 +116,7 @@ function useWorkData() {
       if (row.subRows?.some((subRow) => subRow.date?.includes(filterState))) {
         // If any subrows match, filter those subrows and keep the parent
         const filteredSubRows = row.subRows.filter((subRow) =>
-          subRow.date?.includes(filterState)
+          subRow.date?.includes(filterState),
         );
 
         return { ...row, subRows: filteredSubRows };

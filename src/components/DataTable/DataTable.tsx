@@ -165,7 +165,6 @@ function AnimatedTableRow<TData>({
             maxWidth: cell.column.columnDef.maxSize,
             width: cell.column.columnDef.size,
           }}
-          className={cn("py-2 px-3 align-middle")}
           variants={dataTableRowVariants}
           initial={"hidden"}
           animate={inView ? "visible" : "hidden"}

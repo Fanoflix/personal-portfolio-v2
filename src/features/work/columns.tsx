@@ -33,8 +33,8 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
         <div className="font-medium text-xs md:text-sm">
           <span
             className={cn(
-              "text-primary",
-              !row.getCanExpand() && childRowClassName
+              "text-primary font-semibold",
+              !row.getCanExpand() && childRowClassName,
             )}
           >
             {year}
@@ -69,20 +69,23 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
       const label = WORK_LABELS[row.original.project.label];
 
       return (
-        <p className="flex gap-1 items-center min-w-0 overflow-visible">
+        <p className="flex gap-2 items-center min-w-0 overflow-visible">
           <span
             key={label.name}
             className={cn(
-              "flex items-center gap-1 text-xs font-medium overflow-visible",
-              label.className
+              "flex items-center gap-1 text-sm font-semibold overflow-visible",
+              label.className,
             )}
           >
             {label.name}
-            {label.meta?.icon && (
-              <label.meta.icon
-                className={cn("inline w-4 h-4", label.meta.iconClassName)}
-              />
-            )}
+            <div className="animate-flame-flicker">
+              {label.meta?.icon && (
+                <label.meta.icon
+                  strokeWidth={1.6}
+                  className={cn("inline w-5 h-5", label.meta.iconClassName)}
+                />
+              )}
+            </div>
           </span>
         </p>
       );
