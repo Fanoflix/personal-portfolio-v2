@@ -1,3 +1,14 @@
 {
-  "cSpell.words": ["Ammar"]
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "class:\\s*?[\"'`]([^\"'`]*).*?,",
+    "[^\"'`\\s]*class\\s*?[\"'`]([^\"'`]*).*?,"
+  ],
+  "cSpell.words": ["Ammar"],
+  "eslint.enable": true,
+  "eslint.run": "onType"
 }

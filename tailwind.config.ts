@@ -22,6 +22,67 @@ const config: Config = {
       "9xl": "127px", // Default is 128px
     },
     extend: {
+      keyframes: {
+        "flame-flicker": {
+          "0%": {
+            transform: "scale(1) rotate(-2deg)",
+            opacity: "1",
+          },
+          "10%": {
+            transform: "scaleY(1.02) rotate(-1deg)",
+            transformOrigin: "0% 50%",
+            opacity: "0.95",
+          },
+          "20%": {
+            transform: "scaleY(0.9) rotate(0deg)",
+            transformOrigin: "100% 50%",
+            opacity: "0.9",
+          },
+          "30%": {
+            transform: "scaleY(1.07) rotate(1deg)",
+            transformOrigin: "0% 50%",
+            opacity: "0.85",
+          },
+          "40%": {
+            transform: "scaleY(1.05) rotate(2deg)",
+            transformOrigin: "0% 50%",
+            opacity: "0.8",
+          },
+          "50%": {
+            transform: "scaleY(0.99) rotate(-2deg)",
+            transformOrigin: "0% 50%",
+            opacity: "0.4",
+          },
+          "60%": {
+            transform: "scaleY(0.97) rotate(-1deg)",
+            transformOrigin: "0% 50%",
+            opacity: "0.9",
+          },
+          "70%": {
+            transform: "scaleY(1.02) rotate(0deg)",
+            transformOrigin: "0% 50%",
+            opacity: "0.95",
+          },
+          "80%": {
+            transform: "scaleY(1.02) rotate(1deg)",
+            transformOrigin: "0% 50%",
+            opacity: "0.9",
+          },
+          "90%": {
+            transform: "scaleY(1.04) rotate(2deg)",
+            transformOrigin: "0% 50%",
+            opacity: "0.85",
+          },
+          "100%": {
+            transform: "scaleY(0.9) rotate(-5deg)",
+            transformOrigin: "0% 50%",
+            opacity: "1",
+          },
+        },
+      },
+      animation: {
+        "flame-flicker": "flame-flicker 0.35s linear infinite",
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
