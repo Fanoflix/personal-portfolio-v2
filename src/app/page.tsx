@@ -49,7 +49,13 @@ export default function Home() {
             .
           </p>
 
-          <p>Also, I am into sketching. Leave a message, let&apos;s talk.</p>
+          <p>
+            Also, I am into{" "}
+            <InlineLink href="https://www.instagram.com/fanoflix.art/">
+              sketching
+            </InlineLink>
+            . Leave a message, let&apos;s talk.
+          </p>
         </StaggeredContainer>
       </div>
     </div>
