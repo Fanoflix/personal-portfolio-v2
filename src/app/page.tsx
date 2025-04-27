@@ -1,22 +1,16 @@
 "use client";
-import { useEffect, useState } from "react";
+
 import InlineImageWithTooltip from "../components/InlineImageWithTooltip/InlineImageWithTooltip";
 import InlineLink from "../components/InlineLink/InlineLink";
 import MyLogo from "../components/MyLogo/MyLogo";
 import { StaggeredContainer } from "../features/framer-animations/components/StaggeredContainer";
 
 export default function Home() {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   return (
     <div className="flex flex-col gap-24 items-center justify-center">
       <div className="flex flex-col gap-12 sm:w-[32rem] px-4 sm:px-0">
         <div className="flex items-center gap-12">
-          <div>{isMounted && <MyLogo />}</div>
+          <div><MyLogo /></div>
           <h2>Muhammad Ammar</h2>
         </div>
 
@@ -37,13 +31,13 @@ export default function Home() {
             organization I work for to greater heights. I play
             <InlineImageWithTooltip
               alt="Diablo"
-              src={"/icons/diablo4.png"}
+              src="/icons/diablo4.png"
               tooltipContent="Diablo 4"
             />{" "}
             and{" "}
             <InlineImageWithTooltip
               alt="World of Warcraft"
-              src={"/icons/wow100x100.png"}
+              src="/icons/wow100x100.png"
               tooltipContent="World of Warcraft"
             />
             .

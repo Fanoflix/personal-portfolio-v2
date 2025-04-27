@@ -1,7 +1,8 @@
 "use client";
-import { cn } from "@/src/lib/utils";
 import anime from "animejs";
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+
+import { cn } from "@/src/lib/utils";
 
 export default function MyLogo() {
   const leftTopSpikeInitial =
@@ -91,7 +92,7 @@ export default function MyLogo() {
           duration: rippleDuration,
           easing: rippleEasing,
         },
-        rippleOffsetDelay
+        rippleOffsetDelay,
       )
       .add(
         {
@@ -102,7 +103,7 @@ export default function MyLogo() {
           duration: rippleBackDuration,
           easing: rippleBackEasing,
         },
-        rippleBackOffset
+        rippleBackOffset,
       );
 
     spikeLTopTimeline
@@ -121,7 +122,7 @@ export default function MyLogo() {
           duration: rippleDuration,
           easing: rippleEasing,
         },
-        rippleOffsetDelay
+        rippleOffsetDelay,
       )
       .add(
         {
@@ -132,7 +133,7 @@ export default function MyLogo() {
           duration: rippleBackDuration,
           easing: rippleBackEasing,
         },
-        rippleBackOffset
+        rippleBackOffset,
       );
 
     // Bot
@@ -174,7 +175,7 @@ export default function MyLogo() {
     <div
       className={cn(
         "logo-svg z-[100] flex items-center justify-center m-auto",
-        "lg:w-[60px] lg:h-[70px] w-[45px] h-[55px]"
+        "lg:w-[60px] lg:h-[70px] w-[45px] h-[55px]",
       )}
     >
       <svg id="base" className="overflow-visible" viewBox="0 0 153 200">
