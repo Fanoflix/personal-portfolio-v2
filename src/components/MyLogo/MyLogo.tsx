@@ -1,6 +1,6 @@
 "use client";
 import anime from "animejs";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 
 import { cn } from "@/src/lib/utils";
 
