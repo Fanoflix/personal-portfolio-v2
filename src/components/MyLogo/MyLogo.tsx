@@ -175,7 +175,7 @@ export default function MyLogo() {
     <div
       className={cn(
         "logo-svg z-[100] flex items-center justify-center m-auto",
-        "w-4 h-4",
+        "w-6 h-6",
       )}
     >
       <svg id="base" className="overflow-visible" viewBox="0 0 153 200">

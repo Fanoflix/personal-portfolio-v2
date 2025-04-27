@@ -158,6 +158,9 @@ const config: Config = {
       dropShadow: {
         orange: "0 0 5px rgba(249, 115, 22, 0.8)",
       },
+      spacing: {
+        site: "82%",
+      },
     },
   },
   plugins: [

@@ -31,7 +31,7 @@ export default function Page() {
   }
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="container w-full sm:w-site mx-auto py-10">
       <StaggeredContainer containerClassName="flex flex-col gap-4">
         <h1 className="text-2xl font-semibold">Work</h1>
 

@@ -47,3 +47,28 @@ export const filtersBarVariants: Variants = {
     },
   },
 };
+
+export const NavBarVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: -2,
+    scaleY: 0,
+    transformOrigin: "50% 80%",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scaleY: 1,
+    transformOrigin: "50% 80%",
+    transition: {
+      duration: 0.14,
+      ease: "linear",
+    },
+  },
+  out: {
+    opacity: 0,
+    y: 2,
+    scaleY: 0,
+    transformOrigin: "50% 80%",
+  },
+};
