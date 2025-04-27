@@ -8,12 +8,7 @@ import { StaggeredContainer } from "../features/framer-animations/components/Sta
 export default function Home() {
   return (
     <div className="flex flex-col gap-24 items-center justify-center">
-      <div className="flex flex-col gap-12 sm:w-[32rem] px-4 sm:px-0">
-        <div className="flex items-center gap-12">
-          <div><MyLogo /></div>
-          <h2>Muhammad Ammar</h2>
-        </div>
-
+      <div className="flex flex-col gap-12 sm:w-[32rem] py-24 sm:px-0">
         <StaggeredContainer containerClassName="flex flex-col gap-5">
           <p>
             I am Ammar. 25y. Software Engineer, focused on the Frontend. Working
