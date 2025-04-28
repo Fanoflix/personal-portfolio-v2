@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/src/lib/utils";
+import { useTheme } from "next-themes";
 import * as React from "react";
 import { useEffect, useRef, useState } from "react";
 
@@ -11,6 +12,7 @@ const Table = React.forwardRef<
   const tableContainerRef = useRef<HTMLDivElement>(null);
   const [showFiller, setShowFiller] = useState(true);
   const [fillerHeight, setFillerHeight] = useState(0);
+  const { theme } = useTheme();
 
   // Check if we need to show the filler div
   useEffect(() => {
@@ -67,10 +69,10 @@ const Table = React.forwardRef<
             height: `${fillerHeight}px`,
             backgroundImage: `repeating-linear-gradient(
             45deg,
-            rgb(25, 25, 25) 20px,
+            ${theme === "dark" ? "rgb(30, 30, 30)" : "rgb(200, 200, 200)"} 20px,
             transparent 21px,
-            transparent 27px,
-            rgb(25, 25, 25) 28px
+            transparent 31px,
+            ${theme === "dark" ? "rgb(30, 30, 30)" : "rgb(200, 200, 200)"} 32px
           )`,
           }}
         />
@@ -108,7 +110,7 @@ const TableFooter = React.forwardRef<
     ref={ref}
     className={cn(
       "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
-      className
+      className,
     )}
     {...props}
   />
@@ -124,7 +126,7 @@ const TableRow = React.forwardRef<
     className={cn(
       "border-b",
       "transition-colors hover:bg-muted/10 data-[state=selected]:bg-muted",
-      className
+      className,
     )}
     {...props}
   />
@@ -139,7 +141,7 @@ const TableHead = React.forwardRef<
     ref={ref}
     className={cn(
       "h-9 px-3 text-left align-middle font-medium text-muted-foreground/70 [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
-      className
+      className,
     )}
     {...props}
   />
@@ -154,7 +156,7 @@ const TableCell = React.forwardRef<
     ref={ref}
     className={cn(
       "py-2 px-3 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
-      className
+      className,
     )}
     {...props}
   />

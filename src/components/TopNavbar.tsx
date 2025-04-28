@@ -85,9 +85,8 @@ export default function Navbar() {
                 height={iconHeightWidth}
               />
             </NavIconButton>
-            <NavIconButton href="#" tooltipContent="Theme">
-              <ToggleTheme />
-            </NavIconButton>
+
+            <ToggleTheme />
           </div>
         </motion.section>
       </AnimatePresence>

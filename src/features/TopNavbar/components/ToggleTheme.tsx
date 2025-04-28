@@ -28,7 +28,10 @@ export default function ToggleTheme() {
   };
 
   return (
-    <button className="flex" onClick={toggleTheme}>
+    <button
+      className="flex hover:bg-transparent opacity-60 hover:opacity-100 invert dark:invert-0"
+      onClick={toggleTheme}
+    >
       <div style={iconWrapperStyle}>
         {theme === "light" ? (
           <Image
