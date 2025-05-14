@@ -78,14 +78,14 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
             )}
           >
             {label.name}
-            <div className="animate-flame-flicker mb-1">
+            <span className="animate-flame-flicker mb-1">
               {label.meta?.icon && (
                 <label.meta.icon
                   strokeWidth={1}
                   className={cn("inline w-4 h-4", label.meta.iconClassName)}
                 />
               )}
-            </div>
+            </span>
           </span>
         </p>
       );
