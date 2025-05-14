@@ -3,7 +3,7 @@ import React, { PropsWithChildren } from "react";
 
 export const StaggeredContainer = ({
   children,
-  stagger = 0.175, // time between staggered animations
+  stagger = 0.135, // time between staggered animations
   delayChildren = 0.15, // initial delay before children animate
   containerClassName,
   childClassName,

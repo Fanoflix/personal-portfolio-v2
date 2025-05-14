@@ -17,7 +17,7 @@ export type WorkWithSubRows = Work & {
   subRows?: Work[];
 };
 
-export default function Page() {
+export default function WorkPage() {
   const {
     processedData,
     sortingState,
@@ -31,7 +31,7 @@ export default function Page() {
   }
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto py-10 pt-24">
       <StaggeredContainer containerClassName="flex flex-col gap-4">
         <h1 className="text-2xl font-semibold">Work</h1>
 

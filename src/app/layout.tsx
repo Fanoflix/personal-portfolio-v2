@@ -5,6 +5,8 @@ import localFont from "next/font/local";
 
 import AppShell from "../components/AppShell";
 import { ThemeProvider } from "../components/ThemeProvider/theme-provider";
+import TopNavbar from "../components/TopNavbar";
+import { AuroraBackground } from "../components/AuroraBackground/AuroraBackground";
 
 const inter = localFont({
   src: "../../public/fonts/web/InterVariable.woff2",
@@ -27,7 +29,10 @@ export default function RootLayout({
     <html className={`${inter.variable} antialiased`} lang="en">
       <body>
         <ThemeProvider attribute="class" defaultTheme="system">
-          <AppShell>{children}</AppShell>
+          <TopNavbar />
+          <AuroraBackground>
+            <AppShell>{children}</AppShell>
+          </AuroraBackground>
         </ThemeProvider>
       </body>
     </html>

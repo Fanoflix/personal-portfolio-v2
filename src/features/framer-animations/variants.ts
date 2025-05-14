@@ -14,7 +14,7 @@ export const layoutVariants: Variants = {
       duration: 0.35,
       ease: "easeInOut",
       filter: {
-        duration: 0.6,
+        duration: 0.8,
       },
     },
   },

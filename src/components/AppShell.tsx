@@ -5,18 +5,18 @@ import { PropsWithChildren } from "react";
 import { layoutVariants } from "../features/framer-animations/variants";
 import TopNavbar from "./TopNavbar";
 import { cn } from "../lib/utils";
+import { AuroraBackground } from "./AuroraBackground/AuroraBackground";
 
-export default function AppShell({ children }: PropsWithChildren) {
+export default function ll({ children }: PropsWithChildren) {
   const pathname = usePathname();
 
   return (
     <div
       className={cn(
         "w-full md:w-site",
-        "px-6 pb-6 flex flex-col items-center justify-center",
+        "px-1 pb-6 flex flex-col items-center justify-center",
       )}
     >
-      <TopNavbar />
       <AnimatePresence mode="wait">
         <motion.section
           className="w-full"
