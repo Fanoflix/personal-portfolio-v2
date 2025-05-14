@@ -31,7 +31,7 @@ export default function Page() {
   }
 
   return (
-    <div className="container w-full sm:w-site mx-auto py-10">
+    <div className="container mx-auto py-10">
       <StaggeredContainer containerClassName="flex flex-col gap-4">
         <h1 className="text-2xl font-semibold">Work</h1>
 
@@ -51,7 +51,7 @@ export default function Page() {
           // TODO: Gather feedback on this.
           // rowClassName={(row) =>
           //   Boolean(row.project.label === "majorContribution")
-          //     ? "bg-gradient-to-r from-orange-900/40 via-50% via-orange-900/5 to-transparent"
+          //     ? "bg-gradient-to-r from-orange-900/20 via-50% via-orange-900/5 to-transparent"
           //     : ""
           // }
         />

@@ -17,11 +17,11 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className=" w-full flex justify-center h-max md:h-12 sticky top-0 backdrop-blur-lg z-50">
+    <nav className="w-full flex justify-center h-max md:h-12 sticky top-0 backdrop-blur-lg z-50">
       <AnimatePresence mode="wait">
         <motion.section
           className={cn(
-            "w-full md:w-site flex flex-col sm:flex-row items-center text-center justify-between",
+            "w-full flex flex-col sm:flex-row items-center text-center justify-between",
             "py-4 md:py-3 px-2",
             "gap-3",
             "border-border border-b",
@@ -45,6 +45,13 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center justify-center gap-6 md:gap-4">
+            <Link
+              prefetch
+              className="text-[14px] text-text hover:text-primary"
+              href="/"
+            >
+              Home
+            </Link>
             <Link
               prefetch
               className="text-[14px] text-text hover:text-primary"

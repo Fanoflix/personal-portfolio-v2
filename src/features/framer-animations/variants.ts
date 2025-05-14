@@ -1,16 +1,21 @@
-import { Variants } from "framer-motion";
+import { easeIn, Variants } from "framer-motion";
 
 export const layoutVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 15,
+    filter: "blur(10px)",
   },
   visible: {
     opacity: 1,
     y: 0,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.5,
+      duration: 0.35,
       ease: "easeInOut",
+      filter: {
+        duration: 0.6,
+      },
     },
   },
 };
@@ -50,25 +55,24 @@ export const filtersBarVariants: Variants = {
 
 export const NavBarVariants: Variants = {
   hidden: {
-    opacity: 0,
-    y: -2,
-    scaleY: 0,
-    transformOrigin: "50% 80%",
+    opacity: 0.6,
+    filter: "blur(5px)",
   },
   visible: {
+    filter: "blur(0px)",
     opacity: 1,
-    y: 0,
-    scaleY: 1,
-    transformOrigin: "50% 80%",
+    scale: 1,
     transition: {
-      duration: 0.14,
-      ease: "linear",
+      type: "easeIn",
+      duration: 0.2,
     },
   },
   out: {
-    opacity: 0,
-    y: 2,
-    scaleY: 0,
-    transformOrigin: "50% 80%",
+    opacity: 0.6,
+    filter: "blur(5px)",
+    transition: {
+      duration: 0.25,
+      ease: "easeOut",
+    },
   },
 };
