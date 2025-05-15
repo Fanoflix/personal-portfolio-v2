@@ -6,28 +6,32 @@ export default function Hero() {
   return (
     <StaggeredContainer
       stagger={0.1}
-      containerClassName="flex flex-col gap-5 w-full md:w-2/3 text-pretty"
+      containerClassName="flex flex-col gap-7 w-full md:w-3/4 text-pretty"
     >
-      <h1>
-        Ammar{" "}
-        <span className="text-muted text3xl inline-block font-black">;</span>
+      <h1 className="flex flex-wrap items-end leading-[0.9] font-black text-primary drop-shadow-md">
+        Ammar
+        <span className="text-primary/15 leading-[0.9]">.</span>
+        <span className="text-primary/15 leading-[0.9]">Engineer.</span>
+        <span className="text-primary/10 leading-[0.9]">Communicator.</span>
+        <span className="text-primary/5 leading-[0.9]">Product.</span>
+        <span className="text-primary/5 leading-[0.9]">Designer.</span>
       </h1>
 
       <p>
         26y. Software Engineer. Full stack — focused on the Frontend. Working at{" "}
         <InlineLink href="https://www.metal.so/">Metal (YC W23)</InlineLink>.
-        Currently in stealth.
       </p>
 
       <p>
-        Passionate about writing efficient, readable, and well-structured code.
-        Currently working with a high-performing team possessing a hyper-bias
-        for action. I aim to lead any organization I work for to greater
-        heights.
+        Passionate about Product engineering; a blend of design, engineering,
+        and business. Currently working with a high-performing team possessing a
+        hyper-bias for action. I aim to lead any organization I work for to
+        greater heights.
       </p>
 
       <p>
-        Using AI smartly is one of the core values in my engineering routine.
+        Using AI smartly and efficiently is one of my core beliefs within
+        engineering.
       </p>
 
       <p>
@@ -43,18 +47,18 @@ export default function Hero() {
           src="/icons/wow100x100.png"
           tooltipContent="World of Warcraft"
         />
-        .
+        . I am into{" "}
+        <InlineLink href="https://www.instagram.com/fanoflix.art/">
+          sketching
+        </InlineLink>{" "}
+        as well.
       </p>
 
       <p>
-        Also, I am into{" "}
-        <InlineLink href="https://www.instagram.com/fanoflix.art/">
-          sketching
-        </InlineLink>
-        .
+        I mentor and give advice at{" "}
+        <InlineLink href="https://topmate.io/ammarnasir/">Topmate</InlineLink>{" "}
+        for free. Leave a message, let&apos;s talk.
       </p>
-
-      <p>Leave a message, let&apos;s talk.</p>
     </StaggeredContainer>
   );
 }

@@ -42,7 +42,7 @@ export default function TooltipWrapper({
             "data-[side=bottom]:slide-in-from-top-3",
             // Text classes
             "text-sm",
-            contentClassName
+            contentClassName,
           )}
           side={side}
           sideOffset={sideOffset}
