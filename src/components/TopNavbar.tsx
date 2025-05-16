@@ -8,10 +8,7 @@ import Link from "next/link";
 import { cn } from "../lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import {
-  layoutVariants,
-  NavBarVariants,
-} from "../features/framer-animations/variants";
+import { NavBarVariants } from "../features/framer-animations/variants";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -25,7 +22,7 @@ export default function Navbar() {
               "w-full flex flex-col sm:flex-row items-center text-center justify-between",
               "py-4 md:py-3 px-2",
               "gap-3",
-              "border-border border-b border-dashed",
+              "border-border border-b",
             )}
             key={pathname}
             variants={NavBarVariants}

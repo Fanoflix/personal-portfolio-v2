@@ -4,17 +4,15 @@ import { StaggeredContainer } from "../framer-animations/components/StaggeredCon
 
 export default function Hero() {
   return (
-    <StaggeredContainer
-      stagger={0.1}
-      containerClassName="flex flex-col gap-7 w-full md:w-3/4 text-pretty"
-    >
-      <h1 className="flex flex-wrap items-end leading-[0.9] font-black text-primary drop-shadow-md">
-        Ammar
-        <span className="text-primary/15 leading-[0.9]">.</span>
-        <span className="text-primary/15 leading-[0.9]">Engineer.</span>
-        <span className="text-primary/10 leading-[0.9]">Communicator.</span>
-        <span className="text-primary/5 leading-[0.9]">Product.</span>
-        <span className="text-primary/5 leading-[0.9]">Designer.</span>
+    <StaggeredContainer containerClassName="flex flex-col gap-7 w-full md:w-4/6 text-pretty">
+      <h1 className="flex flex-col items-start leading-[0.9] font-black text-primary drop-shadow-md">
+        Ammar.
+        <div className="flex flex-wrap">
+          <span className="text-primary/15 leading-[0.9]">Engineer.</span>
+          <span className="text-primary/10 leading-[0.9]">Communicator.</span>
+          <span className="text-primary/5 leading-[0.9]">Product.</span>
+          <span className="text-primary/5 leading-[0.9]">Designer.</span>
+        </div>
       </h1>
 
       <p>
@@ -55,7 +53,7 @@ export default function Hero() {
       </p>
 
       <p>
-        I mentor and give advice at{" "}
+        I mentor and give advice on{" "}
         <InlineLink href="https://topmate.io/ammarnasir/">Topmate</InlineLink>{" "}
         for free. Leave a message, let&apos;s talk.
       </p>
