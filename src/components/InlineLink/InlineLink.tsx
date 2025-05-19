@@ -12,7 +12,7 @@ export default function InlineLink({
 } & PropsWithChildren) {
   return (
     <Link
-      className="inline underline underline-offset-[8px] decoration-neutral-300 dark:decoration-neutral-700 hover:decoration-primary dark:hover:decoration-primary text-primary font-medium transition-colors"
+      className="inline underline underline-offset-[6px] decoration-neutral-300 dark:decoration-neutral-700 hover:decoration-primary dark:hover:decoration-primary text-primary font-medium transition-colors"
       href={href}
       rel="noopener noreferrer"
       target="_blank"

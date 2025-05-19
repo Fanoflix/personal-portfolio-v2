@@ -37,12 +37,12 @@ export default function WorkAccordionItem({
     <div>
       <AccordionItem
         className={cn(
-          "data-[state=open]:bg-gradient-to-br from-transparent via-primary/[13%] via-[0.4%] to-[30%] to-transparent",
+          "data-[state=open]:bg-gradient-to-br from-transparent via-primary/[8%] via-[0.4%] to-[30%] to-transparent",
           "border-l border-transparent border-b-0 data-[state=open]:border-primary transition-all",
         )}
         value={workItem.companyName}
       >
-        <AccordionTrigger className={cn("px-3 h-16 w-full text-xs md:text-sm")}>
+        <AccordionTrigger className={cn("px-3 h-18 w-full text-xs md:text-sm")}>
           <div className="flex items-center justify-start gap-2 h-max w-full">
             <a
               className="flex items-center justify-center h-full min-w-[60px] md:min-w-[90px]"
@@ -74,7 +74,7 @@ export default function WorkAccordionItem({
             </div>
           </div>
         </AccordionTrigger>
-        <AccordionContent className="p-3 px-6 pl-8 text-text">
+        <AccordionContent className="py-6 px-6 pl-8 text-text">
           {workItem.content}
         </AccordionContent>
       </AccordionItem>

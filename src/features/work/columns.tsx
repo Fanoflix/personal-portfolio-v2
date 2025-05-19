@@ -27,7 +27,7 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
       const date = new Date(row.original.date);
       const monthName = date.toLocaleString("default", { month: "short" });
       const year = date.getFullYear();
-      const childRowClassName = "text-secondary";
+      const childRowClassName = "text-primary/30";
 
       return (
         <div className="font-medium text-xs md:text-sm">

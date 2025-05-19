@@ -31,11 +31,16 @@ export default function WorkPage() {
   }
 
   return (
-    <div className="container mx-auto py-10 pt-24">
+    <div className="mx-auto">
       <StaggeredContainer containerClassName="flex flex-col gap-4">
-        <h1 className="text-2xl font-semibold">Work</h1>
-
-        <p>This is some of my life&apos;s work, laid bare in a table.</p>
+        <h1 className="flex flex-col font-black leading-[0.65]">
+          Work.
+          <div className="flex flex-wrap">
+            <span className="text-primary/15 leading-[0.95]">
+              Contributions over the years.
+            </span>
+          </div>
+        </h1>
 
         <FiltersBar
           setFilterState={setFilterState}
@@ -48,12 +53,6 @@ export default function WorkPage() {
           sortingState={sortingState}
           setSortingState={setSortingState}
           noBottomBorder
-          // TODO: Gather feedback on this.
-          // rowClassName={(row) =>
-          //   Boolean(row.project.label === "majorContribution")
-          //     ? "bg-gradient-to-r from-orange-900/20 via-50% via-orange-900/5 to-transparent"
-          //     : ""
-          // }
         />
       </StaggeredContainer>
     </div>

@@ -5,13 +5,13 @@ import { StaggeredContainer } from "../framer-animations/components/StaggeredCon
 export default function Hero() {
   return (
     <StaggeredContainer containerClassName="flex flex-col gap-7 w-full md:w-4/6 text-pretty">
-      <h1 className="flex flex-col items-start leading-[0.6] font-black text-primary">
+      <h1 className="flex flex-col items-start leading-[0.65] font-black text-primary">
         Ammar.
         <div className="flex flex-wrap">
-          <span className="text-primary/15 leading-[0.9]">Engineer.</span>
-          <span className="text-primary/10 leading-[0.9]">Product.</span>
-          <span className="text-primary/5 leading-[0.9]">Communicator.</span>
-          <span className="text-primary/5 leading-[0.9]">Designer.</span>
+          <span className="text-primary/15 leading-[0.95]">Engineer.</span>
+          <span className="text-primary/10 leading-[0.95]">Product.</span>
+          <span className="text-primary/5 leading-[0.95]">Communicator.</span>
+          <span className="text-primary/5 leading-[0.95]">Designer.</span>
         </div>
       </h1>
 

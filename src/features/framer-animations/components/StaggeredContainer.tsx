@@ -1,5 +1,6 @@
 import { motion, Variants } from "framer-motion";
 import React, { PropsWithChildren } from "react";
+import { useInView } from "react-intersection-observer";
 
 export const StaggeredContainer = ({
   children,
@@ -13,6 +14,12 @@ export const StaggeredContainer = ({
   containerClassName?: string;
   childClassName?: string;
 } & PropsWithChildren) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0,
+    delay: 100,
+  });
+
   // Parent container variants
   const containerVariants: Variants = {
     hidden: {},
@@ -39,10 +46,11 @@ export const StaggeredContainer = ({
 
   return (
     <motion.div
+      ref={ref}
       className={containerClassName}
       variants={containerVariants}
       initial="hidden"
-      animate="show"
+      animate={inView ? "show" : "hidden"}
     >
       {React.Children.map(children, (child) => (
         <motion.div className={childClassName} variants={childVariants}>
