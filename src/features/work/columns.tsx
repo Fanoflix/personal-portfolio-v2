@@ -43,9 +43,9 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
         </div>
       );
     },
-    minSize: 100,
-    size: 60,
-    maxSize: 60,
+    minSize: 150,
+    size: 80,
+    maxSize: 80,
   },
   {
     accessorKey: "project.name",
@@ -63,8 +63,8 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
     id: "category",
     accessorFn: (row) => WORK_LABELS[row.project.label].weight.toString(),
     header: "Category",
-    minSize: 150,
-    maxSize: 150,
+    minSize: 200,
+    maxSize: 200,
     cell: ({ row }) => {
       const label = WORK_LABELS[row.original.project.label];
 

@@ -14,7 +14,7 @@ export const layoutVariants: Variants = {
       duration: 0.35,
       ease: "easeInOut",
       filter: {
-        duration: 0.8,
+        duration: 1,
       },
     },
   },
@@ -56,7 +56,7 @@ export const filtersBarVariants: Variants = {
 export const NavBarVariants: Variants = {
   hidden: {
     opacity: 0.6,
-    filter: "blur(5px)",
+    filter: "blur(7px)",
   },
   visible: {
     filter: "blur(0px)",
@@ -69,7 +69,7 @@ export const NavBarVariants: Variants = {
   },
   out: {
     opacity: 0.6,
-    filter: "blur(5px)",
+    filter: "blur(7px)",
     transition: {
       duration: 0.25,
       ease: "easeOut",

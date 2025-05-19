@@ -34,11 +34,11 @@ export default function Navbar() {
               <MyLogo />
               <Link
                 prefetch
-                className="flex gap-1.5 text-text hover:text-primary text-nowrap w-max"
+                className="flex gap-1.5 text-text hover:text-primary text-nowrap w-max font-semibold"
                 href="/"
               >
-                <span className="text-primary font-medium">Muhammad Ammar</span>
-                <span>Software Engineer</span>
+                <span className="text-primary">Muhammad Ammar</span>
+                <span className="text-primary/30">Software Engineer</span>
               </Link>
             </div>
 
