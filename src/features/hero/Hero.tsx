@@ -21,17 +21,12 @@ export default function Hero() {
       </p>
 
       <p>
-        I build products, bringing together design, engineering, and the
-        business side of things; (
-        <b className="text-primary font-medium text-nowrap">
-          Product engineering
-        </b>
-        ). I'm currently working with a great team at{" "}
-        <a className="text-primary font-medium" href="#work-experience-Metal">
-          Metal
-        </a>
-        . I always aim to help the places I work reach their full potential, and
-        I strongly believe in using AI smartly in engineering to do that.
+        I am currently operating as a{" "}
+        <b className="text-primary font-medium text-nowrap">Product Engineer</b>
+        , which includes doing anything and everything possible
+        (FE/BE/Product-thinking/Design) to flesh out the best work possible.
+        Though, I am largely creative, experienced and excellent at Frontend
+        Engineering.
       </p>
 
       <p>

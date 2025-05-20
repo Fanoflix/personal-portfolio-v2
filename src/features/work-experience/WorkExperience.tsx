@@ -30,9 +30,9 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
           </span>
           <p className="flex flex-col gap-2">
             <span>
-              As the second Frontend-focused engineer at Metal, I work as a
-              product engineer, contributing to design, UX, Frontend, and
-              Backend.
+              As the second Frontend-focused engineer at Metal, I operate as a
+              <i>"product engineer"</i>, contributing to design, UX, Frontend,
+              Backend and Product side of things.
             </span>
 
             <span>
@@ -40,8 +40,8 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
               performance in mind. Created core features across the application,
               such as search & CRM to name a few. Set standards throughout the
               team. Focused on providing a game-like user experience. Mentored
-              engineers, conduced code reviews, and held high-quality
-              conversational and deep interviews.
+              engineers, conducted code reviews, and held high-quality
+              interviews.
             </span>
           </p>
         </div>
