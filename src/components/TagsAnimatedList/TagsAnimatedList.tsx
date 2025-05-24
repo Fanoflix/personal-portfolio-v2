@@ -32,7 +32,7 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
       let totalWidth = 0;
       // Sum width of all elements to the right (indices 0 to index-1)
       for (let i = 0; i < index; i++) {
-        totalWidth += getEstimatedWidth(sortedTags[i].name) - index + 2;
+        totalWidth += getEstimatedWidth(sortedTags[i].name) - index + 1.5;
       }
 
       return totalWidth;
@@ -70,7 +70,8 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
         >
           <div
             className={cn(
-              "flex items-center justify-center px-2 h-6 rounded-full cursor-pointer",
+              "flex items-center justify-center px-2 h-6 cursor-pointer",
+              "rounded-md",
               index != tags.length - 1 && "pl-3",
               "border border-primary/15",
               "bg-background hover:bg-border",
