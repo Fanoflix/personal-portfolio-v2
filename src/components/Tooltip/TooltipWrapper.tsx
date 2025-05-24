@@ -13,6 +13,7 @@ export default function TooltipWrapper({
   side = "bottom",
   sideOffset = 25,
   contentClassName,
+  disableHoverableContent = false,
 }: {
   children: React.ReactNode;
   delayDuration?: number;
@@ -20,10 +21,11 @@ export default function TooltipWrapper({
   side?: "top" | "bottom" | "left" | "right";
   sideOffset?: number;
   contentClassName?: string;
+  disableHoverableContent?: boolean;
 }) {
   return (
-    <TooltipProvider>
-      <Tooltip delayDuration={delayDuration}>
+    <TooltipProvider delayDuration={delayDuration} disableHoverableContent>
+      <Tooltip>
         <TooltipTrigger asChild>{children}</TooltipTrigger>
         <TooltipContent
           className={cn(

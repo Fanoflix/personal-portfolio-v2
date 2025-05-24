@@ -4,6 +4,8 @@ import { cn } from "@/src/lib/utils";
 import { type ColumnDef } from "@tanstack/react-table";
 import { WORK_LABELS } from "./types";
 import { WorkWithSubRows } from "./WorkPage";
+import { useTheme } from "next-themes";
+import { TagsAnimatedList } from "../../components/TagsAnimatedList/TagsAnimatedList";
 
 export const columns: ColumnDef<WorkWithSubRows, string>[] = [
   {
@@ -52,8 +54,23 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
     id: "project",
     header: "Project",
     cell: ({ row }) => (
-      <div className="font-medium min-w-0 truncate">
-        {row.getValue("project")}
+      <div className="flex flex-nowrap items-center justify-between">
+        <p className="font-medium text-primary min-w-0 text-[12px] md:text-sm truncate">
+          {row.getValue("project")}
+        </p>
+
+        <TagsAnimatedList
+          tags={[
+            {
+              name: "Metal",
+              tooltip: "During tenure at Metal",
+              isSpecial: true,
+            },
+            { name: "TypeScript", tooltip: "Written in TypeScript" },
+            { name: "Next.js", tooltip: "Built with Next.js" },
+            { name: "Tailwind", tooltip: "Styled with Tailwind" },
+          ]}
+        />
       </div>
     ),
     minSize: 500,
@@ -66,6 +83,7 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
     minSize: 200,
     maxSize: 200,
     cell: ({ row }) => {
+      const { theme } = useTheme();
       const label = WORK_LABELS[row.original.project.label];
 
       return (
@@ -73,15 +91,16 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
           <span
             key={label.name}
             className={cn(
-              "flex items-center gap-1 text-sm font-semibold overflow-visible",
+              "flex items-center gap-1 text-xs md:text-sm font-medium overflow-visible",
               label.className,
             )}
           >
             {label.name}
-            <span className="animate-flame-flicker mb-1">
+            <span className="mb-1">
               {label.meta?.icon && (
                 <label.meta.icon
                   strokeWidth={1}
+                  fill={theme === "dark" ? "none" : "currentColor"}
                   className={cn("inline w-4 h-4", label.meta.iconClassName)}
                 />
               )}

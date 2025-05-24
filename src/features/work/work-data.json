@@ -5,6 +5,9 @@
       "project": {
         "id": "project-ml-pipeline",
         "name": "ML Pipeline Automation",
+        "company": {
+          "companyName": "Metal"
+        },
         "label": "majorContribution"
       },
       "date": "October 5, 2025",
@@ -14,7 +17,7 @@
       "id": "work-2025-2",
       "project": {
         "id": "project-data-viz",
-        "name": "Data Visualization Framework",
+        "name": "Data Visualization FrameworkData Visualization FrameworkData Visualization FrameworkData Visualization FrameworkData Visualization FrameworkData Visualization FrameworkData Visualization FrameworkData Visualization FrameworkData Visualization FrameworkData Visualization FrameworkData Visualization FrameworkData Visualization Framework",
         "label": "majorContribution"
       },
       "date": "July 22, 2025",

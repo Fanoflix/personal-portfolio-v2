@@ -31,7 +31,7 @@ export default function WorkPage() {
   }
 
   return (
-    <div className="mx-auto">
+    <div className="mx-auto" id="work">
       <StaggeredContainer containerClassName="flex flex-col gap-4">
         <h1 className="flex flex-col font-black leading-[0.65]">
           Work.
@@ -41,6 +41,11 @@ export default function WorkPage() {
             </span>
           </div>
         </h1>
+
+        <p className="text-sm text-muted-foreground">
+          This is a list of my contributions to various projects at various
+          companies.
+        </p>
 
         <FiltersBar
           setFilterState={setFilterState}

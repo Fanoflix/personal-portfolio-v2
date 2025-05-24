@@ -30,7 +30,7 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
           </span>
           <p className="flex flex-col gap-2">
             <span>
-              As the second Frontend-focused engineer at Metal, I operate as a
+              As the second Frontend-focused hire at Metal, I operate as a
               <i>"product engineer"</i>, contributing to design, UX, Frontend,
               Backend and Product side of things.
             </span>
@@ -129,6 +129,10 @@ export default function WorkExperience() {
           <span className="text-primary/15 leading-[0.95]">3 years.</span>
         </div>
       </h1>
+
+      <p className="text-sm">
+        You can expand or collapse each item for more details.
+      </p>
       <Accordion
         type="single"
         className="flex flex-col gap-3"

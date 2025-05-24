@@ -73,6 +73,8 @@
   html {
     overflow-x: hidden;
     margin-right: calc(-1 * (100vw - 100%));
+    scroll-padding-top: 100px;
+    scroll-behavior: smooth;
   }
 
   * {

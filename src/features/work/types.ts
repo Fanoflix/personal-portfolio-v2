@@ -10,6 +10,9 @@ export type Work = {
 export type WorkProject = {
   id: string;
   name: string;
+  company?: {
+    companyName: string;
+  };
   link?: string;
   label: WorkLabels;
 };
@@ -34,22 +37,27 @@ export type WorkLabel = {
 export const WORK_LABELS: Record<WorkLabels, WorkLabel> = {
   majorContribution: {
     name: "Major Contribution",
-    className: "p-1 h-7 text-orange-500 dark:text-orange-400",
+    className: "text-amber-500",
     weight: 4,
     meta: {
       icon: Flame,
-      iconClassName: "iconGlow-orange text-orange-500 dark:text-orange-300",
+      iconClassName: "dark:iconGlow-orange text-amber-500",
     },
   },
   minorContribution: {
     name: "Minor Contribution",
-    className: "p-1 h-7 text-blue-400",
+    className: "text-blue-500",
     weight: 2,
     meta: {},
   },
   sideProject: {
     name: "Side Project",
-    className: "p-1 h-7 text-green-400",
+    className: "text-green-500",
     weight: 1,
   },
+};
+
+export const WORK_COMPANY_TOOLTIP_TEXT: Record<string, string> = {
+  Metal:
+    "While working at Metal, I was the second Frontend-focused hire. I operated as a 'product engineer', contributing to design, UX, Frontend, Backend and Product side of things.",
 };

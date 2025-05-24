@@ -74,7 +74,7 @@ export default function WorkAccordionItem({
             </div>
           </div>
         </AccordionTrigger>
-        <AccordionContent className="py-6 px-6 pl-8 text-text">
+        <AccordionContent className="py-6 px-6 pl-8 text-text text-[14px]">
           {workItem.content}
         </AccordionContent>
       </AccordionItem>
