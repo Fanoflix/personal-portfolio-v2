@@ -34,7 +34,7 @@ export default function Navbar() {
               <Link
                 prefetch
                 className="flex gap-1.5 text-text hover:text-primary text-nowrap w-max font-semibold"
-                href="#home"
+                href="/"
               >
                 <span className="text-primary">Muhammad Ammar</span>
                 <span className="text-primary/30">Software Engineer</span>
@@ -47,7 +47,7 @@ export default function Navbar() {
                 className="text-[14px] text-text hover:text-primary"
                 href="#home"
               >
-                Home
+                Top
               </Link>
               <Link
                 prefetch
