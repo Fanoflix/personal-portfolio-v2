@@ -68,27 +68,19 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
             cumulativeWidth: getCumulativeWidthFromRight(index),
           }}
         >
-          <TooltipWrapper
-            side="top"
-            sideOffset={10}
-            tooltipContent={tag.tooltip}
-            contentClassName="text-xs"
-            disableHoverableContent
+          <div
+            className={cn(
+              "flex items-center justify-center px-2 h-6 rounded-full cursor-pointer",
+              index != tags.length - 1 && "pl-3",
+              "border border-primary/15",
+              "bg-background hover:bg-border",
+              "font-bold tracking-tight text-[9px] text-text hover:text-primary uppercase truncate min-w-0",
+              tag.isSpecial &&
+                "bg-primary hover:bg-primary/80 text-primary-foreground hover:text-primary-foreground border-black",
+            )}
           >
-            <div
-              className={cn(
-                "flex items-center justify-center px-2 h-6 rounded-full cursor-pointer",
-                index != tags.length - 1 && "pl-3",
-                "border border-primary/15",
-                "bg-background hover:bg-border",
-                "font-bold tracking-tight text-[9px] text-text hover:text-primary uppercase truncate min-w-0",
-                tag.isSpecial &&
-                  "bg-primary hover:bg-primary/80 text-primary-foreground hover:text-primary-foreground border-black",
-              )}
-            >
-              {tag.name}
-            </div>
-          </TooltipWrapper>
+            {tag.name}
+          </div>
         </motion.div>
       ))}
     </motion.div>
@@ -103,10 +95,10 @@ const TagsContainerMotion: Variants = {
     overlappedWidth: number;
     expandedWidth: number;
   }) => ({
-    width: expandedWidth,
+    width: expandedWidth / 2.2, // Magic number to make it look good
     transition: {
-      duration: 0.25,
-      ease: "easeOut",
+      duration: 0.2,
+      ease: "backInOut",
     },
   }),
   hover: ({
@@ -116,10 +108,10 @@ const TagsContainerMotion: Variants = {
     overlappedWidth: number;
     expandedWidth: number;
   }) => ({
-    width: expandedWidth,
+    width: expandedWidth / 1.3, // Magic number to make it look good
     transition: {
-      duration: 0.25,
-      ease: "easeOut",
+      duration: 0.2,
+      ease: "backInOut",
     },
   }),
 };
@@ -134,8 +126,8 @@ const SingleTagMotion: Variants = {
   }) => ({
     translateX: index * -20, // Overlap by 3px per item
     transition: {
-      duration: 0.25,
-      ease: "easeOut",
+      duration: 0.2,
+      ease: "backInOut",
     },
   }),
   hover: ({
@@ -147,8 +139,8 @@ const SingleTagMotion: Variants = {
   }) => ({
     translateX: -cumulativeWidth, // Position side by side using cumulative width
     transition: {
-      duration: 0.25,
-      ease: "easeOut",
+      duration: 0.2,
+      ease: "backInOut",
     },
   }),
 };

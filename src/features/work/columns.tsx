@@ -55,22 +55,24 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
     header: "Project",
     cell: ({ row }) => (
       <div className="flex flex-nowrap items-center justify-between">
-        <p className="font-medium text-primary min-w-0 text-[12px] md:text-sm truncate">
+        <p className="font-medium text-primary text-[12px] md:text-sm truncate flex-1">
           {row.getValue("project")}
         </p>
 
-        <TagsAnimatedList
-          tags={[
-            {
-              name: "Metal",
-              tooltip: "During tenure at Metal",
-              isSpecial: true,
-            },
-            { name: "TypeScript", tooltip: "Written in TypeScript" },
-            { name: "Next.js", tooltip: "Built with Next.js" },
-            { name: "Tailwind", tooltip: "Styled with Tailwind" },
-          ]}
-        />
+        <div className="flex-shrink-0">
+          <TagsAnimatedList
+            tags={[
+              {
+                name: "Metal",
+                tooltip: "During tenure at Metal",
+                isSpecial: true,
+              },
+              { name: "TypeScript", tooltip: "Written in TypeScript" },
+              { name: "Next.js", tooltip: "Built with Next.js" },
+              { name: "Tailwind", tooltip: "Styled with Tailwind" },
+            ]}
+          />
+        </div>
       </div>
     ),
     minSize: 500,
