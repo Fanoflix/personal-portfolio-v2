@@ -1,10 +1,20 @@
+import { Tags } from "@/src/components/TagsAnimatedList/TagsAnimatedList";
 import { Flame, LucideProps } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
+
+export type WorkByYear = {
+  [year: string]: Work[];
+};
+
+export type WorkWithSubRows = Work & {
+  subRows?: Work[];
+};
 
 export type Work = {
   id: string;
   project: WorkProject;
   date: string;
+  category: string;
 };
 
 export type WorkProject = {
@@ -13,6 +23,7 @@ export type WorkProject = {
   company?: {
     companyName: string;
   };
+  tags: Tags[];
   link?: string;
   label: WorkLabels;
 };
@@ -55,9 +66,4 @@ export const WORK_LABELS: Record<WorkLabels, WorkLabel> = {
     className: "text-green-500",
     weight: 1,
   },
-};
-
-export const WORK_COMPANY_TOOLTIP_TEXT: Record<string, string> = {
-  Metal:
-    "While working at Metal, I was the second Frontend-focused hire. I operated as a 'product engineer', contributing to design, UX, Frontend, Backend and Product side of things.",
 };

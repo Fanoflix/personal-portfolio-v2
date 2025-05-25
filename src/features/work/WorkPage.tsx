@@ -6,16 +6,8 @@ import { useMemo, useState } from "react";
 import { StaggeredContainer } from "../framer-animations/components/StaggeredContainer";
 import { columns } from "./columns";
 import { FiltersBar } from "./FiltersBar";
-import { Work } from "./types";
-import WORK_DATA from "./work-data.json";
-
-type WorkByYear = {
-  [year: string]: Work[];
-};
-
-export type WorkWithSubRows = Work & {
-  subRows?: Work[];
-};
+import { Work, WorkByYear, WorkWithSubRows } from "./types";
+import { WORK_DATA } from "./work-data";
 
 export default function WorkPage() {
   const {

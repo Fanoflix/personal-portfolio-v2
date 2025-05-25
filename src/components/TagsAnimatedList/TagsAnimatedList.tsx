@@ -7,7 +7,6 @@ import { useCallback, useMemo } from "react";
 
 export interface Tags {
   name: string;
-  tooltip: string;
   isSpecial?: boolean;
 }
 
@@ -23,7 +22,7 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
 
   // Calculate estimated widths for positioning
   const getEstimatedWidth = useCallback((tagName: string) => {
-    // Rough estimation: 8px per character + padding
+    // Rough estimation: 8px per character
     return tagName.length * 8;
   }, []);
 
@@ -32,7 +31,7 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
       let totalWidth = 0;
       // Sum width of all elements to the right (indices 0 to index-1)
       for (let i = 0; i < index; i++) {
-        totalWidth += getEstimatedWidth(sortedTags[i].name) - index + 1.5;
+        totalWidth += getEstimatedWidth(sortedTags[i].name) - index + 1;
       }
 
       return totalWidth;

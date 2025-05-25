@@ -2,8 +2,7 @@
 
 import { cn } from "@/src/lib/utils";
 import { type ColumnDef } from "@tanstack/react-table";
-import { WORK_LABELS } from "./types";
-import { WorkWithSubRows } from "./WorkPage";
+import { WORK_LABELS, WorkWithSubRows } from "./types";
 import { useTheme } from "next-themes";
 import { TagsAnimatedList } from "../../components/TagsAnimatedList/TagsAnimatedList";
 
@@ -11,6 +10,7 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
   {
     id: "date",
     accessorFn: (row) => {
+      if (!row.date) return "date";
       const date = new Date(row.date);
       return date.toISOString();
     },
@@ -62,14 +62,11 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
         <div className="flex-shrink-0">
           <TagsAnimatedList
             tags={[
+              ...row.original.project.tags,
               {
-                name: "Metal",
-                tooltip: "During tenure at Metal",
+                name: row.original.project.company?.companyName || "Personal",
                 isSpecial: true,
               },
-              { name: "TypeScript", tooltip: "Written in TypeScript" },
-              { name: "Next.js", tooltip: "Built with Next.js" },
-              { name: "Tailwind", tooltip: "Styled with Tailwind" },
             ]}
           />
         </div>

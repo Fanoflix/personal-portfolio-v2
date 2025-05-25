@@ -3,7 +3,7 @@
 import { Button } from "@/src/components/Button/button";
 import { AnimatePresence, motion } from "framer-motion";
 import { filtersBarVariants } from "../framer-animations/variants";
-import WORK_DATA from "./work-data.json";
+import { WORK_DATA } from "./work-data";
 
 type FiltersBarProps = {
   setFilterState: (year: string) => void;
