@@ -16,7 +16,7 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "DEV:Ammar | SWE",
+  title: "Ammar | SWE",
   description: "Software Engineer, Frontend Focused.",
 };
 
