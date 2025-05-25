@@ -23,16 +23,6 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
     overlappedWidth,
   } = useTagsAnimatedList({ tags });
 
-  useEffect(() => {
-    for (let i = 0; i < sortedTags.length; i++) {
-      console.log({
-        i,
-        cumWidth: getCumulativeWidthFromRight(i),
-        name: sortedTags[i].name,
-      });
-    }
-  }, [sortedTags]);
-
   return (
     <motion.div
       initial="rest"
@@ -58,13 +48,13 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
         >
           <div
             className={cn(
-              "flex items-center justify-center px-1.5 h-[22px] cursor-pointer",
+              "flex items-center justify-center px-1.5 h-[21px] cursor-pointer",
               "rounded-sm",
               !index && "rounded-r-lg",
               index === sortedTags.length - 1 && "rounded-l-lg",
               "border border-primary/15",
               "bg-background hover:bg-border",
-              "font-mono uppercase font-black tracking-tight text-[9px] text-text hover:text-primary truncate min-w-0",
+              "font-mono font-black tracking-tight text-[10px] text-text hover:text-primary truncate min-w-0",
               tag.isSpecial &&
                 "bg-primary hover:bg-primary/80 text-primary-foreground hover:text-primary-foreground border-black",
             )}
@@ -127,7 +117,7 @@ const SingleTagMotion: Variants = {
     index: number;
     cumulativeWidth: number;
   }) => ({
-    translateX: -cumulativeWidth, // Position side by side using cumulative width
+    translateX: -cumulativeWidth,
     transition: {
       duration: 0.2,
       ease: "backInOut",

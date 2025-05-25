@@ -17,7 +17,7 @@ export function useTagsAnimatedList({
   tags,
 }: UseTagsAnimatedListProps): UseTagsAnimatedListReturn {
   let sortedTags = useMemo(
-    () => tags.sort((a, b) => a.name.length - b.name.length),
+    () => tags.toSorted((a, b) => a.name.length - b.name.length),
     [tags],
   );
 
@@ -26,7 +26,7 @@ export function useTagsAnimatedList({
   sortedTags = [...specialTags, ...nonSpecialTags];
 
   const getEstimatedWidth = useCallback((tagName: string) => {
-    const estimatedWidthPerMonoSpaceCharacter = 5;
+    const estimatedWidthPerMonoSpaceCharacter = 5.5;
     const xPadding = 12;
     const extraSpace = 1;
     const widthOfPill =
@@ -40,7 +40,6 @@ export function useTagsAnimatedList({
   const getCumulativeWidthFromRight = useCallback(
     (index: number) => {
       let totalWidth = 0;
-      // Sum width of all elements to the right (indices 0 to index-1)
       for (let i = 0; i < index; i++) {
         totalWidth += getEstimatedWidth(sortedTags[i].name);
       }
@@ -53,7 +52,7 @@ export function useTagsAnimatedList({
   const totalExpandedWidth =
     getCumulativeWidthFromRight(sortedTags.length) +
     getEstimatedWidth(sortedTags[sortedTags.length - 1]?.name || "");
-  const overlappedWidth = Math.max(100, sortedTags.length * 40); // Minimum width when overlapped
+  const overlappedWidth = Math.max(100, sortedTags.length * 50); // Minimum width when overlapped
 
   return {
     sortedTags,
