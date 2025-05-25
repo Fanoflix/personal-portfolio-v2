@@ -27,6 +27,7 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
     <motion.div
       initial="rest"
       whileHover="hover"
+      whileTap="hover"
       animate="rest"
       variants={TagsContainerMotion}
       className={cn(
