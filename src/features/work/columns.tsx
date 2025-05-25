@@ -55,7 +55,7 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
     header: "Project",
     cell: ({ row }) => (
       <div className="flex flex-nowrap items-center justify-between pr-10">
-        <p className="font-medium text-primary text-[12px] md:text-sm truncate flex-1">
+        <p className="font-medium text-primary text-[12px] md:text-sm truncate flex-1 px-2">
           {row.getValue("project")}
         </p>
 

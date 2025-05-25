@@ -36,7 +36,7 @@ export default function WorkPage() {
 
         <p className="text-sm text-muted-foreground">
           This is a list of my contributions to various projects at various
-          companies.
+          companies. Currently only contains what I remember 👀.
         </p>
 
         <FiltersBar
