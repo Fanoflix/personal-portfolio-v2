@@ -3,7 +3,8 @@
 import TooltipWrapper from "@/src/components/Tooltip/TooltipWrapper";
 import { cn } from "@/src/lib/utils";
 import { motion, Variants } from "framer-motion";
-import { useCallback, useMemo } from "react";
+import { useTagsAnimatedList } from "./useTagsAnimatedList";
+import { useEffect } from "react";
 
 export interface Tags {
   name: string;
@@ -15,34 +16,22 @@ interface TagsAnimatedListProps {
 }
 
 export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
-  const sortedTags = useMemo(
-    () => tags.sort((a, b) => a.name.length - b.name.length),
-    [tags],
-  );
+  const {
+    sortedTags,
+    getCumulativeWidthFromRight,
+    totalExpandedWidth,
+    overlappedWidth,
+  } = useTagsAnimatedList({ tags });
 
-  // Calculate estimated widths for positioning
-  const getEstimatedWidth = useCallback((tagName: string) => {
-    // Rough estimation: 8px per character
-    return tagName.length * 8;
-  }, []);
-
-  const getCumulativeWidthFromRight = useCallback(
-    (index: number) => {
-      let totalWidth = 0;
-      // Sum width of all elements to the right (indices 0 to index-1)
-      for (let i = 0; i < index; i++) {
-        totalWidth += getEstimatedWidth(sortedTags[i].name) - index + 1;
-      }
-
-      return totalWidth;
-    },
-    [sortedTags, getEstimatedWidth],
-  );
-
-  const totalExpandedWidth =
-    getCumulativeWidthFromRight(sortedTags.length) +
-    getEstimatedWidth(sortedTags[sortedTags.length - 1]?.name || "");
-  const overlappedWidth = Math.max(100, sortedTags.length * 40); // Minimum width when overlapped
+  useEffect(() => {
+    for (let i = 0; i < sortedTags.length; i++) {
+      console.log({
+        i,
+        cumWidth: getCumulativeWidthFromRight(i),
+        name: sortedTags[i].name,
+      });
+    }
+  }, [sortedTags]);
 
   return (
     <motion.div
@@ -69,12 +58,13 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
         >
           <div
             className={cn(
-              "flex items-center justify-center px-2 h-6 cursor-pointer",
-              "rounded-md",
-              index != tags.length - 1 && "pl-3",
+              "flex items-center justify-center px-1.5 h-[22px] cursor-pointer",
+              "rounded-sm",
+              !index && "rounded-r-lg",
+              index === sortedTags.length - 1 && "rounded-l-lg",
               "border border-primary/15",
               "bg-background hover:bg-border",
-              "font-bold tracking-tight text-[9px] text-text hover:text-primary uppercase truncate min-w-0",
+              "font-mono uppercase font-black tracking-tight text-[9px] text-text hover:text-primary truncate min-w-0",
               tag.isSpecial &&
                 "bg-primary hover:bg-primary/80 text-primary-foreground hover:text-primary-foreground border-black",
             )}
@@ -95,7 +85,7 @@ const TagsContainerMotion: Variants = {
     overlappedWidth: number;
     expandedWidth: number;
   }) => ({
-    width: expandedWidth / 2.2, // Magic number to make it look good
+    width: expandedWidth / 2.1, // Magic number to make it look good
     transition: {
       duration: 0.2,
       ease: "backInOut",
@@ -108,7 +98,7 @@ const TagsContainerMotion: Variants = {
     overlappedWidth: number;
     expandedWidth: number;
   }) => ({
-    width: expandedWidth / 1.3, // Magic number to make it look good
+    width: expandedWidth / 1.2,
     transition: {
       duration: 0.2,
       ease: "backInOut",
@@ -124,7 +114,7 @@ const SingleTagMotion: Variants = {
     index: number;
     cumulativeWidth: number;
   }) => ({
-    translateX: index * -20, // Overlap by 3px per item
+    translateX: index * -20,
     transition: {
       duration: 0.2,
       ease: "backInOut",

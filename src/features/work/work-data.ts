@@ -1,63 +1,63 @@
 import { WorkByYear } from "./types";
 
 export const WORK_DATA: WorkByYear = {
-  "2025": [
-    {
-      id: "work-2025-1",
-      project: {
-        id: "my-first-ever-personal-website",
-        name: "My first ever Personal website",
-        label: "majorContribution",
-        tags: [
-          { name: "VueJS 3" },
-          { name: "Typescript" },
-          { name: "Google Apps Script" },
-        ],
-      },
-      date: "August 1, 2025",
-      category: "Mobile Development",
-    },
-  ],
-  "2024": [
-    {
-      id: "work-2024-1",
-      project: {
-        id: "my-first-ever-personal-website",
-        name: "My first ever Personal website",
-        label: "majorContribution",
-        tags: [
-          { name: "VueJS 3" },
-          { name: "Typescript" },
-          { name: "Google Apps Script" },
-        ],
-      },
-      date: "August 1, 2024",
-      category: "Mobile Development",
-    },
-  ],
-  "2023": [
-    {
-      id: "work-2023-1",
-      project: {
-        id: "my-first-ever-personal-website",
-        name: "My first ever Personal website",
-        label: "majorContribution",
-        tags: [
-          { name: "VueJS 3" },
-          { name: "Typescript" },
-          { name: "Google Apps Script" },
-        ],
-      },
-      date: "August 1, 2023",
-      category: "Mobile Development",
-    },
-  ],
+  // "2025": [
+  //   {
+  //     project: {
+  //       name: "My first ever Personal website",
+  //       label: "majorContribution",
+  //       tags: [
+  //         { name: "VueJS 3" },
+  //         { name: "Typescript" },
+  //         { name: "Google Apps Script" },
+  //       ],
+  //     },
+  //     date: "August 1, 2025",
+  //     category: "Mobile Development",
+  //   },
+  // ],
+  // "2024": [
+  //   {
+  //     project: {
+  //       name: "My first ever Personal website",
+  //       label: "majorContribution",
+  //       tags: [
+  //         { name: "VueJS 3" },
+  //         { name: "Typescript" },
+  //         { name: "Google Apps Script" },
+  //       ],
+  //     },
+  //     date: "August 1, 2024",
+  //     category: "Mobile Development",
+  //   },
+  // ],
+  // "2023": [
+  //   {
+  //     project: {
+  //       name: "My first ever Personal website",
+  //       label: "majorContribution",
+  //       tags: [
+  //         { name: "VueJS 3" },
+  //         { name: "Typescript" },
+  //         { name: "Google Apps Script" },
+  //       ],
+  //     },
+  //     date: "August 1, 2023",
+  //     category: "Mobile Development",
+  //   },
+  // ],
   "2022": [
     {
-      id: "work-2022-1",
       project: {
-        id: "my-first-ever-personal-website",
-        name: "My first ever Personal website",
+        name: "Fatefy — Vue3 Public Template",
+        label: "sideProject",
+        tags: [{ name: "Vue3" }, { name: "Typescript" }, { name: "Scss" }],
+      },
+      date: "April 1, 2022",
+    },
+    {
+      project: {
+        name: "Portfolio Website V1",
         label: "majorContribution",
         tags: [
           { name: "VueJS 3" },
@@ -66,14 +66,11 @@ export const WORK_DATA: WorkByYear = {
         ],
       },
       date: "August 1, 2022",
-      category: "Mobile Development",
     },
     {
-      id: "work-2022-2",
       project: {
-        id: "project-api-gateway",
-        name: "Parking Assistant App (Final Year Project)",
-        label: "majorContribution",
+        name: "Parking Assistant App — Final Year Project Parking Assistant App — Final Year Project",
+        label: "sideProject",
         tags: [
           { name: "Ionic" },
           { name: "Typescript" },
@@ -82,7 +79,6 @@ export const WORK_DATA: WorkByYear = {
         ],
       },
       date: "October 1, 2022",
-      category: "Backend Development",
     },
   ],
 };

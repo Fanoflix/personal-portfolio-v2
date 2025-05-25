@@ -11,14 +11,11 @@ export type WorkWithSubRows = Work & {
 };
 
 export type Work = {
-  id: string;
   project: WorkProject;
   date: string;
-  category: string;
 };
 
 export type WorkProject = {
-  id: string;
   name: string;
   company?: {
     companyName: string;
