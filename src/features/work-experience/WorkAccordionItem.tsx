@@ -65,7 +65,7 @@ export default function WorkAccordionItem({
               </p>
 
               {workItem.current && (
-                <div className="w-2 h-2 bg-green-500 rounded-full" />
+                <div className="min-w-2 min-h-2 bg-green-500 rounded-full" />
               )}
 
               <p className="text-primary/30">
