@@ -17,7 +17,7 @@ export function useTagsAnimatedList({
   tags,
 }: UseTagsAnimatedListProps): UseTagsAnimatedListReturn {
   let sortedTags = useMemo(
-    () => tags.toSorted((a, b) => a.name.length - b.name.length),
+    () => tags.sort((a, b) => a.name.length - b.name.length),
     [tags],
   );
 
