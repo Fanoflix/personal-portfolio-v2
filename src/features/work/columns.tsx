@@ -2,9 +2,12 @@
 
 import { cn } from "@/src/lib/utils";
 import { type ColumnDef } from "@tanstack/react-table";
-import { WORK_LABELS, WorkWithSubRows } from "./types";
+import { ArrowUpRight } from "lucide-react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import { TagsAnimatedList } from "../../components/TagsAnimatedList/TagsAnimatedList";
+import { WrapConditionally } from "../../components/WrapConditionally/WrapConditionally";
+import { WORK_LABELS, WorkWithSubRows } from "./types";
 
 export const columns: ColumnDef<WorkWithSubRows, string>[] = [
   {
@@ -53,25 +56,57 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
     accessorKey: "project.name",
     id: "project",
     header: "Project",
-    cell: ({ row }) => (
-      <div className="flex flex-nowrap items-center justify-between pr-10">
-        <p className="font-medium text-primary text-[12px] md:text-sm truncate flex-1 px-2">
-          {row.getValue("project")}
-        </p>
+    cell: ({ row }) => {
+      const projectLink = row.original.project.link;
 
-        <div className="flex-shrink-0">
-          <TagsAnimatedList
-            tags={[
-              ...row.original.project.tags,
-              {
-                name: row.original.project.company?.companyName || "Personal",
-                isSpecial: true,
-              },
-            ]}
-          />
+      return (
+        <div className="flex flex-nowrap items-center justify-between pr-10">
+          <WrapConditionally
+            condition={!!projectLink}
+            wrapper={(wrapperChildren) => (
+              <Link
+                href={projectLink || ""}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {wrapperChildren}
+              </Link>
+            )}
+          >
+            <div className="flex items-center gap-1 font-medium text-primary text-[12px] md:text-sm px-2 min-w-0">
+              <p
+                className={cn(
+                  "truncate flex-1 min-w-0 text-primary/75",
+                  projectLink &&
+                    "hover:underline hover:text-primary underline-offset-[6px] cursor-pointer",
+                )}
+              >
+                {row.getValue("project")}
+              </p>
+              {projectLink && (
+                <ArrowUpRight
+                  className="flex-shrink-0"
+                  size={18}
+                  strokeWidth={3}
+                />
+              )}
+            </div>
+          </WrapConditionally>
+
+          <div className="flex-shrink-0">
+            <TagsAnimatedList
+              tags={[
+                ...row.original.project.tags,
+                {
+                  name: row.original.project.company?.companyName || "Personal",
+                  isSpecial: true,
+                },
+              ]}
+            />
+          </div>
         </div>
-      </div>
-    ),
+      );
+    },
     minSize: 500,
     maxSize: 500,
   },
