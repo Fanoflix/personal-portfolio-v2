@@ -1,8 +1,7 @@
 import { Accordion } from "@/src/components/Accordion/Accordion";
-import React from "react";
-import WorkAccordionItem, { WorkItem } from "./WorkAccordionItem";
 import InlineLink from "@/src/components/InlineLink/InlineLink";
 import { StaggeredContainer } from "../framer-animations/components/StaggeredContainer";
+import WorkAccordionItem, { WorkItem } from "./WorkAccordionItem";
 
 export const WORK_EXPERIENCE_DATA: WorkItem[] = [
   {
@@ -126,7 +125,9 @@ export default function WorkExperience() {
       <h1 className="flex flex-col font-black leading-[0.65]">
         Experiences.
         <div className="flex flex-wrap">
-          <span className="text-primary/15 leading-[0.95]">3 years.</span>
+          <span className="dark:text-primary/15 text-primary/25 leading-[0.95]">
+            3 years.
+          </span>
         </div>
       </h1>
 

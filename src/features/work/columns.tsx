@@ -60,51 +60,56 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
       const projectLink = row.original.project.link;
 
       return (
-        <div className="flex flex-nowrap items-center justify-between pr-10">
-          <WrapConditionally
-            condition={!!projectLink}
-            wrapper={(wrapperChildren) => (
-              <Link
-                href={projectLink || ""}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {wrapperChildren}
-              </Link>
-            )}
-          >
-            <div className="flex items-center gap-1 font-medium text-primary text-[12px] md:text-sm px-2 min-w-0">
+        <WrapConditionally
+          condition={!!projectLink}
+          wrapper={(wrapperChildren) => (
+            <Link
+              href={projectLink || ""}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contents"
+            >
+              {wrapperChildren}
+            </Link>
+          )}
+        >
+          <div className="flex flex-nowrap items-center justify-between pr-10 group">
+            <div
+              className={cn(
+                "flex items-center gap-2 font-medium text-primary text-[12px] md:text-sm pr-1 min-w-0 border-b border-transparent",
+                projectLink && "group-hover:border-primary cursor-pointer",
+              )}
+            >
               <p
-                className={cn(
-                  "truncate flex-1 min-w-0 text-primary/75",
-                  projectLink &&
-                    "hover:underline hover:text-primary underline-offset-[6px] cursor-pointer",
-                )}
+                className={
+                  "truncate flex-1 min-w-0 text-primary border-transparent"
+                }
               >
                 {row.getValue("project")}
               </p>
               {projectLink && (
                 <ArrowUpRight
                   className="flex-shrink-0"
-                  size={18}
+                  size={17}
                   strokeWidth={3}
                 />
               )}
             </div>
-          </WrapConditionally>
 
-          <div className="flex-shrink-0">
-            <TagsAnimatedList
-              tags={[
-                ...row.original.project.tags,
-                {
-                  name: row.original.project.company?.companyName || "Personal",
-                  isSpecial: true,
-                },
-              ]}
-            />
+            <div className="flex-shrink-0">
+              <TagsAnimatedList
+                tags={[
+                  ...row.original.project.tags,
+                  {
+                    name:
+                      row.original.project.company?.companyName || "Personal",
+                    isSpecial: true,
+                  },
+                ]}
+              />
+            </div>
           </div>
-        </div>
+        </WrapConditionally>
       );
     },
     minSize: 500,

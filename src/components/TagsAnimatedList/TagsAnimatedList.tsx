@@ -18,6 +18,7 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
     sortedTags,
     getCumulativeWidthFromRight,
     totalExpandedWidth,
+    totalWidthOfAllSpecialTags,
     overlappedWidth,
   } = useTagsAnimatedList({ tags });
 
@@ -32,6 +33,9 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
         "relative w-full",
         "flex flex-nowrap justify-end items-center h-8",
       )}
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
       custom={{ overlappedWidth, expandedWidth: totalExpandedWidth }}
     >
       {sortedTags.map((tag, index) => (
@@ -43,19 +47,19 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
           custom={{
             index,
             cumulativeWidth: getCumulativeWidthFromRight(index),
+            totalWidthOfAllSpecialTags,
           }}
         >
           <div
             className={cn(
-              "flex items-center justify-center px-1.5 h-[21px] cursor-pointer",
-              "rounded-sm",
-              !index && "rounded-r-lg",
-              index === sortedTags.length - 1 && "rounded-l-lg",
+              "flex items-center justify-center px-1.5 pl-5 h-[20px] cursor-default",
+              index === sortedTags.length - 1 && "pl-1.5",
+              "rounded-[6px]",
               "border border-primary/15",
               "bg-background hover:bg-border",
-              "font-mono font-black tracking-tight text-[10px] text-text hover:text-primary truncate min-w-0",
+              "font-mono font-black tracking-tight text-[10px] text-primary/70 hover:text-primary truncate min-w-0",
               tag.isSpecial &&
-                "bg-primary hover:bg-primary/80 text-primary-foreground hover:text-primary-foreground border-black",
+                "bg-primary/5 hover:bg-primary text-primary hover:text-primary-foreground font-normal",
             )}
           >
             {tag.name}
@@ -69,28 +73,32 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
 const TagsContainerMotion: Variants = {
   rest: ({
     overlappedWidth,
+    totalWidthOfAllSpecialTags,
     expandedWidth,
   }: {
     overlappedWidth: number;
+    totalWidthOfAllSpecialTags: number;
     expandedWidth: number;
   }) => ({
     width: expandedWidth / 2.1, // Magic number to make it look good
     transition: {
-      duration: 0.2,
-      ease: "backInOut",
+      duration: 0.3,
+      ease: "circOut",
     },
   }),
   hover: ({
     overlappedWidth,
     expandedWidth,
+    totalWidthOfAllSpecialTags,
   }: {
     overlappedWidth: number;
     expandedWidth: number;
+    totalWidthOfAllSpecialTags: number;
   }) => ({
     width: expandedWidth / 1.2,
     transition: {
-      duration: 0.2,
-      ease: "backInOut",
+      duration: 0.3,
+      ease: "circOut",
     },
   }),
 };
@@ -99,27 +107,31 @@ const SingleTagMotion: Variants = {
   rest: ({
     index,
     cumulativeWidth,
+    totalWidthOfAllSpecialTags,
   }: {
     index: number;
     cumulativeWidth: number;
+    totalWidthOfAllSpecialTags: number;
   }) => ({
-    translateX: index * -7,
+    translateX: index == 0 ? 0 : -totalWidthOfAllSpecialTags + (index - 1) * -6,
     transition: {
-      duration: 0.2,
-      ease: "backInOut",
+      duration: 0.3,
+      ease: "circOut",
     },
   }),
   hover: ({
     index,
     cumulativeWidth,
+    totalWidthOfAllSpecialTags,
   }: {
     index: number;
     cumulativeWidth: number;
+    totalWidthOfAllSpecialTags: number;
   }) => ({
     translateX: -cumulativeWidth,
     transition: {
-      duration: 0.2,
-      ease: "backInOut",
+      duration: 0.3,
+      ease: "circOut",
     },
   }),
 };

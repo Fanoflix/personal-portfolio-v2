@@ -9,6 +9,7 @@ interface UseTagsAnimatedListReturn {
   sortedTags: Tags[];
   getEstimatedWidth: (tagName: string) => number;
   getCumulativeWidthFromRight: (index: number) => number;
+  totalWidthOfAllSpecialTags: number;
   totalExpandedWidth: number;
   overlappedWidth: number;
 }
@@ -26,13 +27,10 @@ export function useTagsAnimatedList({
   sortedTags = [...specialTags, ...nonSpecialTags];
 
   const getEstimatedWidth = useCallback((tagName: string) => {
-    const estimatedWidthPerMonoSpaceCharacter = 5.25;
+    const estimatedWidthPerMonoSpaceCharacter = 5.4;
     const xPadding = 12;
-    const extraSpace = 1;
     const widthOfPill =
-      tagName.length * estimatedWidthPerMonoSpaceCharacter +
-      xPadding +
-      extraSpace;
+      tagName.length * estimatedWidthPerMonoSpaceCharacter + xPadding;
 
     return widthOfPill;
   }, []);
@@ -49,6 +47,13 @@ export function useTagsAnimatedList({
     [sortedTags, getEstimatedWidth],
   );
 
+  const totalWidthOfAllSpecialTags = useMemo(() => {
+    return specialTags.reduce(
+      (acc, tag) => acc + getEstimatedWidth(tag.name),
+      0,
+    );
+  }, [specialTags, getEstimatedWidth]);
+
   const totalExpandedWidth =
     getCumulativeWidthFromRight(sortedTags.length) +
     getEstimatedWidth(sortedTags[sortedTags.length - 1]?.name || "");
@@ -58,6 +63,7 @@ export function useTagsAnimatedList({
     sortedTags,
     getEstimatedWidth,
     getCumulativeWidthFromRight,
+    totalWidthOfAllSpecialTags,
     totalExpandedWidth,
     overlappedWidth,
   };

@@ -28,7 +28,7 @@ export default function WorkPage() {
         <h1 className="flex flex-col font-black leading-[0.65]">
           Work.
           <div className="flex flex-wrap">
-            <span className="text-primary/15 leading-[0.95]">
+            <span className="dark:text-primary/15 text-primary/25 leading-[0.95]">
               Contributions over the years.
             </span>
           </div>

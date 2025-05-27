@@ -66,7 +66,7 @@ export const WORK_LABELS: Record<WorkLabels, WorkLabel> = {
   },
   normal: {
     name: "Regular",
-    className: "text-gray-500",
+    className: "text-primary/70",
     weight: 0,
   },
 };
