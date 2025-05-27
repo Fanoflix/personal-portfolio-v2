@@ -52,26 +52,31 @@ export default function ToggleTheme() {
 
   return (
     <button
-      className="flex hover:bg-transparent opacity-60 hover:opacity-100 invert dark:invert-0 min-w-4"
+      className="flex hover:bg-transparent opacity-60 hover:opacity-100 invert dark:invert-0"
       onClick={toggleTheme}
       disabled={isAnimating}
     >
-      <div style={animationStyle}>
-        {displayedTheme === "light" ? (
-          <Image
-            src="/icons/moon.svg"
-            alt="Dark mode"
-            width={iconHeightWidth}
-            height={iconHeightWidth}
-          />
-        ) : (
-          <Image
-            src="/icons/sun.svg"
-            alt="Light mode"
-            width={iconHeightWidth}
-            height={iconHeightWidth}
-          />
-        )}
+      <div style={animationStyle} className="relative min-w-4 min-h-4">
+        <Image
+          src="/icons/moon.svg"
+          alt="Dark mode"
+          width={iconHeightWidth}
+          height={iconHeightWidth}
+          className="absolute inset-0"
+          style={{
+            visibility: displayedTheme === "light" ? "visible" : "hidden",
+          }}
+        />
+        <Image
+          src="/icons/sun.svg"
+          alt="Light mode"
+          width={iconHeightWidth}
+          height={iconHeightWidth}
+          className="absolute inset-0"
+          style={{
+            visibility: displayedTheme === "dark" ? "visible" : "hidden",
+          }}
+        />
       </div>
       <style jsx>{`
         @keyframes theme-toggle {
