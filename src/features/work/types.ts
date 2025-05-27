@@ -28,7 +28,8 @@ export type WorkProject = {
 export type WorkLabels =
   | "majorContribution"
   | "minorContribution"
-  | "sideProject";
+  | "sideProject"
+  | "normal";
 
 export type WorkLabel = {
   name: string;
@@ -62,5 +63,10 @@ export const WORK_LABELS: Record<WorkLabels, WorkLabel> = {
     name: "Side Project",
     className: "text-green-500",
     weight: 1,
+  },
+  normal: {
+    name: "Regular",
+    className: "text-gray-500",
+    weight: 0,
   },
 };

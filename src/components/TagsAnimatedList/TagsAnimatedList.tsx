@@ -1,10 +1,8 @@
 "use client";
 
-import TooltipWrapper from "@/src/components/Tooltip/TooltipWrapper";
 import { cn } from "@/src/lib/utils";
 import { motion, Variants } from "framer-motion";
 import { useTagsAnimatedList } from "./useTagsAnimatedList";
-import { useEffect } from "react";
 
 export interface Tags {
   name: string;
@@ -105,7 +103,7 @@ const SingleTagMotion: Variants = {
     index: number;
     cumulativeWidth: number;
   }) => ({
-    translateX: index * -20,
+    translateX: index * -7,
     transition: {
       duration: 0.2,
       ease: "backInOut",

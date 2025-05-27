@@ -26,7 +26,7 @@ export function useTagsAnimatedList({
   sortedTags = [...specialTags, ...nonSpecialTags];
 
   const getEstimatedWidth = useCallback((tagName: string) => {
-    const estimatedWidthPerMonoSpaceCharacter = 5.5;
+    const estimatedWidthPerMonoSpaceCharacter = 5.25;
     const xPadding = 12;
     const extraSpace = 1;
     const widthOfPill =

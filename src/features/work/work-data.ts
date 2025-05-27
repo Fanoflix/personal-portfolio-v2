@@ -33,6 +33,7 @@ export const WORK_DATA: WorkByYear = {
         company: {
           companyName: "Metal",
         },
+        link: "https://app.metal.so/signup",
       },
       date: "February 1, 2025",
     },
@@ -48,6 +49,14 @@ export const WORK_DATA: WorkByYear = {
         },
       },
       date: "December 1, 2024",
+    },
+    {
+      project: {
+        name: "Started using Cursor",
+        label: "normal",
+        tags: [{ name: "Cursor" }],
+      },
+      date: "March 1, 2024",
     },
     {
       project: {
