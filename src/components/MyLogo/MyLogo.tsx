@@ -5,7 +5,8 @@ import { useCallback, useEffect, useMemo } from "react";
 import { cn } from "@/src/lib/utils";
 
 export default function MyLogo() {
-  if (typeof window === "undefined") return <div className="min-w-6 h-6" />;
+  if (typeof window === "undefined")
+    return <div className="max-w-6 max-h-6 min-w-6 min-h-6" />;
 
   const leftTopSpikeInitial =
     "13.2 110.8 5.3 112.2 0 113.5 27.9 140 28.1 128.1 13.2 110.8";
@@ -177,7 +178,7 @@ export default function MyLogo() {
     <div
       className={cn(
         "logo-svg z-[100] flex items-center justify-center m-auto",
-        "w-6 h-6",
+        "max-w-6 max-h-6 min-w-6 min-h-6",
       )}
     >
       <svg id="base" className="overflow-visible" viewBox="0 0 153 200">
