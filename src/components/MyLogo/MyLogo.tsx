@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo } from "react";
 import { cn } from "@/src/lib/utils";
 
 export default function MyLogo() {
-  if (typeof window === "undefined") return null;
+  if (typeof window === "undefined") return <div className="min-w-6 h-6" />;
 
   const leftTopSpikeInitial =
     "13.2 110.8 5.3 112.2 0 113.5 27.9 140 28.1 128.1 13.2 110.8";

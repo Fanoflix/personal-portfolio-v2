@@ -1,39 +1,63 @@
-import useToggle from "@/src/hooks/useToggle";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { iconHeightWidth } from "../constants";
 
+// Animation configuration
+const ANIMATION_DURATION = 500; // ms
+const HALF_ANIMATION_DURATION = ANIMATION_DURATION / 2;
+
 export default function ToggleTheme() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [isRotating, toggleRotation] = useToggle(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [displayedTheme, setDisplayedTheme] = useState<string | undefined>();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    // Only update displayedTheme if we're not animating
+    if (mounted && theme && !isAnimating) {
+      setDisplayedTheme(theme);
+    }
+  }, [mounted, theme, isAnimating]);
+
   const toggleTheme = () => {
-    toggleRotation();
+    if (isAnimating) return; // Prevent multiple clicks during animation
+
+    setIsAnimating(true);
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+
+    // Change the displayed icon at halfway point
     setTimeout(() => {
-      setTheme(theme === "light" ? "dark" : "light");
-    }, 250);
+      setDisplayedTheme(newTheme);
+    }, HALF_ANIMATION_DURATION);
+
+    // Reset animation after completion
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, ANIMATION_DURATION);
   };
 
-  if (!mounted) return null;
+  if (!mounted || !displayedTheme) return <div className="min-w-4 h-4" />;
 
-  const iconWrapperStyle = {
-    transition: "transform 360ms ease-in",
-    transform: isRotating ? "rotateZ(360deg)" : "rotateZ(0deg)",
-  };
+  const animationStyle = isAnimating
+    ? {
+        animation: `theme-toggle ${ANIMATION_DURATION}ms linear`,
+      }
+    : {};
 
   return (
     <button
-      className="flex hover:bg-transparent opacity-60 hover:opacity-100 invert dark:invert-0"
+      className="flex hover:bg-transparent opacity-60 hover:opacity-100 invert dark:invert-0 min-w-4"
       onClick={toggleTheme}
+      disabled={isAnimating}
     >
-      <div style={iconWrapperStyle}>
-        {theme === "light" ? (
+      <div style={animationStyle}>
+        {displayedTheme === "light" ? (
           <Image
             src="/icons/moon.svg"
             alt="Dark mode"
@@ -49,6 +73,22 @@ export default function ToggleTheme() {
           />
         )}
       </div>
+      <style jsx>{`
+        @keyframes theme-toggle {
+          0% {
+            transform: rotateZ(0deg) scale(1);
+            filter: blur(0px);
+          }
+          50% {
+            transform: rotateZ(180deg) scale(0.8);
+            filter: blur(3px);
+          }
+          100% {
+            transform: rotateZ(360deg) scale(1);
+            filter: blur(0px);
+          }
+        }
+      `}</style>
     </button>
   );
 }
