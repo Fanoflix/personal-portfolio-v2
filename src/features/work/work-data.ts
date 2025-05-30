@@ -6,14 +6,7 @@ export const WORK_DATA: WorkByYear = {
       project: {
         name: "Portfolio Website V2",
         label: "sideProject",
-        tags: [
-          { name: "NextJS" },
-          { name: "Typescript" },
-          { name: "ShadCN" },
-          { name: "NestJS" },
-          { name: "Postgres" },
-          { name: "Redis" },
-        ],
+        tags: [{ name: "NextJS" }, { name: "Typescript" }, { name: "ShadCN" }],
         company: {
           companyName: "Metal",
         },
@@ -37,6 +30,17 @@ export const WORK_DATA: WorkByYear = {
         },
       },
       date: "April 1, 2025",
+    },
+    {
+      project: {
+        name: "Script to detect duplicate DTO names in a NestJS Application",
+        label: "minorContribution",
+        tags: [{ name: "NestJS" }, { name: "Typescript" }],
+        company: {
+          companyName: "Metal",
+        },
+      },
+      date: "March 1, 2025",
     },
     {
       project: {
