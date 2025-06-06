@@ -64,7 +64,10 @@ export default function ToggleTheme() {
           height={iconHeightWidth}
           className="absolute inset-0"
           style={{
-            visibility: displayedTheme === "light" ? "visible" : "hidden",
+            visibility:
+              displayedTheme === "light" || !displayedTheme
+                ? "visible"
+                : "hidden",
           }}
         />
         <Image

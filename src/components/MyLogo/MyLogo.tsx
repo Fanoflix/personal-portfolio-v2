@@ -1,67 +1,68 @@
 "use client";
 import anime from "animejs";
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { cn } from "@/src/lib/utils";
 
 export default function MyLogo() {
-  if (typeof window === "undefined")
-    return <div className="max-w-6 max-h-6 min-w-6 min-h-6" />;
-
-  const leftTopSpikeInitial =
-    "13.2 110.8 5.3 112.2 0 113.5 27.9 140 28.1 128.1 13.2 110.8";
-  const leftTopSpikeFinal =
-    "13.2 110.8 41.1 51.1 0 113.5 27.9 140 28.1 128.1 13.2 110.8";
-
-  const leftBotSpikeInitial = "53.8 160.8 55.6 159.4 51.7 162.5 53.8 160.8";
-  const leftBotSpikeFinal = "75.7 185.3 55.6 159.4 51.7 162.5 75.7 185.3";
-
-  const rightTopSpikeInitial =
-    "147 121.2 140.8 118.8 129.8 130.8 135.5 139.3 153.6 123.7 147 121.2";
-  const rightTopSpikeFinal =
-    "93.9 15.4 140.8 118.8 129.8 130.8 135.5 139.3 153.6 123.7 93.9 15.4";
-
-  const rightBotSpikeInitial = "106.3 161.1 108 162.9 104 158.7 106.3 161.1";
-  const rightBotSpikeFinal = "82 185.3 108 162.9 104 158.7 82 185.3";
-
-  const easing = "easeOutInBack";
-  const logoAnimDuration = 650;
-  const logoLoop = false;
-  const delay = 150;
-
-  const rippleDuration = 550;
-  const rippleEasing = "easeOutExpo";
-  const rippleDistance = 60;
-  const rippleOffsetDelay = 0;
-  const rippleOpacity = useMemo(() => [1, 0.25], []);
-
-  const rippleBackDuration = rippleDuration / 2;
-  const rippleBackEasing = "easeInOutBack";
-  // const rippleBackEasing = "easeInOutExpo";
-  const rippleBackOffset = 510;
-  const rippleBackOpacity = useMemo(() => [0.25, 1], []);
-
-  const spikeLTopTimeline = anime.timeline({
-    easing: easing,
-    delay: delay,
-  });
-  const spikeLBotTimeline = anime.timeline({
-    easing: easing,
-    delay: delay,
-  });
-  const spikeRTopTimeLine = anime.timeline({
-    easing: easing,
-    delay: delay,
-  });
-  const spikeRBotTimeLine = anime.timeline({
-    easing: easing,
-    delay: delay,
-  });
-  const base = anime.timeline({
-    easing: easing,
-  });
+  const [isClient, setIsClient] = useState(false);
+  const [isAnimationAlreadyPlayed, setIsAnimationAlreadyPlayed] =
+    useState(false);
 
   const morphLogoForward = useCallback(() => {
+    const leftTopSpikeInitial =
+      "13.2 110.8 5.3 112.2 0 113.5 27.9 140 28.1 128.1 13.2 110.8";
+    const leftTopSpikeFinal =
+      "13.2 110.8 41.1 51.1 0 113.5 27.9 140 28.1 128.1 13.2 110.8";
+
+    const leftBotSpikeInitial = "53.8 160.8 55.6 159.4 51.7 162.5 53.8 160.8";
+    const leftBotSpikeFinal = "75.7 185.3 55.6 159.4 51.7 162.5 75.7 185.3";
+
+    const rightTopSpikeInitial =
+      "147 121.2 140.8 118.8 129.8 130.8 135.5 139.3 153.6 123.7 147 121.2";
+    const rightTopSpikeFinal =
+      "93.9 15.4 140.8 118.8 129.8 130.8 135.5 139.3 153.6 123.7 93.9 15.4";
+
+    const rightBotSpikeInitial = "106.3 161.1 108 162.9 104 158.7 106.3 161.1";
+    const rightBotSpikeFinal = "82 185.3 108 162.9 104 158.7 82 185.3";
+
+    const easing = "easeOutInBack";
+    const logoAnimDuration = 650;
+    const logoLoop = false;
+    const delay = 150;
+
+    const rippleDuration = 550;
+    const rippleEasing = "easeOutExpo";
+    const rippleDistance = 60;
+    const rippleOffsetDelay = 0;
+    const rippleOpacity = [1, 0.25];
+
+    const rippleBackDuration = rippleDuration / 2;
+    const rippleBackEasing = "easeInOutBack";
+    // const rippleBackEasing = "easeInOutExpo";
+    const rippleBackOffset = 510;
+    const rippleBackOpacity = [0.25, 1];
+
+    const spikeLTopTimeline = anime.timeline({
+      easing: easing,
+      delay: delay,
+    });
+    const spikeLBotTimeline = anime.timeline({
+      easing: easing,
+      delay: delay,
+    });
+    const spikeRTopTimeLine = anime.timeline({
+      easing: easing,
+      delay: delay,
+    });
+    const spikeRBotTimeLine = anime.timeline({
+      easing: easing,
+      delay: delay,
+    });
+    const base = anime.timeline({
+      easing: easing,
+    });
+
     base.add({
       targets: "#base",
       opacity: [0, 1],
@@ -153,26 +154,23 @@ export default function MyLogo() {
       duration: logoAnimDuration,
       loop: logoLoop,
     });
-  }, [
-    base,
-    logoLoop,
-    rippleBackDuration,
-    rippleBackOpacity,
-    rippleOpacity,
-    spikeLBotTimeline,
-    spikeLTopTimeline,
-    spikeRBotTimeLine,
-    spikeRTopTimeLine,
-  ]);
+  }, []);
 
-  let isAnimationAlreadyPlayed = false;
   useEffect(() => {
-    if (!isAnimationAlreadyPlayed) {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      isAnimationAlreadyPlayed = true;
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (isClient && !isAnimationAlreadyPlayed) {
+      setIsAnimationAlreadyPlayed(true);
       morphLogoForward();
     }
-  }, []);
+  }, [isClient, isAnimationAlreadyPlayed, morphLogoForward]);
+
+  // If not on client yet, render the placeholder
+  if (!isClient) {
+    return <div className="max-w-6 max-h-6 min-w-6 min-h-6" />;
+  }
 
   return (
     <div

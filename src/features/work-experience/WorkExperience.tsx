@@ -24,7 +24,7 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
         </p>
 
         <div className="flex flex-col gap-1.5">
-          <span className="text-primary/10 text-xl leading-[1] font-black">
+          <span className="text-primary/15 text-xl leading-[1] font-black">
             Highlights
           </span>
           <p className="flex flex-col gap-2">
@@ -46,7 +46,7 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <span className="text-primary/10 text-xl leading-[1] font-black">
+          <span className="text-primary/15 text-xl leading-[1] font-black">
             Stack
           </span>
           <span className="text-primary">
@@ -79,7 +79,7 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
         </p>
 
         <div className="flex flex-col gap-1.5">
-          <span className="text-primary/10 text-xl leading-[1] font-black">
+          <span className="text-primary/15 text-xl leading-[1] font-black">
             Highlights
           </span>
           <p className="flex flex-col gap-2">
@@ -104,7 +104,7 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <span className="text-primary/10 text-xl leading-[1] font-black">
+          <span className="text-primary/15 text-xl leading-[1] font-black">
             Stack
           </span>
           <span className="text-primary">
@@ -125,9 +125,7 @@ export default function WorkExperience() {
       <h1 className="flex flex-col font-black leading-[0.65]">
         Experiences.
         <div className="flex flex-wrap">
-          <span className="dark:text-primary/15 text-primary/25 leading-[0.95]">
-            3 years.
-          </span>
+          <span className="text-primary/25 leading-[0.95]">3 years.</span>
         </div>
       </h1>
 
