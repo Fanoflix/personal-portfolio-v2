@@ -12,7 +12,13 @@ const Table = React.forwardRef<
   const tableContainerRef = useRef<HTMLDivElement>(null);
   const [showFiller, setShowFiller] = useState(true);
   const [fillerHeight, setFillerHeight] = useState(0);
+  const [, setMounted] = useState(false);
+  const fillerRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Check if we need to show the filler div
   useEffect(() => {
@@ -50,6 +56,23 @@ const Table = React.forwardRef<
     };
   }, []);
 
+  const lineColor = theme === "dark" ? "rgb(25, 25, 25)" : "rgb(200, 200, 200)";
+
+  // Force correct style application using useEffect
+  useEffect(() => {
+    if (fillerRef.current && showFiller) {
+      const correctStyle = `repeating-linear-gradient(
+        45deg,
+        ${lineColor} 20px,
+        transparent 21px,
+        transparent 31px,
+        ${lineColor} 32px
+      )`;
+
+      fillerRef.current.style.backgroundImage = correctStyle;
+    }
+  }, [lineColor, showFiller]);
+
   return (
     <div
       ref={containerRef}
@@ -65,15 +88,9 @@ const Table = React.forwardRef<
       </div>
       {showFiller && (
         <div
+          ref={fillerRef}
           style={{
             height: `${fillerHeight}px`,
-            backgroundImage: `repeating-linear-gradient(
-            45deg,
-            ${theme === "dark" ? "rgb(30, 30, 30)" : "rgb(200, 200, 200)"} 20px,
-            transparent 21px,
-            transparent 31px,
-            ${theme === "dark" ? "rgb(30, 30, 30)" : "rgb(200, 200, 200)"} 32px
-          )`,
           }}
         />
       )}
