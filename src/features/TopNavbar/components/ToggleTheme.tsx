@@ -42,7 +42,9 @@ export default function ToggleTheme() {
     }, ANIMATION_DURATION);
   };
 
-  if (!mounted || !displayedTheme) return <div className="min-w-4 h-4" />;
+  if (!mounted) return <div className="min-w-4 h-4" />;
+
+  const currentDisplayedTheme = displayedTheme || theme || "dark";
 
   const animationStyle = isAnimating
     ? {
@@ -65,9 +67,7 @@ export default function ToggleTheme() {
           className="absolute inset-0"
           style={{
             visibility:
-              displayedTheme === "light" || !displayedTheme
-                ? "visible"
-                : "hidden",
+              currentDisplayedTheme === "light" ? "visible" : "hidden",
           }}
         />
         <Image
@@ -77,7 +77,7 @@ export default function ToggleTheme() {
           height={iconHeightWidth}
           className="absolute inset-0"
           style={{
-            visibility: displayedTheme === "dark" ? "visible" : "hidden",
+            visibility: currentDisplayedTheme === "dark" ? "visible" : "hidden",
           }}
         />
       </div>

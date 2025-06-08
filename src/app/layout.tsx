@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html className={`${inter.variable} antialiased`} lang="en">
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system">
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <TopNavbar />
           <AppShell>{children}</AppShell>
         </ThemeProvider>
