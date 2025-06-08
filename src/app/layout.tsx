@@ -28,7 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={`${inter.variable} antialiased`} lang="en">
+    <html
+      className={`${inter.variable} antialiased`}
+      lang="en"
+      suppressHydrationWarning={true}
+    >
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <TopNavbar />

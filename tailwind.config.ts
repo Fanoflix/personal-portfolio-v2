@@ -1,25 +1,25 @@
 import type { Config } from "tailwindcss";
-import plugin from "tailwindcss/plugin";
 import animate from "tailwindcss-animate";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   darkMode: ["class"],
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     fontSize: {
-      xs: "11px", // Default is 12px
-      sm: "13px", // Default is 14px
-      base: "15px", // Default is 16px
-      lg: "17px", // Default is 18px
-      xl: "19px", // Default is 20px
-      "2xl": "23px", // Default is 24px
-      "3xl": "29px", // Default is 30px
-      "4xl": "35px", // Default is 36px
-      "5xl": "47px", // Default is 48px
-      "6xl": "59px", // Default is 60px
-      "7xl": "71px", // Default is 72px
-      "8xl": "95px", // Default is 96px
-      "9xl": "127px", // Default is 128px
+      xs: "11px",
+      sm: "13px",
+      base: "15px",
+      lg: "17px",
+      xl: "19px",
+      "2xl": "23px",
+      "3xl": "29px",
+      "4xl": "35px",
+      "5xl": "47px",
+      "6xl": "59px",
+      "7xl": "71px",
+      "8xl": "95px",
+      "9xl": "127px",
     },
     extend: {
       keyframes: {
@@ -180,7 +180,7 @@ const config: Config = {
       const iconGlowUtilities = {
         ".iconGlow-orange": {
           filter:
-            "drop-shadow(0 0 4px rgba(240, 100, 200, 0.8)) drop-shadow(-2px -5px 10px rgba(255, 100, 100, 1)) drop-shadow(2px 5px 5px rgba(50, 220, 50, 0.4))",
+            "drop-shadow(-2px -5px 10px rgba(255, 100, 100, 1)) drop-shadow(2px 5px 5px rgba(50, 220, 50, 0.4)) drop-shadow(2px 2px 1px black)",
         },
       };
 

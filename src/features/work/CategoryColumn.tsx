@@ -19,7 +19,8 @@ export const CategoryColumn = ({ row }: { row: Row<WorkWithSubRows> }) => {
       <span
         key={label.name}
         className={cn(
-          "flex items-center gap-1 text-xs md:text-sm font-medium overflow-visible",
+          "flex items-center gap-1 text-xs font-medium overflow-visible",
+          "contrast-75",
           label.className,
         )}
       >
@@ -27,7 +28,9 @@ export const CategoryColumn = ({ row }: { row: Row<WorkWithSubRows> }) => {
         <span className="mb-1">
           {label.meta?.icon && (
             <label.meta.icon
-              strokeWidth={1}
+              strokeWidth={1.6}
+              strokeLinecap="round"
+              strokeLinejoin="miter"
               fill={mounted && theme === "dark" ? "none" : "currentColor"}
               className={cn("inline w-4 h-4", label.meta.iconClassName)}
             />
