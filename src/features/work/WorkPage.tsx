@@ -22,6 +22,8 @@ export default function WorkPage() {
     return <p>....</p>;
   }
 
+  console.log("Ammar", processedData);
+
   return (
     <div className="mx-auto" id="work">
       <StaggeredContainer containerClassName="flex flex-col gap-4">
