@@ -9,6 +9,16 @@ import { cn } from "../lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { NavBarVariants } from "../features/framer-animations/variants";
+import {
+  ArrowUp,
+  Flame,
+  FlameIcon,
+  FlaskConical,
+  Sparkle,
+  Star,
+  StarIcon,
+} from "lucide-react";
+import { TextShimmer } from "./TextShimmer/TextShimmer";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -44,18 +54,39 @@ export default function Navbar() {
             <div className="flex items-center justify-center gap-6 md:gap-4">
               <Link
                 prefetch
-                className="text-[14px] text-text hover:text-primary"
-                href="#home"
+                className="text-[14px] text-text hover:text-primary flex items-center gap-0.5"
+                href="/#home"
               >
-                Top
+                Home
               </Link>
+
               <Link
                 prefetch
                 className="text-[14px] text-text hover:text-primary"
-                href="#work"
+                href="/#work"
               >
                 Work
               </Link>
+
+              <Link
+                prefetch
+                className="text-[14px] text-text flex items-center gap-0.5"
+                href="/learn/react-query"
+              >
+                <FlaskConical
+                  strokeWidth={2}
+                  fill="currentColor"
+                  className="w-3.5 h-3.5 animate-pulse text-primary"
+                />
+                <TextShimmer
+                  className="hover:text-primary"
+                  duration={1}
+                  spread={2.7}
+                >
+                  Quiz
+                </TextShimmer>
+              </Link>
+
               <NavIconButton
                 href="https://github.com/fanoflix"
                 tooltipContent="Github"

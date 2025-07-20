@@ -4,12 +4,35 @@ export const WORK_DATA: WorkByYear = {
   "2025": [
     {
       project: {
+        name: "Educational questionnaire for React-Query",
+        label: "minorContribution",
+        tags: [{ name: "React-Query" }, { name: "Typescript" }],
+        company: {
+          companyName: "Metal",
+        },
+        link: "/learn/react-query",
+      },
+      date: "July 25, 2025",
+    },
+    {
+      project: {
+        name: "Defined Onboarding process — Onboarding Videos",
+        label: "minorContribution",
+        tags: [{ name: "Davinci Resolve" }, { name: "OBS" }],
+        company: {
+          companyName: "Metal",
+        },
+      },
+      date: "June 25, 2025",
+    },
+    {
+      project: {
         name: "Portfolio Website V2",
         label: "sideProject",
         tags: [{ name: "NextJS" }, { name: "Typescript" }, { name: "ShadCN" }],
         link: "https://github.com/Fanoflix/personal-portfolio-v2",
         company: {
-          companyName: "Metal",
+          companyName: "Personal",
         },
       },
       date: "May 25, 2025",

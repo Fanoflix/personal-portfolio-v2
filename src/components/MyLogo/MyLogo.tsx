@@ -167,16 +167,15 @@ export default function MyLogo() {
     }
   }, [isClient, isAnimationAlreadyPlayed, morphLogoForward]);
 
-  // If not on client yet, render the placeholder
   if (!isClient) {
-    return <div className="max-w-6 max-h-6 min-w-6 min-h-6" />;
+    return <div className="max-w-7 max-h-7 min-w-7 min-h-7" />;
   }
 
   return (
     <div
       className={cn(
         "logo-svg z-[100] flex items-center justify-center m-auto",
-        "max-w-6 max-h-6 min-w-6 min-h-6",
+        "max-w-7 max-h-7 min-w-7 min-h-7",
       )}
     >
       <svg id="base" className="overflow-visible" viewBox="0 0 153 200">
