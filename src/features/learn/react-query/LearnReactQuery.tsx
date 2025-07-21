@@ -18,14 +18,12 @@ export function LearnReactQuery() {
       stagger={0.35}
       containerClassName="flex flex-col items-center justify-center gap-10 pt-12"
     >
-      <div className="text-center">
-        <h3 className="flex gap-2 items-center leading-[0.65] font-black text-primary">
-          React Query.
-          <p className="text-primary/25 leading-[0.95]">
-            How well do you know Query?
-          </p>
-        </h3>
-      </div>
+      <h3 className="font-black text-primary">
+        <p className="text-start text-primary/25 leading-[0.95]">
+          <span className="text-primary">React Query. </span> How well do you
+          know Query?
+        </p>
+      </h3>
 
       <Stepper totalSteps={totalQuestions}>
         <MCQStepperContent />
