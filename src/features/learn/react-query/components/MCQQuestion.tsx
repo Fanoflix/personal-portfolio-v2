@@ -1,10 +1,66 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/src/components/Button/button";
+import { motion } from "framer-motion";
 import { MCQ } from "../types";
 import { useMCQ } from "../hooks/useMCQ";
 import { parseCode } from "../utils/parseCode";
+import { cn } from "@/src/lib/utils";
+
+interface MCQOptionProps {
+  optionKey: "A" | "B" | "C" | "D";
+  text: string;
+  isSelected: boolean;
+  isCorrect: boolean | null;
+  isAnswered: boolean;
+  onClick: () => void;
+}
+
+function MCQOption({
+  optionKey,
+  text,
+  isSelected,
+  isCorrect,
+  isAnswered,
+  onClick,
+}: MCQOptionProps) {
+  let border = "border-transparent";
+  let bg = "";
+  let textColor = "text-foreground";
+  if (isSelected) {
+    if (isCorrect) {
+      border = "border-green-800/40";
+      bg = "bg-gradient-to-r from-green-800/20 to-transparent to-50%";
+    } else {
+      border = "border-orange-500/25";
+      bg = "bg-gradient-to-r from-orange-700/20 to-transparent to-50%";
+    }
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`w-full flex gap-3 p-3 rounded-md border ${border} ${bg} ${textColor} transition-colors duration-150 text-xs md:text-sm focus:outline-none group text-start`}
+    >
+      <span
+        className={cn(
+          "font-bold text-primary group-hover:drop-shadow-[0_0_7px_rgba(255,255,255,1)] flex-shrink-0 leading-tight",
+          isCorrect && "drop-shadow-[0_0_7px_rgba(100,255,100,1)]",
+        )}
+      >
+        {optionKey}
+      </span>
+      <span
+        className={cn(
+          "text-wrap group-hover:text-primary leading-tight",
+          isSelected && "text-primary",
+        )}
+      >
+        {parseCode(text)}
+      </span>
+    </button>
+  );
+}
 
 interface MCQQuestionProps {
   mcq: MCQ;
@@ -12,18 +68,8 @@ interface MCQQuestionProps {
   totalQuestions: number;
 }
 
-export function MCQQuestion({
-  mcq,
-  questionNumber,
-  totalQuestions,
-}: MCQQuestionProps) {
-  const {
-    selectedOption,
-    showExplanation,
-    selectOption,
-    getOptionVariant,
-    isAnswered,
-  } = useMCQ();
+export function MCQQuestion({ mcq }: MCQQuestionProps) {
+  const { selectedOption, selectOption, isAnswered, isCorrect } = useMCQ();
 
   const options = [
     { key: "A" as const, text: mcq.optionA },
@@ -33,97 +79,54 @@ export function MCQQuestion({
   ];
 
   function handleOptionSelect(option: "A" | "B" | "C" | "D") {
-    if (!isAnswered) {
-      selectOption(option, mcq.correctOption);
-    }
+    selectOption(option, mcq.correctOption);
   }
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.3 }}
-      className="w-full max-w-3xl mx-auto p-6 bg-card rounded-lg border shadow-sm"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.1 }}
+      className="flex flex-col gap-4 w-full mx-auto pt-0 bg-card rounded-lg shadow-sm"
     >
-      {/* Progress indicator */}
-      <div className="mb-6">
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-sm text-muted-foreground">
-            Question {questionNumber} of {totalQuestions}
-          </span>
-        </div>
-        <div className="w-full bg-secondary rounded-full h-2">
-          <div
-            className="bg-primary h-2 rounded-full transition-all duration-300"
-            style={{ width: `${(questionNumber / totalQuestions) * 100}%` }}
-          />
-        </div>
-      </div>
-
       {/* Question */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
-        className="mb-8"
       >
-        <h2 className="text-xl font-semibold leading-relaxed text-foreground">
+        <h3 className="text-base md:text-lg leading-relaxed text-foreground">
           {parseCode(mcq.question)}
-        </h2>
+        </h3>
       </motion.div>
 
       {/* Options */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        className="space-y-3 mb-6"
+        transition={{ delay: 0.1 }}
+        className="flex flex-col gap-1"
       >
         {options.map((option, index) => (
           <motion.div
             key={option.key}
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 + index * 0.1 }}
+            transition={{ delay: 0.1 + index * 0.15 }}
+            className="w-full"
           >
-            <Button
-              variant={getOptionVariant(option.key)}
-              size="lg"
-              className="w-full justify-start text-left h-auto py-4 px-6"
+            <MCQOption
+              optionKey={option.key}
+              text={option.text}
+              isSelected={selectedOption === option.key}
+              isCorrect={isCorrect}
+              isAnswered={isAnswered}
               onClick={() => handleOptionSelect(option.key)}
-              disabled={isAnswered}
-            >
-              <span className="font-semibold mr-3 flex-shrink-0">
-                {option.key}.
-              </span>
-              <span className="text-wrap">{parseCode(option.text)}</span>
-            </Button>
+            />
           </motion.div>
         ))}
       </motion.div>
-
-      {/* Explanation */}
-      <AnimatePresence>
-        {showExplanation && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="border-t pt-6"
-          >
-            <div className="bg-muted/50 rounded-lg p-4">
-              <h3 className="font-semibold mb-2 text-foreground">
-                Explanation
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {parseCode(mcq.explanation)}
-              </p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.div>
   );
 }

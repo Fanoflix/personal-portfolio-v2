@@ -1,14 +1,32 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { createContext, useContext, useState, useCallback, ReactNode } from "react";
 import { MCQState } from "../types";
 
-export function useMCQ() {
+interface MCQContextType {
+  selectedOption: "A" | "B" | "C" | "D" | null;
+  showExplanation: boolean;
+  isCorrect: boolean | null;
+  isAnswered: boolean;
+  selectOption: (option: "A" | "B" | "C" | "D", correctOption: "A" | "B" | "C" | "D") => void;
+  resetQuestion: () => void;
+  getOptionVariant: (option: "A" | "B" | "C" | "D") => string;
+}
+
+const MCQContext = createContext<MCQContextType | undefined>(undefined);
+
+interface MCQProviderProps {
+  children: ReactNode;
+}
+
+export function MCQProvider({ children }: MCQProviderProps) {
   const [state, setState] = useState<MCQState>({
     selectedOption: null,
     showExplanation: false,
     isCorrect: null,
   });
+
+  console.log("useMCQ state:", state);
 
   const selectOption = useCallback(
     (option: "A" | "B" | "C" | "D", correctOption: "A" | "B" | "C" | "D") => {
@@ -45,11 +63,25 @@ export function useMCQ() {
     [state.selectedOption, state.showExplanation, state.isCorrect],
   );
 
-  return {
+  const value: MCQContextType = {
     ...state,
     selectOption,
     resetQuestion,
     getOptionVariant,
     isAnswered: state.selectedOption !== null,
   };
+
+  return (
+    <MCQContext.Provider value={value}>
+      {children}
+    </MCQContext.Provider>
+  );
+}
+
+export function useMCQ() {
+  const context = useContext(MCQContext);
+  if (context === undefined) {
+    throw new Error("useMCQ must be used within a MCQProvider");
+  }
+  return context;
 }

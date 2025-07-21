@@ -1,3 +1,4 @@
+import { cn } from "@/src/lib/utils";
 import { ReactNode } from "react";
 
 interface LearnLayoutProps {
@@ -6,8 +7,13 @@ interface LearnLayoutProps {
 
 export default function LearnLayout({ children }: LearnLayoutProps) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <div className="w-full max-w-4xl">{children}</div>
+    <div
+      className={cn(
+        "w-full px-3 md:px-0",
+        "pb-6 flex flex-col items-center justify-center",
+      )}
+    >
+      {children}
     </div>
   );
 }

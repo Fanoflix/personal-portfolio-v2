@@ -12,30 +12,15 @@ export function MCQStepperContent() {
     handleCategorySelect,
   } = useMCQStepper();
 
-  function handleNext() {
-    // Move to next question
-    // This will be handled by the stepper context
-  }
-
-  function handlePrevious() {
-    // Move to previous question
-    // This will be handled by the stepper context
-  }
-
   return (
-    <>
+    <div className="flex flex-col gap-10">
       <CategoryNav
         categories={categories}
         currentCategory={currentCategory}
         onSelect={handleCategorySelect}
       />
 
-      <MCQContent
-        allMCQs={allMCQs}
-        totalQuestions={totalQuestions}
-        onNext={handleNext}
-        onPrevious={handlePrevious}
-      />
-    </>
+      <MCQContent allMCQs={allMCQs} totalQuestions={totalQuestions} />
+    </div>
   );
 }

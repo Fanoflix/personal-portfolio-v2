@@ -145,7 +145,7 @@ export const mcqData: MCQData = {
           "`refetchOnWindowFocus` controls whether stale queries refetch on focus.",
       },
       {
-        question: "Can you use `useQuery` for POST requests?",
+        question: "Can you use `useQuery` for `POST` requests?",
         optionA: "No, strictly GET only",
         optionB: "Yes, if they're side-effect free (idempotent data fetches)",
         optionC: "Only with `useMutation` fallback",
@@ -169,7 +169,7 @@ export const mcqData: MCQData = {
     Mutations: [
       {
         question:
-          "Which hook do you use for non-GET operations (POST/PUT/PATCH/DELETE)?",
+          "Which hook do you use for non-`GET` operations (`POST`/`PUT`/`PATCH`/`DELETE`)?",
         optionA: "useQuery",
         optionB: "useSync",
         optionC: "useMutation",

@@ -1,24 +1,52 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
 import { useStepper } from "@/src/components/Stepper/StepperContext";
 import { MCQQuestion } from "./MCQQuestion";
 import { StepperControls } from "./StepperControls";
 import { MCQ } from "../types";
+import ProgressIndicator from "./ProgressIndicator";
+import MCQExplanation from "./MCQExplanation";
+import { MCQProvider, useMCQ } from "../hooks/useMCQ";
 
 interface MCQContentProps {
   allMCQs: Array<{ mcq: MCQ; category: string; index: number }>;
   totalQuestions: number;
-  onNext?: () => void;
-  onPrevious?: () => void;
 }
 
-export function MCQContent({
-  allMCQs,
+function MCQContentInner({
+  currentMCQ,
+  questionNumber,
   totalQuestions,
-  onNext,
-  onPrevious,
-}: MCQContentProps) {
+  isLastQuestion,
+}: {
+  currentMCQ: { mcq: MCQ; category: string; index: number };
+  questionNumber: number;
+  totalQuestions: number;
+  isLastQuestion: boolean;
+}) {
+  const { resetQuestion } = useMCQ();
+
+  useEffect(() => {
+    resetQuestion();
+  }, [questionNumber, resetQuestion]);
+
+  return (
+    <div className="flex flex-col gap-6 max-w-xs md:max-w-[500px]">
+      <MCQQuestion
+        mcq={currentMCQ.mcq}
+        questionNumber={questionNumber}
+        totalQuestions={totalQuestions}
+      />
+
+      <StepperControls isLastQuestion={isLastQuestion} />
+      <MCQExplanation explanation={currentMCQ.mcq.explanation} />
+    </div>
+  );
+}
+
+export function MCQContent({ allMCQs, totalQuestions }: MCQContentProps) {
   const { currentStep } = useStepper();
 
   const currentMCQ = allMCQs[currentStep];
@@ -32,23 +60,32 @@ export function MCQContent({
     );
   }
 
-  return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={`${currentMCQ.category}-${currentMCQ.index}-${currentStep}`}
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -20 }}
-        transition={{ duration: 0.3 }}
-      >
-        <MCQQuestion
-          mcq={currentMCQ.mcq}
-          questionNumber={currentStep + 1}
-          totalQuestions={totalQuestions}
-        />
+  const questionNumber = currentStep + 1;
 
-        <StepperControls isLastQuestion={isLastQuestion} />
-      </motion.div>
-    </AnimatePresence>
+  return (
+    <div className="flex flex-col">
+      <ProgressIndicator
+        questionNumber={questionNumber}
+        totalQuestions={totalQuestions}
+      />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={`${currentMCQ.category}-${currentMCQ.index}-${currentStep}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15, ease: "easeIn" }}
+        >
+          <MCQProvider>
+            <MCQContentInner
+              currentMCQ={currentMCQ}
+              questionNumber={questionNumber}
+              totalQuestions={totalQuestions}
+              isLastQuestion={isLastQuestion}
+            />
+          </MCQProvider>
+        </motion.div>
+      </AnimatePresence>
+    </div>
   );
 }

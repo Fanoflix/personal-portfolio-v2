@@ -1,3 +1,4 @@
+import { Button } from "@/src/components/Button";
 import { cn } from "@/src/lib/utils";
 
 interface CategoryNavProps {
@@ -12,20 +13,20 @@ export function CategoryNav({
   onSelect,
 }: CategoryNavProps) {
   return (
-    <nav className="flex gap-2 mb-8 overflow-x-auto">
-      {categories.map((cat) => (
-        <button
-          key={cat}
+    <nav className="flex gap-2 overflow-x-auto w-full max-w-xs md:max-w-[500px]">
+      {categories.map((category) => (
+        <Button
+          key={category}
           className={cn(
-            "px-4 py-2 rounded-full text-sm font-medium transition-colors",
-            cat === currentCategory
-              ? "bg-primary text-primary-foreground shadow"
-              : "bg-muted text-muted-foreground hover:bg-accent",
+            "h-max py-0.5 px-1 rounded-md text-sm font-medium transition-colors duration-300 border-0",
+            category === currentCategory
+              ? "bg-primary text-primary-foreground"
+              : "bg-transparent text-muted-foreground hover:bg-accent hover:text-primary",
           )}
-          onClick={() => onSelect(cat)}
+          onClick={() => onSelect(category)}
         >
-          {cat}
-        </button>
+          {category}
+        </Button>
       ))}
     </nav>
   );
