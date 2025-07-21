@@ -18,14 +18,14 @@ export function LearnReactQuery() {
       stagger={0.35}
       containerClassName="flex flex-col items-center justify-center gap-10 pt-12"
     >
-      {/* <div className="text-center">
-        <h3 className="flex flex-col items-center leading-[0.65] font-black text-primary">
-          React Query Quiz
+      <div className="text-center">
+        <h3 className="flex gap-2 items-center leading-[0.65] font-black text-primary">
+          React Query.
           <p className="text-primary/25 leading-[0.95]">
-            Test your knowledge of TanStack Query concepts
+            How well do you know Query?
           </p>
         </h3>
-      </div> */}
+      </div>
 
       <Stepper totalSteps={totalQuestions}>
         <MCQStepperContent />
