@@ -430,7 +430,7 @@ export const mcqData: MCQData = {
           "There's no built-in undo—use your own rollback context from onMutate in onError.",
       },
     ],
-    "More Gotchas": [
+    More: [
       {
         question: "What does the `placeholderData` option do in useQuery?",
         optionA:
