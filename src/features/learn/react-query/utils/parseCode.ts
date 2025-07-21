@@ -12,7 +12,7 @@ export function parseCode(text: string): React.ReactNode[] {
         {
           key: index,
           className:
-            "rounded-md bg-muted font-thin font-mono text-sm px-1 py-0.5",
+            "rounded-md bg-muted font-thin font-mono text-[12px] px-1 py-0.5",
         },
         codeContent,
       );

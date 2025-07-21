@@ -20,7 +20,6 @@ function MCQOption({
   text,
   isSelected,
   isCorrect,
-  isAnswered,
   onClick,
 }: MCQOptionProps) {
   let border = "border-transparent";
@@ -45,7 +44,9 @@ function MCQOption({
       <span
         className={cn(
           "font-bold text-primary group-hover:drop-shadow-[0_0_7px_rgba(255,255,255,1)] flex-shrink-0 leading-tight",
-          isCorrect && "drop-shadow-[0_0_7px_rgba(100,255,100,1)]",
+          isSelected &&
+            isCorrect &&
+            "drop-shadow-[0_0_7px_rgba(100,255,100,1)]",
         )}
       >
         {optionKey}
@@ -88,7 +89,7 @@ export function MCQQuestion({ mcq }: MCQQuestionProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.1 }}
-      className="flex flex-col gap-4 w-full mx-auto pt-0 bg-card rounded-lg shadow-sm"
+      className="flex flex-col gap-4 w-full mx-auto pt-0 rounded-lg shadow-sm"
     >
       {/* Question */}
       <motion.div

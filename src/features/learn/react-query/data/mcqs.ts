@@ -62,10 +62,10 @@ export const mcqData: MCQData = {
       {
         question:
           "Which hook do you use to fetch and cache data in React Query?",
-        optionA: "useMutation",
-        optionB: "useFetcher",
-        optionC: "useQuery",
-        optionD: "useCache",
+        optionA: "`useMutation`",
+        optionB: "`useFetcher`",
+        optionC: "`useQuery`",
+        optionD: "`useCache`",
         correctOption: "C",
         explanation:
           "`useQuery` is the primary data-fetching and caching hook.",

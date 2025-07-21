@@ -12,11 +12,12 @@ export default function MCQExplanation({ explanation }: MCQExplanationProps) {
   const { showExplanation, isCorrect } = useMCQ();
 
   return (
-    <AnimatePresence>
+    // <AnimatePresence>
+    <>
       {showExplanation && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
+          animate={{ opacity: 1, height: "100%" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.1 }}
         >
@@ -37,6 +38,7 @@ export default function MCQExplanation({ explanation }: MCQExplanationProps) {
           </div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </>
+    // </AnimatePresence>
   );
 }

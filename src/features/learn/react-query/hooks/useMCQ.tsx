@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  ReactNode,
+} from "react";
 import { MCQState } from "../types";
 
 interface MCQContextType {
@@ -8,7 +14,10 @@ interface MCQContextType {
   showExplanation: boolean;
   isCorrect: boolean | null;
   isAnswered: boolean;
-  selectOption: (option: "A" | "B" | "C" | "D", correctOption: "A" | "B" | "C" | "D") => void;
+  selectOption: (
+    option: "A" | "B" | "C" | "D",
+    correctOption: "A" | "B" | "C" | "D",
+  ) => void;
   resetQuestion: () => void;
   getOptionVariant: (option: "A" | "B" | "C" | "D") => string;
 }
@@ -25,8 +34,6 @@ export function MCQProvider({ children }: MCQProviderProps) {
     showExplanation: false,
     isCorrect: null,
   });
-
-  console.log("useMCQ state:", state);
 
   const selectOption = useCallback(
     (option: "A" | "B" | "C" | "D", correctOption: "A" | "B" | "C" | "D") => {
@@ -71,11 +78,7 @@ export function MCQProvider({ children }: MCQProviderProps) {
     isAnswered: state.selectedOption !== null,
   };
 
-  return (
-    <MCQContext.Provider value={value}>
-      {children}
-    </MCQContext.Provider>
-  );
+  return <MCQContext.Provider value={value}>{children}</MCQContext.Provider>;
 }
 
 export function useMCQ() {
