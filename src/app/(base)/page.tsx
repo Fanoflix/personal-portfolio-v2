@@ -1,10 +1,10 @@
 "use client";
 
-import { StaggeredContainer } from "../features/framer-animations/components/StaggeredContainer";
-import Hero from "../features/hero/Hero";
-import WorkExperience from "../features/work-experience/WorkExperience";
-import WorkPage from "../features/work/WorkPage";
-import { cn } from "../lib/utils";
+import { StaggeredContainer } from "@/src/features/framer-animations/components/StaggeredContainer";
+import Hero from "@/src/features/hero/Hero";
+import WorkExperience from "@/src/features/work-experience/WorkExperience";
+import WorkPage from "@/src/features/work/WorkPage";
+import { cn } from "@/src/lib/utils";
 
 export default function Home() {
   return (
