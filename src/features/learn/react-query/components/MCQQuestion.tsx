@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import { MCQ } from "../types";
 import { useMCQ } from "../hooks/useMCQ";
-import { parseCode } from "../utils/parseCode";
-import { cn } from "@/src/lib/utils";
+import { cn, parseCode } from "@/src/lib/utils";
 
 interface MCQOptionProps {
   optionKey: "A" | "B" | "C" | "D";

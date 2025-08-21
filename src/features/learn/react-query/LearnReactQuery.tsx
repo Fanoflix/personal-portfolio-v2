@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Stepper } from "@/src/components/Stepper/Stepper";
 import { MCQStepperContent } from "./components";
 import { mcqData } from "./data/mcqs";
