@@ -3,7 +3,7 @@
 import { Building2, Wrench } from "lucide-react";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Tool, ToolCategory, ToolsContextType } from "../types";
-import { ShouldBuyBackEquity } from "../../corporate/canIRetire/shouldBuyBackEquity";
+import { ShouldBuyBackEquity } from "../../corporate/canIRetire/ShouldBuyBackEquity";
 
 const STORAGE_KEY = "selected-tool";
 

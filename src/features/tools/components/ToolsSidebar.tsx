@@ -20,7 +20,7 @@ export function ToolsSidebar() {
   };
 
   return (
-    <Sidebar className="border border-border rounded-xl h-[70vh] fixed z-50">
+    <Sidebar className="bg-background rounded-xl h-[70vh] fixed z-50">
       <SidebarHeader className="flex items-center justify-end border-b-0">
         <SidebarTrigger />
       </SidebarHeader>

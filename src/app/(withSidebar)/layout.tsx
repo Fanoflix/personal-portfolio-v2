@@ -24,7 +24,8 @@ const inter = localFont({
   weight: "100 200 300 400 500 600 700 800 900",
 });
 
-export default function ToolsLayout({ children }: ToolsLayoutProps) {
+export default function WithSidebarLayout({ children }: ToolsLayoutProps) {
+  const pathname = usePathname();
   return (
     <html
       className={`${inter.variable} antialiased`}
@@ -35,35 +36,28 @@ export default function ToolsLayout({ children }: ToolsLayoutProps) {
         <ThemeProvider attribute="class" defaultTheme="dark">
           <SidebarProvider>
             <TopNavbar />
-            <WithSidebarShell>{children}</WithSidebarShell>
+
+            <div
+              className={cn(
+                "w-screen bg-transparent overflow-x-hidden px-3 md:px-0",
+                "pb-6 flex flex-col items-center justify-center",
+              )}
+            >
+              <AnimatePresence mode="wait">
+                <motion.section
+                  className="w-full"
+                  key={pathname}
+                  variants={layoutVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {children}
+                </motion.section>
+              </AnimatePresence>
+            </div>
           </SidebarProvider>
         </ThemeProvider>
       </body>
     </html>
-  );
-}
-
-export function WithSidebarShell({ children }: PropsWithChildren) {
-  const pathname = usePathname();
-
-  return (
-    <div
-      className={cn(
-        "w-screen bg-transparent overflow-x-hidden px-3 md:px-0",
-        "pb-6 flex flex-col items-center justify-center",
-      )}
-    >
-      <AnimatePresence mode="wait">
-        <motion.section
-          className="w-full"
-          key={pathname}
-          variants={layoutVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {children}
-        </motion.section>
-      </AnimatePresence>
-    </div>
   );
 }

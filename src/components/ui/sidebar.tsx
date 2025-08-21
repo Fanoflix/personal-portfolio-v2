@@ -54,7 +54,7 @@ export function Sidebar({ children, className }: SidebarProps) {
   return (
     <div
       className={cn(
-        "flex h-full flex-col border-r border-border bg-background w-60 md:w-72 relative z-20",
+        "flex h-full flex-col border border-border bg-background w-60 md:w-72 relative z-20",
         className,
       )}
     >

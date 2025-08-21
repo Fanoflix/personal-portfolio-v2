@@ -10,21 +10,23 @@ export default function ToolsLayout({ children }: PropsWithChildren) {
 
   return (
     <ToolsProvider>
-      <div className="h-[calc(100vh-150px)] w-full p-4 md:p-12">
+      <div className="h-[calc(100vh-80px)] w-full p-4 md:p-12">
         <div
           className={cn(
             "absolute inset-0 h-full -z-50",
             // Dotted background pattern
             "bg-background",
-            "bg-[radial-gradient(circle,theme(colors.border)_1px,transparent_1px)]",
-            "bg-[length:30px_30px]",
+            "bg-[radial-gradient(circle,theme(colors.input)_1px,transparent_1px)]",
+            "bg-[length:22px_22px]",
           )}
           style={{
-            backgroundPosition: "0 0, 30px 30px",
+            backgroundPosition: "0 0, 22px 22px",
             maskImage:
-              "linear-gradient(to right, transparent 0%, black 35%, black 85%, transparent 100%)",
+              "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
             WebkitMaskImage:
-              "linear-gradient(to right, transparent 0%, black 35%, black 85%, transparent 100%)",
+              "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
+            maskComposite: "intersect",
+            WebkitMaskComposite: "intersect",
           }}
         />
 
