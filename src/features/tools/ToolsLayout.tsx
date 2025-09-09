@@ -12,15 +12,15 @@ export default function ToolsLayout({ children }: PropsWithChildren) {
             "absolute inset-0 h-full -z-50",
             // Dotted background pattern
             "bg-background",
-            "bg-[radial-gradient(circle,theme(colors.input)_1px,transparent_1px)]",
-            "bg-[length:22px_22px]",
+            "bg-[radial-gradient(circle,theme(colors.input)_0.5px,transparent_1px)]",
+            "bg-[length:35px_35px]",
           )}
           style={{
-            backgroundPosition: "0 0, 22px 22px",
+            backgroundPosition: "0 0, 35px 35px",
             maskImage:
-              "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
+              "linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 7%, black 93%, transparent 100%)",
             WebkitMaskImage:
-              "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
+              "linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 7%, black 93%, transparent 100%)",
             maskComposite: "intersect",
             WebkitMaskComposite: "intersect",
           }}
