@@ -1,13 +1,9 @@
 "use client";
-import { SidebarTrigger, useSidebar } from "@/src/components/ui/sidebar";
-import { ToolsSidebar } from "@/src/features/tools/components/ToolsSidebar";
 import { ToolsProvider } from "@/src/features/tools/lib/hooks/useTools";
 import { cn } from "@/src/lib/utils";
 import { PropsWithChildren } from "react";
 
 export default function ToolsLayout({ children }: PropsWithChildren) {
-  const { isCollapsed } = useSidebar();
-
   return (
     <ToolsProvider>
       <div className="h-[calc(100vh-80px)] w-full p-4 md:p-12">
@@ -29,15 +25,6 @@ export default function ToolsLayout({ children }: PropsWithChildren) {
             WebkitMaskComposite: "intersect",
           }}
         />
-
-        {isCollapsed && (
-          <SidebarTrigger
-            text="More tools"
-            className="fixed inline top-7 md:top-14 z-50"
-          />
-        )}
-
-        <ToolsSidebar />
 
         <div className="flex overflow-hidden w-full relative z-10 pt-24 justify-center">
           {children}

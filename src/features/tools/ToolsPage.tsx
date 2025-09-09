@@ -1,10 +1,7 @@
 "use client";
 
-import { cn } from "@/src/lib/utils";
 import { useTools } from "./lib/hooks/useTools";
-import { ToolsSidebar } from "./components/ToolsSidebar";
 import { StaggeredContainer } from "../framer-animations/components/StaggeredContainer";
-import { SidebarTrigger, useSidebar } from "@/src/components/ui/sidebar";
 
 export function ToolsPage() {
   const { selectedTool, tools } = useTools();
@@ -28,6 +25,7 @@ export function ToolsPage() {
           stagger={0.2}
           containerClassName="h-full flex justify-center"
         >
+          l
           <div className="text-center space-y-4">
             <h2 className="text-2xl font-bold text-primary">
               Welcome to Tools

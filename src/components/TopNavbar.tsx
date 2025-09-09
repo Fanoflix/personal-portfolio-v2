@@ -76,7 +76,6 @@ export default function Navbar() {
               >
                 <FlaskConical
                   strokeWidth={2}
-                  fill="currentColor"
                   className="w-3.5 h-3.5 animate-pulse text-primary"
                 />
                 <TextShimmer
@@ -93,10 +92,7 @@ export default function Navbar() {
                 className="text-[14px] text-text hover:text-primary flex items-center gap-0.5"
                 href="/tools"
               >
-                <Wrench
-                  strokeWidth={2}
-                  className="w-3.5 h-3.5 text-primary"
-                />
+                <Wrench strokeWidth={2} className="w-3.5 h-3.5 text-primary" />
                 Tools
               </Link>
 

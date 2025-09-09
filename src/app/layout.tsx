@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import "../globals.css";
+import "./globals.css";
 
 import { Metadata } from "next";
 import localFont from "next/font/local";
@@ -10,7 +10,7 @@ import TopNavbar from "@/src/components/TopNavbar";
 import AppShell from "@/src/components/AppShell";
 
 const inter = localFont({
-  src: "../../../public/fonts/web/InterVariable.woff2",
+  src: "../../public/fonts/web/InterVariable.woff2",
   variable: "--font-inter",
   display: "swap",
   weight: "100 200 300 400 500 600 700 800 900",
