@@ -17,13 +17,13 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="w-full flex justify-center h-max md:h-12 sticky top-0 backdrop-blur-lg z-50">
-      <div className="w-full md:w-site border-border border-b">
+    <nav className="sticky top-0 z-50 flex h-max w-full justify-center backdrop-blur-lg md:h-12">
+      <div className="md:w-site border-border w-full border-b">
         <AnimatePresence mode="wait">
           <motion.section
             className={cn(
-              "w-full flex flex-col sm:flex-row items-center text-center justify-between",
-              "py-4 md:py-3 px-2",
+              "flex w-full flex-col items-center justify-between text-center sm:flex-row",
+              "px-2 py-4 md:py-3",
               "gap-3",
             )}
             key={pathname}
@@ -36,7 +36,7 @@ export default function Navbar() {
               <MyLogo />
               <Link
                 prefetch
-                className="flex gap-1.5 text-text hover:text-primary text-nowrap w-max font-semibold"
+                className="text-text hover:text-primary flex w-max gap-1.5 font-semibold text-nowrap"
                 href="/"
               >
                 <span className="text-primary">Muhammad Ammar</span>
@@ -47,7 +47,7 @@ export default function Navbar() {
             <div className="flex items-center justify-center gap-6 md:gap-4">
               <Link
                 prefetch
-                className="text-[14px] text-text hover:text-primary flex items-center gap-0.5"
+                className="text-text hover:text-primary flex items-center gap-0.5 text-[14px]"
                 href="/#home"
               >
                 Home
@@ -55,7 +55,7 @@ export default function Navbar() {
 
               <Link
                 prefetch
-                className="text-[14px] text-text hover:text-primary"
+                className="text-text hover:text-primary text-[14px]"
                 href="/#work"
               >
                 Work
@@ -63,12 +63,12 @@ export default function Navbar() {
 
               <Link
                 prefetch
-                className="text-[14px] text-text flex items-center gap-0.5"
+                className="text-text flex items-center gap-0.5 text-[14px]"
                 href="/learn/react-query"
               >
                 <FlaskConical
                   strokeWidth={2}
-                  className="w-3.5 h-3.5 animate-pulse text-primary"
+                  className="text-primary h-3.5 w-3.5 animate-pulse"
                 />
                 <TextShimmer
                   className="hover:text-primary"

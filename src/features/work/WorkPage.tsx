@@ -27,7 +27,7 @@ export default function WorkPage() {
   return (
     <div className="mx-auto" id="work">
       <StaggeredContainer containerClassName="flex flex-col gap-4">
-        <h1 className="flex flex-col font-black leading-[0.65]">
+        <h1 className="flex flex-col leading-[0.65] font-black">
           Work.
           <div className="flex flex-wrap">
             <span className="text-primary/25 leading-[0.95]">
@@ -36,7 +36,7 @@ export default function WorkPage() {
           </div>
         </h1>
 
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           This is a list of my contributions to various projects at various
           companies. Currently only contains what I remember 👀.
         </p>

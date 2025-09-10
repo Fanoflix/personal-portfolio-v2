@@ -18,11 +18,11 @@ export default function ToolsLayout({ children }: PropsWithChildren) {
       <div className="h-[calc(100vh-80px)] w-full p-4 md:p-12">
         <div
           className={cn(
-            "absolute inset-0 h-full -z-50",
+            "absolute inset-0 -z-50 h-full",
             // Dotted background pattern
             "bg-background",
-            "bg-[radial-gradient(circle,theme(colors.input)_0.5px,transparent_1px)]",
-            "bg-[length:35px_35px]",
+            "bg-[radial-gradient(circle,var(--color-input)_0.5px,transparent_1px)]",
+            "bg-size-[35px_35px]",
           )}
           style={{
             backgroundPosition: "0 0, 35px 35px",
@@ -35,7 +35,7 @@ export default function ToolsLayout({ children }: PropsWithChildren) {
           }}
         />
 
-        <div className="flex overflow-hidden w-full relative z-10 pt-24 justify-center">
+        <div className="relative z-10 flex w-full justify-center overflow-hidden pt-24">
           {children}
         </div>
       </div>

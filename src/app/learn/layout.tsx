@@ -11,7 +11,7 @@ export default function LearnLayout({ children }: LearnLayoutProps) {
     <div
       className={cn(
         "w-full px-3 md:px-0",
-        "pb-6 flex flex-col items-center justify-center",
+        "flex flex-col items-center justify-center pb-6",
       )}
     >
       {children}

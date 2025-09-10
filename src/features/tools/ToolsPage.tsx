@@ -12,7 +12,7 @@ export function ToolsPage() {
   const ToolComponent = currentTool?.component;
 
   return (
-    <div className="flex justify-center w-full h-max">
+    <div className="flex h-max w-full justify-center">
       {ToolComponent ? (
         <StaggeredContainer
           stagger={0.2}
@@ -26,8 +26,8 @@ export function ToolsPage() {
           containerClassName="h-full flex justify-center"
         >
           l
-          <div className="text-center space-y-4">
-            <h2 className="text-2xl font-bold text-primary">
+          <div className="space-y-4 text-center">
+            <h2 className="text-primary text-2xl font-bold">
               Welcome to Tools
             </h2>
             <p className="text-text max-w-md">

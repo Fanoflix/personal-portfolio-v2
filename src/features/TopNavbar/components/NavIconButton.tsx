@@ -20,7 +20,7 @@ export default function NavIconButton({
     <TooltipWrapper tooltipContent={tooltipContent}>
       <div
         className={cn(
-          "hover:bg-transparent opacity-60 hover:opacity-100 invert dark:invert-0",
+          "opacity-60 invert hover:bg-transparent hover:opacity-100 dark:invert-0",
           className,
         )}
       >

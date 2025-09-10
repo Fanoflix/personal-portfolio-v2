@@ -25,7 +25,10 @@ export default function TooltipWrapper({
   disableHoverableContent?: boolean;
 }) {
   return (
-    <TooltipProvider delayDuration={delayDuration} disableHoverableContent>
+    <TooltipProvider
+      delayDuration={delayDuration}
+      disableHoverableContent={disableHoverableContent}
+    >
       <Tooltip>
         <TooltipTrigger asChild>{children}</TooltipTrigger>
         <TooltipContent
@@ -37,10 +40,10 @@ export default function TooltipWrapper({
             // Border-color
             "border-secondary-foreground",
             // Border sides and shadow for each side
-            "data-[side=top]:border-b dark:data-[side=top]:shadow-tooltip-b",
-            "data-[side=bottom]:border-t dark:data-[side=bottom]:shadow-tooltip-t",
-            "data-[side=right]:border-l dark:data-[side=right]:shadow-tooltip-r",
-            "data-[side=left]:border-r dark:data-[side=left]:shadow-tooltip-l",
+            "dark:data-[side=top]:shadow-tooltip-b data-[side=top]:border-b",
+            "dark:data-[side=bottom]:shadow-tooltip-t data-[side=bottom]:border-t",
+            "dark:data-[side=right]:shadow-tooltip-r data-[side=right]:border-l",
+            "dark:data-[side=left]:shadow-tooltip-l data-[side=left]:border-r",
             // Slide and zoom animations
             "data-[side=bottom]:slide-in-from-top-3",
             // Text classes

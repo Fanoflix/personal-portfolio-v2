@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
-    <div className={cn("py-16 md:py-24 px-2")} id="home">
+    <div className={cn("px-2 py-16 md:py-24")} id="home">
       <StaggeredContainer
         containerClassName="flex flex-col gap-32"
         stagger={0.8}

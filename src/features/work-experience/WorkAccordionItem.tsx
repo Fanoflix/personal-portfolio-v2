@@ -40,15 +40,15 @@ export default function WorkAccordionItem({
     <div>
       <AccordionItem
         className={cn(
-          "data-[state=open]:bg-gradient-to-br from-transparent via-primary/[8%] via-[0.4%] to-[30%] to-transparent",
-          "border-l border-transparent border-b-0 data-[state=open]:border-primary transition-all",
+          "via-primary/8 from-transparent via-[0.4%] to-transparent to-30% data-[state=open]:bg-linear-to-br",
+          "data-[state=open]:border-primary border-b-0 border-l border-transparent transition-all",
         )}
         value={workItem.companyName}
       >
-        <AccordionTrigger className={cn("px-3 h-18 w-full text-xs md:text-sm")}>
-          <div className="flex items-center justify-start gap-2 h-max w-full">
+        <AccordionTrigger className={cn("h-18 w-full px-3 text-xs md:text-sm")}>
+          <div className="flex h-max w-full items-center justify-start gap-2">
             <a
-              className="flex items-center justify-center h-full min-w-[60px] md:min-w-[90px]"
+              className="flex h-full min-w-[60px] items-center justify-center md:min-w-[90px]"
               target="_blank"
               href={workItem.companyUrl}
             >
@@ -61,14 +61,14 @@ export default function WorkAccordionItem({
               />
             </a>
 
-            <div className="flex items-center h-max gap-2 w-full">
-              <p className="flex items-center gap-3 md:gap-6 text-primary">
-                <span className="text-muted/60 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent h-12" />{" "}
+            <div className="flex h-max w-full items-center gap-2">
+              <p className="text-primary flex items-center gap-3 md:gap-6">
+                <span className="text-muted/60 via-primary h-12 w-px bg-linear-to-b from-transparent to-transparent" />{" "}
                 {workItem.jobTitle}
               </p>
 
               {workItem.current && (
-                <div className="min-w-2 min-h-2 bg-green-500 rounded-full" />
+                <div className="min-h-2 min-w-2 rounded-full bg-green-500" />
               )}
 
               <p className="text-primary/30">
@@ -77,7 +77,7 @@ export default function WorkAccordionItem({
             </div>
           </div>
         </AccordionTrigger>
-        <AccordionContent className="py-6 px-6 pl-8 text-text text-[14px]">
+        <AccordionContent className="text-text px-6 py-6 pl-8 text-[14px]">
           {workItem.content}
         </AccordionContent>
       </AccordionItem>

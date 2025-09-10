@@ -33,7 +33,7 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
       variants={TagsContainerMotion}
       className={cn(
         "relative w-full",
-        "flex flex-nowrap justify-end items-center h-8",
+        "flex h-8 flex-nowrap items-center justify-end",
       )}
       onClick={(e) => {
         e.stopPropagation();
@@ -54,12 +54,12 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
         >
           <div
             className={cn(
-              "flex items-center justify-center px-1.5 pl-5 h-[20px] cursor-default",
+              "flex h-[20px] cursor-default items-center justify-center px-1.5 pl-5",
               index === sortedTags.length - 1 && "pl-1.5",
               "rounded-[6px]",
-              "border border-primary/15",
+              "border-primary/15 border",
               "bg-background hover:bg-border",
-              "font-mono font-black tracking-tight text-[10px] text-primary/70 hover:text-primary truncate min-w-0",
+              "text-primary/70 hover:text-primary min-w-0 truncate font-mono text-[10px] font-black tracking-tight",
               tag.isSpecial &&
                 "bg-primary/5 hover:bg-primary text-primary hover:text-primary-foreground font-normal",
             )}

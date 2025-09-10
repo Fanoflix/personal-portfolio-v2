@@ -30,9 +30,9 @@ export function ShouldBuyBackEquity() {
   };
 
   return (
-    <div className="w-full max-w-site mx-auto space-y-6">
+    <div className="max-w-site mx-auto w-full space-y-6">
       <div className="space-y-4">
-        <h2 className="text-2xl font-bold text-primary">
+        <h2 className="text-primary text-2xl font-bold">
           Should I Buy Back Equity?
         </h2>
         <p className="text-text">
@@ -41,11 +41,11 @@ export function ShouldBuyBackEquity() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-2">
           <label
             htmlFor="currentValue"
-            className="text-sm font-medium text-foreground"
+            className="text-foreground text-sm font-medium"
           >
             Current Equity Value
           </label>
@@ -57,9 +57,9 @@ export function ShouldBuyBackEquity() {
               updateField("currentEquityValue", Number(e.target.value))
             }
             className={cn(
-              "w-full px-3 py-2 border border-border rounded-md",
+              "border-border w-full rounded-md border px-3 py-2",
               "bg-background text-foreground",
-              "focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent",
+              "focus:ring-ring focus:border-transparent focus:ring-2 focus:outline-hidden",
             )}
             placeholder="$100,000"
           />
@@ -68,7 +68,7 @@ export function ShouldBuyBackEquity() {
         <div className="space-y-2">
           <label
             htmlFor="buybackPrice"
-            className="text-sm font-medium text-foreground"
+            className="text-foreground text-sm font-medium"
           >
             Buyback Price
           </label>
@@ -80,9 +80,9 @@ export function ShouldBuyBackEquity() {
               updateField("buybackPrice", Number(e.target.value))
             }
             className={cn(
-              "w-full px-3 py-2 border border-border rounded-md",
+              "border-border w-full rounded-md border px-3 py-2",
               "bg-background text-foreground",
-              "focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent",
+              "focus:ring-ring focus:border-transparent focus:ring-2 focus:outline-hidden",
             )}
             placeholder="$80,000"
           />
@@ -91,7 +91,7 @@ export function ShouldBuyBackEquity() {
         <div className="space-y-2">
           <label
             htmlFor="growthRate"
-            className="text-sm font-medium text-foreground"
+            className="text-foreground text-sm font-medium"
           >
             Expected Annual Growth Rate (%)
           </label>
@@ -104,9 +104,9 @@ export function ShouldBuyBackEquity() {
               updateField("expectedGrowthRate", Number(e.target.value))
             }
             className={cn(
-              "w-full px-3 py-2 border border-border rounded-md",
+              "border-border w-full rounded-md border px-3 py-2",
               "bg-background text-foreground",
-              "focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent",
+              "focus:ring-ring focus:border-transparent focus:ring-2 focus:outline-hidden",
             )}
             placeholder="15"
           />
@@ -115,7 +115,7 @@ export function ShouldBuyBackEquity() {
         <div className="space-y-2">
           <label
             htmlFor="timeHorizon"
-            className="text-sm font-medium text-foreground"
+            className="text-foreground text-sm font-medium"
           >
             Time Horizon (years)
           </label>
@@ -126,9 +126,9 @@ export function ShouldBuyBackEquity() {
             value={equityData.timeHorizon || ""}
             onChange={(e) => updateField("timeHorizon", Number(e.target.value))}
             className={cn(
-              "w-full px-3 py-2 border border-border rounded-md",
+              "border-border w-full rounded-md border px-3 py-2",
               "bg-background text-foreground",
-              "focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent",
+              "focus:ring-ring focus:border-transparent focus:ring-2 focus:outline-hidden",
             )}
             placeholder="3"
           />
@@ -145,8 +145,8 @@ export function ShouldBuyBackEquity() {
       </div>
 
       {result && (
-        <div className="mt-6 p-6 border border-border rounded-lg bg-card">
-          <h3 className="text-lg font-semibold text-card-foreground mb-4">
+        <div className="border-border bg-card mt-6 rounded-lg border p-6">
+          <h3 className="text-card-foreground mb-4 text-lg font-semibold">
             Analysis Results
           </h3>
 
@@ -155,14 +155,14 @@ export function ShouldBuyBackEquity() {
               <span className="text-muted-foreground">
                 Future Equity Value:
               </span>
-              <span className="font-medium text-foreground">
+              <span className="text-foreground font-medium">
                 {formatCurrency(result.futureEquityValue)}
               </span>
             </div>
 
             <div className="flex justify-between">
               <span className="text-muted-foreground">Cost of Buyback:</span>
-              <span className="font-medium text-foreground">
+              <span className="text-foreground font-medium">
                 {formatCurrency(result.costOfBuyback)}
               </span>
             </div>
@@ -183,7 +183,7 @@ export function ShouldBuyBackEquity() {
 
             <hr className="border-border" />
 
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <span className="text-muted-foreground">Recommendation:</span>
               <div className="text-right">
                 <div
@@ -198,7 +198,7 @@ export function ShouldBuyBackEquity() {
                       ? "Keep Equity"
                       : "Neutral"}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-muted-foreground text-sm">
                   {result.confidenceLevel}% confidence
                 </div>
               </div>

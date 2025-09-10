@@ -24,16 +24,16 @@ export default function MCQExplanation({ explanation }: MCQExplanationProps) {
         >
           <div
             className={cn(
-              "flex flex-col gap-2 px-4 py-3 border-l-2 border-transparent to-50%",
+              "flex flex-col gap-2 border-l-2 border-transparent to-50% px-4 py-3",
               isCorrect
-                ? "bg-gradient-to-r from-green-800/15 to-transparent border-green-800"
-                : "bg-gradient-to-r from-orange-700/15 to-transparent border-orange-700",
+                ? "border-green-800 bg-linear-to-r from-green-800/15 to-transparent"
+                : "border-orange-700 bg-linear-to-r from-orange-700/15 to-transparent",
             )}
           >
-            <h4 className="font-black text-[9px] uppercase text-text tracking-wider">
+            <h4 className="text-text text-[9px] font-black tracking-wider uppercase">
               Explanation
             </h4>
-            <p className="text-primary text-xs md:text-sm leading-snug">
+            <p className="text-primary text-xs leading-snug md:text-sm">
               {parseCode(explanation)}
             </p>
           </div>

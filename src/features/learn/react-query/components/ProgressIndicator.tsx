@@ -9,7 +9,7 @@ export default function ProgressIndicator({
 }) {
   return (
     <div>
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <p className="text-xs font-semibold">
           {`Question ${questionNumber} of ${totalQuestions}`}
         </p>

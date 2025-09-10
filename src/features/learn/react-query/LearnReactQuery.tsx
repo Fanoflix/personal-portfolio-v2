@@ -18,8 +18,8 @@ export function LearnReactQuery() {
       stagger={0.35}
       containerClassName="flex flex-col items-center justify-center gap-10 pt-12"
     >
-      <h3 className="font-black text-primary">
-        <p className="text-start text-primary/25 leading-[0.95]">
+      <h3 className="text-primary font-black">
+        <p className="text-primary/25 text-start leading-[0.95]">
           <span className="text-primary">React Query. </span> How well do you
           know Query?
         </p>

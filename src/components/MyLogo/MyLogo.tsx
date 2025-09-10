@@ -168,14 +168,14 @@ export default function MyLogo() {
   }, [isClient, isAnimationAlreadyPlayed, morphLogoForward]);
 
   if (!isClient) {
-    return <div className="max-w-7 max-h-7 min-w-7 min-h-7" />;
+    return <div className="max-h-7 min-h-7 max-w-7 min-w-7" />;
   }
 
   return (
     <div
       className={cn(
-        "logo-svg z-[100] flex items-center justify-center m-auto",
-        "max-w-7 max-h-7 min-w-7 min-h-7",
+        "logo-svg z-100 m-auto flex items-center justify-center",
+        "max-h-7 min-h-7 max-w-7 min-w-7",
       )}
     >
       <svg id="base" className="overflow-visible" viewBox="0 0 153 200">

@@ -6,7 +6,7 @@ import { StaggeredContainer } from "../framer-animations/components/StaggeredCon
 export default function Hero() {
   return (
     <StaggeredContainer containerClassName="flex flex-col gap-7 w-full md:w-4/6 text-pretty">
-      <h1 className="flex flex-col items-start leading-[0.65] font-black text-primary">
+      <h1 className="text-primary flex flex-col items-start leading-[0.65] font-black">
         Ammar.
         <div className="flex flex-wrap">
           <span className="text-primary/25 leading-[0.95]">Engineer.</span>

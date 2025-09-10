@@ -46,7 +46,7 @@ export default function ToggleTheme() {
   };
 
   if (!mounted) {
-    return <div className="min-w-4 h-4" />;
+    return <div className="h-4 min-w-4" />;
   }
 
   const currentDisplayedTheme = displayedTheme || theme || "dark";
@@ -59,11 +59,11 @@ export default function ToggleTheme() {
 
   return (
     <button
-      className="flex hover:bg-transparent opacity-60 hover:opacity-100 invert dark:invert-0"
+      className="flex opacity-60 invert hover:bg-transparent hover:opacity-100 dark:invert-0"
       onClick={toggleTheme}
       disabled={isAnimating}
     >
-      <div style={animationStyle} className="relative min-w-4 min-h-4">
+      <div style={animationStyle} className="relative min-h-4 min-w-4">
         <Image
           src="/icons/moon.svg"
           alt="Dark mode"

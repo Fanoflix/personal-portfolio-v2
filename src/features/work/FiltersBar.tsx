@@ -18,7 +18,7 @@ export function FiltersBar({ setFilterState, activeFilter }: FiltersBarProps) {
 
   return (
     <div className="flex flex-wrap items-center gap-1">
-      <div className="flex flex-wrap items-center gap-1 z-20 bg-background">
+      <div className="bg-background z-20 flex flex-wrap items-center gap-1">
         {years.map((year) => (
           <Button
             key={year}
@@ -39,7 +39,7 @@ export function FiltersBar({ setFilterState, activeFilter }: FiltersBarProps) {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            className="flex items-center gap-2 text-xs z-0"
+            className="z-0 flex items-center gap-2 text-xs"
           >
             <Button
               size="sm"

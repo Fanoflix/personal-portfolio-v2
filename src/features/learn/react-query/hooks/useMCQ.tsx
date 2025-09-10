@@ -59,14 +59,14 @@ export function MCQProvider({ children }: MCQProviderProps) {
   const getOptionVariant = useCallback(
     (option: "A" | "B" | "C" | "D") => {
       if (!state.selectedOption || !state.showExplanation) {
-        return "outline";
+        return "outline-solid";
       }
 
       if (state.selectedOption === option) {
         return state.isCorrect ? "default" : "destructive";
       }
 
-      return "outline";
+      return "outline-solid";
     },
     [state.selectedOption, state.showExplanation, state.isCorrect],
   );

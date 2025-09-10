@@ -25,14 +25,14 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
         </p>
 
         <div className="flex flex-col gap-1.5">
-          <span className="text-primary/15 text-xl leading-[1] font-black">
+          <span className="text-primary/15 text-xl leading-none font-black">
             Highlights
           </span>
           <p className="flex flex-col gap-2">
             <span>
               As the second Frontend-focused hire at Metal, I operate as a
-              <i>"product engineer"</i>, contributing to design, UX, Frontend,
-              Backend and Product side of things.
+              <i>&quot;product engineer&quot;</i>, contributing to design, UX,
+              Frontend, Backend and Product side of things.
             </span>
 
             <span>
@@ -47,7 +47,7 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <span className="text-primary/15 text-xl leading-[1] font-black">
+          <span className="text-primary/15 text-xl leading-none font-black">
             Stack
           </span>
           <span className="text-primary">
@@ -80,7 +80,7 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
         </p>
 
         <div className="flex flex-col gap-1.5">
-          <span className="text-primary/15 text-xl leading-[1] font-black">
+          <span className="text-primary/15 text-xl leading-none font-black">
             Highlights
           </span>
           <p className="flex flex-col gap-2">
@@ -94,7 +94,7 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
             </span>
 
             <span>
-              Created a sizeable analytics dashboard (similar to Youtube's
+              Created a sizeable analytics dashboard (similar to Youtube&apos;s
               analytics) using NewRelic and FingerprintJS. Led the Frontend
               development of this feature alongside the data side of things.
               Rewrote a complex Drag-and-Drop-on-canvas feature in library-style
@@ -105,7 +105,7 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <span className="text-primary/15 text-xl leading-[1] font-black">
+          <span className="text-primary/15 text-xl leading-none font-black">
             Stack
           </span>
           <span className="text-primary">
@@ -122,8 +122,8 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
 
 export default function WorkExperience() {
   return (
-    <div className="flex flex-col gap-7 w-full md:w-3/4">
-      <h1 className="flex flex-col font-black leading-[0.65]">
+    <div className="flex w-full flex-col gap-7 md:w-3/4">
+      <h1 className="flex flex-col leading-[0.65] font-black">
         Experiences.
         <div className="flex flex-wrap">
           <span className="text-primary/25 leading-[0.95]">3 years.</span>

@@ -29,10 +29,10 @@ function MCQOption({
   if (isSelected) {
     if (isCorrect) {
       border = "border-green-800/40";
-      bg = "bg-gradient-to-r from-green-800/20 to-transparent to-50%";
+      bg = "bg-linear-to-r from-green-800/20 to-transparent to-50%";
     } else {
       border = "border-orange-500/25";
-      bg = "bg-gradient-to-r from-orange-700/20 to-transparent to-50%";
+      bg = "bg-linear-to-r from-orange-700/20 to-transparent to-50%";
     }
   }
 
@@ -40,11 +40,11 @@ function MCQOption({
     <button
       type="button"
       onClick={onClick}
-      className={`w-full flex gap-3 p-3 rounded-md border ${border} ${bg} ${textColor} transition-colors duration-150 text-xs md:text-sm focus:outline-none group text-start`}
+      className={`flex w-full gap-3 rounded-md border p-3 ${border} ${bg} ${textColor} group text-start text-xs transition-colors duration-150 focus:outline-hidden md:text-sm`}
     >
       <span
         className={cn(
-          "font-bold text-primary group-hover:drop-shadow-[0_0_7px_rgba(255,255,255,1)] flex-shrink-0 leading-tight",
+          "text-primary shrink-0 leading-tight font-bold group-hover:drop-shadow-[0_0_7px_rgba(255,255,255,1)]",
           isSelected &&
             isCorrect &&
             "drop-shadow-[0_0_7px_rgba(100,255,100,1)]",
@@ -54,7 +54,7 @@ function MCQOption({
       </span>
       <span
         className={cn(
-          "text-wrap group-hover:text-primary leading-tight",
+          "group-hover:text-primary leading-tight text-wrap",
           isSelected && "text-primary",
         )}
       >
@@ -90,7 +90,7 @@ export function MCQQuestion({ mcq }: MCQQuestionProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.1 }}
-      className="flex flex-col gap-4 w-full mx-auto pt-0 rounded-lg shadow-sm"
+      className="mx-auto flex w-full flex-col gap-4 rounded-lg pt-0 shadow-xs"
     >
       {/* Question */}
       <motion.div
@@ -98,7 +98,7 @@ export function MCQQuestion({ mcq }: MCQQuestionProps) {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
       >
-        <h3 className="text-base md:text-lg leading-relaxed text-foreground">
+        <h3 className="text-foreground text-base leading-relaxed md:text-lg">
           {parseCode(mcq.question)}
         </h3>
       </motion.div>

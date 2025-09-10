@@ -57,16 +57,16 @@ export function CategoryNav({
     <div className="relative w-full max-w-xs md:max-w-[500px]">
       <nav
         ref={scrollRef}
-        className="flex gap-2 overflow-x-auto w-full scrollbar-hide"
+        className="scrollbar-hide flex w-full gap-2 overflow-x-auto"
       >
         {categories.map((category) => (
           <Button
             key={category}
             className={cn(
-              "h-max py-0.5 px-1 rounded-md text-sm font-medium transition-colors duration-300 border-0 flex-shrink-0",
+              "h-max shrink-0 rounded-md border-0 px-1 py-0.5 text-sm font-medium transition-colors duration-300",
               category === currentCategory
                 ? "bg-primary text-primary-foreground"
-                : "bg-transparent text-muted-foreground hover:bg-accent hover:text-primary",
+                : "text-muted-foreground hover:bg-accent hover:text-primary bg-transparent",
             )}
             onClick={() => onSelect(category)}
           >
@@ -77,12 +77,12 @@ export function CategoryNav({
 
       {/* Fade out effect at start to indicate scrollable content to the left */}
       {showStartFade && (
-        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent pointer-events-none transition-opacity duration-300" />
+        <div className="from-background pointer-events-none absolute top-0 bottom-0 left-0 w-16 bg-linear-to-r to-transparent transition-opacity duration-300" />
       )}
 
       {/* Fade out effect at end to indicate scrollable content to the right */}
       {showEndFade && (
-        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent pointer-events-none transition-opacity duration-300" />
+        <div className="from-background pointer-events-none absolute top-0 right-0 bottom-0 w-16 bg-linear-to-l to-transparent transition-opacity duration-300" />
       )}
     </div>
   );

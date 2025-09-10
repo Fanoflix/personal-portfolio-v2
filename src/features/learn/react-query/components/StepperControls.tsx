@@ -12,9 +12,9 @@ export function StepperControls({ isLastQuestion }: StepperControlsProps) {
   const { canGoNext, canGoPrevious, goNext, goPrevious } = useStepper();
 
   return (
-    <div className="flex justify-between items-center w-full max-w-xs md:max-w-[500px]">
+    <div className="flex w-full max-w-xs items-center justify-between md:max-w-[500px]">
       <Button
-        className="w-max  border-0"
+        className="w-max border-0"
         variant="outline"
         onClick={goPrevious}
         disabled={!canGoPrevious}
@@ -23,7 +23,7 @@ export function StepperControls({ isLastQuestion }: StepperControlsProps) {
       </Button>
 
       <Button
-        className="w-max  border-0"
+        className="w-max border-0"
         onClick={goNext}
         disabled={!canGoNext || !isAnswered}
       >

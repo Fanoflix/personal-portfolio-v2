@@ -35,7 +35,7 @@ function MCQContentInner({
   }, [questionNumber, resetQuestion]);
 
   return (
-    <div className="flex flex-col gap-6 max-w-xs md:max-w-[500px]">
+    <div className="flex max-w-xs flex-col gap-6 md:max-w-[500px]">
       <MCQQuestion
         mcq={currentMCQ.mcq}
         questionNumber={questionNumber}
@@ -56,7 +56,7 @@ export function MCQContent({ allMCQs, totalQuestions }: MCQContentProps) {
 
   if (!currentMCQ) {
     return (
-      <div className="text-center py-8">
+      <div className="py-8 text-center">
         <p className="text-muted-foreground">No questions available.</p>
       </div>
     );

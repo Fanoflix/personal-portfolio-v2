@@ -71,7 +71,7 @@ export function DataTable<TData extends { subRows?: TData[] }, TValue>({
   });
 
   return (
-    <div className="rounded-md border border-border">
+    <div className="border-border rounded-md border">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -115,7 +115,7 @@ export function DataTable<TData extends { subRows?: TData[] }, TValue>({
             <TableRow>
               <TableCell
                 colSpan={columns.length}
-                className={cn("h-24 text-center text-xs text-muted-foreground")}
+                className={cn("text-muted-foreground h-24 text-center text-xs")}
               >
                 No results.
               </TableCell>
@@ -151,7 +151,7 @@ function AnimatedTableRow<TData>({
       className={cn(
         "border-border",
         noBottomBorder && "border-b-0",
-        row.getCanExpand() && "border-t border-border/50",
+        row.getCanExpand() && "border-border/50 border-t",
         typeof rowClassName === "function"
           ? rowClassName(row.original)
           : rowClassName,

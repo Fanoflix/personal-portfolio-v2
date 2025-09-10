@@ -17,11 +17,11 @@ export const CategoryColumn = ({ row }: { row: Row<WorkWithSubRows> }) => {
   }, []);
 
   return (
-    <p className="flex gap-2 items-center min-w-0 overflow-visible">
+    <p className="flex min-w-0 items-center gap-2 overflow-visible">
       <span
         key={label.name}
         className={cn(
-          "flex items-center gap-1 text-xs font-medium overflow-visible",
+          "flex items-center gap-1 overflow-visible text-xs font-medium",
           "contrast-75",
           label.className,
         )}
@@ -34,7 +34,7 @@ export const CategoryColumn = ({ row }: { row: Row<WorkWithSubRows> }) => {
               strokeLinecap="round"
               strokeLinejoin="miter"
               fill={mounted && theme === "dark" ? "none" : "currentColor"}
-              className={cn("inline w-4 h-4", label.meta.iconClassName)}
+              className={cn("inline h-4 w-4", label.meta.iconClassName)}
             />
           )}
         </span>

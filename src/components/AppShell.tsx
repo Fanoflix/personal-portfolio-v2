@@ -12,8 +12,8 @@ export default function ll({ children }: PropsWithChildren) {
   return (
     <div
       className={cn(
-        "w-full md:w-site px-3 md:px-0",
-        "pb-6 flex flex-col items-center justify-center",
+        "md:w-site w-full px-3 md:px-0",
+        "flex flex-col items-center justify-center pb-6",
       )}
     >
       <AnimatePresence mode="wait">
