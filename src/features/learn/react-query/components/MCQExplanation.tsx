@@ -1,6 +1,8 @@
-import { cn, parseCode } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
+
+import { cn, parseCode } from "@/lib/utils";
+
 import { useMCQ } from "../hooks";
 
 interface MCQExplanationProps {

@@ -1,9 +1,11 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+
+import { Button } from "@/components/Button";
+
 import { filtersBarVariants } from "../framer-animations/variants";
 import { WORK_DATA } from "./work-data";
-import { Button } from "@/components/Button";
 
 type FiltersBarProps = {
   setFilterState: (year: string) => void;

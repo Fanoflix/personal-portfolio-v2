@@ -1,24 +1,16 @@
 "use client";
+import { AnimatePresence, motion } from "framer-motion";
+import { FlaskConical } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import { NavBarVariants } from "../features/framer-animations/variants";
 import NavIconButton from "../features/TopNavbar/components/NavIconButton";
 import ToggleTheme from "../features/TopNavbar/components/ToggleTheme";
 import { iconHeightWidth } from "../features/TopNavbar/constants";
-import MyLogo from "./MyLogo/MyLogo";
-import Link from "next/link";
 import { cn } from "../lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { NavBarVariants } from "../features/framer-animations/variants";
-import {
-  ArrowUp,
-  Flame,
-  FlameIcon,
-  FlaskConical,
-  Sparkle,
-  Star,
-  StarIcon,
-  Wrench,
-} from "lucide-react";
+import MyLogo from "./MyLogo/MyLogo";
 import { TextShimmer } from "./TextShimmer/TextShimmer";
 
 export default function Navbar() {

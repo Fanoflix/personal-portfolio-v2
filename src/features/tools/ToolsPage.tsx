@@ -1,7 +1,7 @@
 "use client";
 
-import { useTools } from "./lib/hooks/useTools";
 import { StaggeredContainer } from "../framer-animations/components/StaggeredContainer";
+import { useTools } from "./lib/hooks/useTools";
 
 export function ToolsPage() {
   const { selectedTool, tools } = useTools();

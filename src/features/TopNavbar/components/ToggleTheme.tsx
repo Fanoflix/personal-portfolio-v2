@@ -1,6 +1,7 @@
-import { useTheme } from "next-themes";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+
 import { iconHeightWidth } from "../constants";
 
 // Animation configuration
@@ -25,7 +26,9 @@ export default function ToggleTheme() {
   }, [mounted, theme, isAnimating]);
 
   const toggleTheme = () => {
-    if (isAnimating) return; // Prevent multiple clicks during animation
+    if (isAnimating) {
+      return;
+    } // Prevent multiple clicks during animation
 
     setIsAnimating(true);
     const newTheme = theme === "light" ? "dark" : "light";
@@ -42,7 +45,9 @@ export default function ToggleTheme() {
     }, ANIMATION_DURATION);
   };
 
-  if (!mounted) return <div className="min-w-4 h-4" />;
+  if (!mounted) {
+    return <div className="min-w-4 h-4" />;
+  }
 
   const currentDisplayedTheme = displayedTheme || theme || "dark";
 

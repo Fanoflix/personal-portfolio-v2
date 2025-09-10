@@ -1,8 +1,10 @@
 "use client";
 
-import { DataTable } from "@/components/DataTable/DataTable";
 import { SortingState } from "@tanstack/react-table";
 import { useMemo, useState } from "react";
+
+import { DataTable } from "@/components/DataTable/DataTable";
+
 import { StaggeredContainer } from "../framer-animations/components/StaggeredContainer";
 import { columns } from "./columns";
 import { FiltersBar } from "./FiltersBar";
@@ -102,11 +104,15 @@ function useWorkData() {
 
   // Apply year filtering if a filterState is set
   const processedData = useMemo(() => {
-    if (!filterState) return allProcessedData;
+    if (!filterState) {
+      return allProcessedData;
+    }
 
     return allProcessedData.filter((row) => {
       // Check if the year in the date matches the filter
-      if (row.date?.includes(filterState)) return true;
+      if (row.date?.includes(filterState)) {
+        return true;
+      }
 
       // Also check subrows if present
       if (row.subRows?.some((subRow) => subRow.date?.includes(filterState))) {

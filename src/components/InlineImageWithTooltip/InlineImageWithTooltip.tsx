@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import TooltipWrapper from "../Tooltip/TooltipWrapper";
 
 export default function InlineImageWithTooltip({

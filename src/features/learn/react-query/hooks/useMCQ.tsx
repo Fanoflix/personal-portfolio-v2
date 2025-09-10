@@ -2,11 +2,12 @@
 
 import {
   createContext,
+  ReactNode,
+  useCallback,
   useContext,
   useState,
-  useCallback,
-  ReactNode,
 } from "react";
+
 import { MCQState } from "../types";
 
 interface MCQContextType {

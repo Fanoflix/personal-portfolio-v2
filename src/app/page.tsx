@@ -2,8 +2,8 @@
 
 import { StaggeredContainer } from "@/features/framer-animations/components/StaggeredContainer";
 import Hero from "@/features/hero/Hero";
-import WorkExperience from "@/features/work-experience/WorkExperience";
 import WorkPage from "@/features/work/WorkPage";
+import WorkExperience from "@/features/work-experience/WorkExperience";
 import { cn } from "@/lib/utils";
 
 export default function Home() {

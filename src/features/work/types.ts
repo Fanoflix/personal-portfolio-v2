@@ -1,6 +1,7 @@
-import { Tags } from "@/components/TagsAnimatedList/TagsAnimatedList";
 import { Flame, LucideProps } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
+
+import { Tags } from "@/components/TagsAnimatedList/TagsAnimatedList";
 
 export type WorkByYear = {
   [year: string]: Work[];

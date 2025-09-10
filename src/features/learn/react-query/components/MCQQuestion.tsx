@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MCQ } from "../types";
-import { useMCQ } from "../hooks/useMCQ";
+
 import { cn, parseCode } from "@/lib/utils";
+
+import { useMCQ } from "../hooks/useMCQ";
+import { MCQ } from "../types";
 
 interface MCQOptionProps {
   optionKey: "A" | "B" | "C" | "D";
@@ -23,7 +25,7 @@ function MCQOption({
 }: MCQOptionProps) {
   let border = "border-transparent";
   let bg = "";
-  let textColor = "text-foreground";
+  const textColor = "text-foreground";
   if (isSelected) {
     if (isCorrect) {
       border = "border-green-800/40";

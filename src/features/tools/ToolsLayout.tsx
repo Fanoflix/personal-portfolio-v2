@@ -1,8 +1,8 @@
 "use client";
-import { ToolsProvider } from "@/features/tools/lib/hooks/useTools";
-import { cn } from "@/lib/utils";
 import dynamic from "next/dynamic";
 import { PropsWithChildren } from "react";
+
+import { cn } from "@/lib/utils";
 
 const DynamicToolsProviderWithNoSSR = dynamic(
   () =>

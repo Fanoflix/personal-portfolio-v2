@@ -1,9 +1,10 @@
 "use client";
 
 import { Stepper } from "@/components/Stepper/Stepper";
+
+import { StaggeredContainer } from "../../framer-animations/components/StaggeredContainer";
 import { MCQStepperContent } from "./components";
 import { mcqData } from "./data/mcqs";
-import { StaggeredContainer } from "../../framer-animations/components/StaggeredContainer";
 
 export function LearnReactQuery() {
   // Calculate total questions for the stepper
