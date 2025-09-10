@@ -87,14 +87,15 @@ export default function Navbar() {
                 </TextShimmer>
               </Link>
 
-              <Link
+              {/* TODO AMMAR enable this when the feature gets completed */}
+              {/* <Link
                 prefetch
                 className="text-[14px] text-text hover:text-primary flex items-center gap-0.5"
                 href="/tools"
               >
                 <Wrench strokeWidth={2} className="w-3.5 h-3.5 text-primary" />
                 Tools
-              </Link>
+              </Link> */}
 
               <NavIconButton
                 href="https://github.com/fanoflix"
