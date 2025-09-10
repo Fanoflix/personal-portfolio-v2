@@ -1,5 +1,5 @@
-import InlineImageWithTooltip from "@/src/components/InlineImageWithTooltip/InlineImageWithTooltip";
-import InlineLink from "@/src/components/InlineLink/InlineLink";
+import InlineImageWithTooltip from "@/components/InlineImageWithTooltip/InlineImageWithTooltip";
+import InlineLink from "@/components/InlineLink/InlineLink";
 import { StaggeredContainer } from "../framer-animations/components/StaggeredContainer";
 
 export default function Hero() {

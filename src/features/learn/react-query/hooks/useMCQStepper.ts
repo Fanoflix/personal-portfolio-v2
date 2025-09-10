@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import { useStepper } from "@/src/components/Stepper/StepperContext";
 import { mcqData } from "../data/mcqs";
 import { MCQ } from "../types";
+import { useStepper } from "@/components/Stepper/StepperContext";
 
 export function useMCQStepper() {
   const [currentCategory, setCurrentCategory] = useState("Overview");

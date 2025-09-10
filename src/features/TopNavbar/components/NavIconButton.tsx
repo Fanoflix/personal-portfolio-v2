@@ -1,5 +1,5 @@
-import TooltipWrapper from "@/src/components/Tooltip/TooltipWrapper";
-import { cn } from "@/src/lib/utils";
+import TooltipWrapper from "@/components/Tooltip/TooltipWrapper";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
@@ -20,7 +20,7 @@ export default function NavIconButton({
       <div
         className={cn(
           "hover:bg-transparent opacity-60 hover:opacity-100 invert dark:invert-0",
-          className
+          className,
         )}
       >
         <Link

@@ -1,5 +1,5 @@
-import { Button } from "@/src/components/Button/button";
-import { useStepper } from "@/src/components/Stepper/StepperContext";
+import { Button } from "@/components/Button/button";
+import { useStepper } from "@/components/Stepper/StepperContext";
 import { useMCQ } from "../hooks";
 
 interface StepperControlsProps {
@@ -13,7 +13,7 @@ export function StepperControls({ isLastQuestion }: StepperControlsProps) {
   return (
     <div className="flex justify-between items-center w-full max-w-xs md:max-w-[500px]">
       <Button
-        className="w-max h-8 border-0"
+        className="w-max  border-0"
         variant="outline"
         onClick={goPrevious}
         disabled={!canGoPrevious}
@@ -22,7 +22,7 @@ export function StepperControls({ isLastQuestion }: StepperControlsProps) {
       </Button>
 
       <Button
-        className="w-max h-8 border-0"
+        className="w-max  border-0"
         onClick={goNext}
         disabled={!canGoNext || !isAnswered}
       >

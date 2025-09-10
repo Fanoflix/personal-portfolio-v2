@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 import { type ColumnDef } from "@tanstack/react-table";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";

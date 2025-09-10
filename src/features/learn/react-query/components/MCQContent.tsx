@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
-import { useStepper } from "@/src/components/Stepper/StepperContext";
+import { useStepper } from "@/components/Stepper/StepperContext";
 import { MCQQuestion } from "./MCQQuestion";
 import { StepperControls } from "./StepperControls";
 import { MCQ } from "../types";
