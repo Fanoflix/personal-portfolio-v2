@@ -1,7 +1,7 @@
-import { Accordion } from "@/src/components/Accordion/Accordion";
-import InlineLink from "@/src/components/InlineLink/InlineLink";
+import InlineLink from "@/components/InlineLink/InlineLink";
 import { StaggeredContainer } from "../framer-animations/components/StaggeredContainer";
 import WorkAccordionItem, { WorkItem } from "./WorkAccordionItem";
+import { Accordion } from "@/components/Accordion/Accordion";
 
 export const WORK_EXPERIENCE_DATA: WorkItem[] = [
   {

@@ -1,3 +1,3 @@
-import ToolsLayout from "@/src/features/tools/ToolsLayout";
+import ToolsLayout from "@/features/tools/ToolsLayout";
 
 export default ToolsLayout;

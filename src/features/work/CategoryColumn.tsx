@@ -1,4 +1,4 @@
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 import { Row } from "@tanstack/react-table";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";

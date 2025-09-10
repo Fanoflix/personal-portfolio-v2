@@ -19,9 +19,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/src/components/DataTable/table";
-import { dataTableRowVariants } from "@/src/features/framer-animations/variants";
-import { cn } from "@/src/lib/utils";
+} from "@/components/DataTable/table";
+import { dataTableRowVariants } from "@/features/framer-animations/variants";
+import { cn } from "@/lib/utils";
 import { Dispatch, SetStateAction, useMemo } from "react";
 
 interface DataTableProps<TData, TValue> {
@@ -92,7 +92,7 @@ export function DataTable<TData extends { subRows?: TData[] }, TValue>({
                     ? null
                     : flexRender(
                         header.column.columnDef.header,
-                        header.getContext()
+                        header.getContext(),
                       )}
                 </TableHead>
               ))}
@@ -154,7 +154,7 @@ function AnimatedTableRow<TData>({
         row.getCanExpand() && "border-t border-border/50",
         typeof rowClassName === "function"
           ? rowClassName(row.original)
-          : rowClassName
+          : rowClassName,
       )}
     >
       {row.getVisibleCells().map((cell) => (

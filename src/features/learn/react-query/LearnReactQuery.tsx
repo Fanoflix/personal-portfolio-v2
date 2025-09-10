@@ -1,6 +1,6 @@
 "use client";
 
-import { Stepper } from "@/src/components/Stepper/Stepper";
+import { Stepper } from "@/components/Stepper/Stepper";
 import { MCQStepperContent } from "./components";
 import { mcqData } from "./data/mcqs";
 import { StaggeredContainer } from "../../framer-animations/components/StaggeredContainer";

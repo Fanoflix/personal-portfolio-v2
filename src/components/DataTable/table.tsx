@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import * as React from "react";
 import { useEffect, useRef, useState } from "react";

@@ -1,5 +1,5 @@
-import { Button } from "@/src/components/Button/button";
-import { useStepper } from "@/src/components/Stepper/StepperContext";
+import { Button } from "@/components/Button/button";
+import { useStepper } from "@/components/Stepper/StepperContext";
 import { useMCQ } from "../hooks";
 
 interface StepperControlsProps {

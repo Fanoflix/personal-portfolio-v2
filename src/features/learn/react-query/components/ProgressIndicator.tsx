@@ -1,4 +1,4 @@
-import { TextShimmer } from "@/src/components/TextShimmer/TextShimmer";
+import { TextShimmer } from "@/components/TextShimmer/TextShimmer";
 import React from "react";
 
 export default function ProgressIndicator({

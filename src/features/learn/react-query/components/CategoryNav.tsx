@@ -1,5 +1,5 @@
-import { Button } from "@/src/components/Button";
-import { cn } from "@/src/lib/utils";
+import { Button } from "@/components/Button";
+import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
 interface CategoryNavProps {

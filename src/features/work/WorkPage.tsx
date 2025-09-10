@@ -1,6 +1,6 @@
 "use client";
 
-import { DataTable } from "@/src/components/DataTable/DataTable";
+import { DataTable } from "@/components/DataTable/DataTable";
 import { SortingState } from "@tanstack/react-table";
 import { useMemo, useState } from "react";
 import { StaggeredContainer } from "../framer-animations/components/StaggeredContainer";

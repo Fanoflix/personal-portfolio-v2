@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/src/components/Button/button";
-import { cn } from "@/src/lib/utils";
+import { Button } from "@/components/Button/button";
+import { cn } from "@/lib/utils";
 import { useShouldBuyBackEquity } from "./useShouldBuyBackEquity";
 
 export function ShouldBuyBackEquity() {

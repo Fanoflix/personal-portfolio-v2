@@ -1,6 +1,6 @@
 "use client";
-import { ToolsProvider } from "@/src/features/tools/lib/hooks/useTools";
-import { cn } from "@/src/lib/utils";
+import { ToolsProvider } from "@/features/tools/lib/hooks/useTools";
+import { cn } from "@/lib/utils";
 import { PropsWithChildren } from "react";
 
 export default function ToolsLayout({ children }: PropsWithChildren) {

@@ -2,9 +2,10 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/src/components/Accordion/Accordion";
-import { cn } from "@/src/lib/utils";
+} from "@/components/Accordion/Accordion";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { JSX } from "react";
 
 function formatDate(dateString: string | null): string {
   if (!dateString) return "Present";
