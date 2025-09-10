@@ -1,11 +1,20 @@
 "use client";
 import { ToolsProvider } from "@/features/tools/lib/hooks/useTools";
 import { cn } from "@/lib/utils";
+import dynamic from "next/dynamic";
 import { PropsWithChildren } from "react";
+
+const DynamicToolsProviderWithNoSSR = dynamic(
+  () =>
+    import("@/features/tools/lib/hooks/useTools").then(
+      (mod) => mod.ToolsProvider,
+    ),
+  { ssr: false },
+);
 
 export default function ToolsLayout({ children }: PropsWithChildren) {
   return (
-    <ToolsProvider>
+    <DynamicToolsProviderWithNoSSR>
       <div className="h-[calc(100vh-80px)] w-full p-4 md:p-12">
         <div
           className={cn(
@@ -30,6 +39,6 @@ export default function ToolsLayout({ children }: PropsWithChildren) {
           {children}
         </div>
       </div>
-    </ToolsProvider>
+    </DynamicToolsProviderWithNoSSR>
   );
 }

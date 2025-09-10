@@ -1,5 +1,3 @@
 import { ToolsPage } from "@/features/tools/ToolsPage";
 
-export default function Tools() {
-  return <ToolsPage />;
-}
+export default ToolsPage;
