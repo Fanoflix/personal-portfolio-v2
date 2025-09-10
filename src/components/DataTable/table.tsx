@@ -1,8 +1,9 @@
 "use client";
-import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import * as React from "react";
 import { useEffect, useRef, useState } from "react";
+
+import { cn } from "@/lib/utils";
 
 const Table = React.forwardRef<
   HTMLTableElement,
@@ -23,7 +24,9 @@ const Table = React.forwardRef<
   // Check if we need to show the filler div
   useEffect(() => {
     const updateFiller = () => {
-      if (!containerRef.current || !tableContainerRef.current) return;
+      if (!containerRef.current || !tableContainerRef.current) {
+        return;
+      }
 
       const containerHeight = 800; // Minimum container height
       const tableHeight = tableContainerRef.current.offsetHeight;

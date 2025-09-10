@@ -1,14 +1,16 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
+
 import { useStepper } from "@/components/Stepper/StepperContext";
-import { MCQQuestion } from "./MCQQuestion";
-import { StepperControls } from "./StepperControls";
-import { MCQ } from "../types";
-import ProgressIndicator from "./ProgressIndicator";
-import MCQExplanation from "./MCQExplanation";
+
 import { MCQProvider, useMCQ } from "../hooks/useMCQ";
+import { MCQ } from "../types";
+import MCQExplanation from "./MCQExplanation";
+import { MCQQuestion } from "./MCQQuestion";
+import ProgressIndicator from "./ProgressIndicator";
+import { StepperControls } from "./StepperControls";
 
 interface MCQContentProps {
   allMCQs: Array<{ mcq: MCQ; category: string; index: number }>;

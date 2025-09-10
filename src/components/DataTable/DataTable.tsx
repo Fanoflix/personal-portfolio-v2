@@ -10,6 +10,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { motion } from "framer-motion";
+import { Dispatch, SetStateAction, useMemo } from "react";
 import { useInView } from "react-intersection-observer";
 
 import {
@@ -22,7 +23,6 @@ import {
 } from "@/components/DataTable/table";
 import { dataTableRowVariants } from "@/features/framer-animations/variants";
 import { cn } from "@/lib/utils";
-import { Dispatch, SetStateAction, useMemo } from "react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -62,7 +62,7 @@ export function DataTable<TData extends { subRows?: TData[] }, TValue>({
       }),
       expanded: true,
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
     isMultiSortEvent: (_e) => true, // bypasses the requirement of pressing a modifier key to trigger a multi sort. This makes sure that multi sort gets triggered on regular click.
     enableMultiSort: true,
     maxMultiSortColCount: 2, // max 2 columns can be multi sorted at the same time
@@ -166,7 +166,7 @@ function AnimatedTableRow<TData>({
             width: cell.column.columnDef.size,
           }}
           variants={dataTableRowVariants}
-          initial={"hidden"}
+          initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
           {flexRender(cell.column.columnDef.cell, cell.getContext())}

@@ -1,14 +1,17 @@
+import Image from "next/image";
+import { JSX } from "react";
+
 import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/Accordion/Accordion";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { JSX } from "react";
 
 function formatDate(dateString: string | null): string {
-  if (!dateString) return "Present";
+  if (!dateString) {
+    return "Present";
+  }
   const date = new Date(dateString);
   return date.toLocaleDateString("en-US", { month: "short", year: "numeric" });
 }

@@ -9,6 +9,13 @@
     "[^\"'`\\s]*class\\s*?[\"'`]([^\"'`]*).*?,"
   ],
   "cSpell.words": ["Ammar"],
+  "eslint.useFlatConfig": true,
   "eslint.enable": true,
-  "eslint.run": "onType"
+  "eslint.run": "onType",
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ]
 }

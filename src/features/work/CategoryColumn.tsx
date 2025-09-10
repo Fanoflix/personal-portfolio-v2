@@ -1,7 +1,9 @@
-import { cn } from "@/lib/utils";
 import { Row } from "@tanstack/react-table";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+
+import { cn } from "@/lib/utils";
+
 import { WORK_LABELS, WorkWithSubRows } from "./types";
 
 export const CategoryColumn = ({ row }: { row: Row<WorkWithSubRows> }) => {

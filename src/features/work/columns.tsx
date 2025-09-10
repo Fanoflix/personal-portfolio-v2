@@ -1,9 +1,11 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { type ColumnDef } from "@tanstack/react-table";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+
+import { cn } from "@/lib/utils";
+
 import { TagsAnimatedList } from "../../components/TagsAnimatedList/TagsAnimatedList";
 import { WrapConditionally } from "../../components/WrapConditionally/WrapConditionally";
 import { CategoryColumn } from "./CategoryColumn";
@@ -13,7 +15,9 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
   {
     id: "date",
     accessorFn: (row) => {
-      if (!row.date) return "date";
+      if (!row.date) {
+        return "date";
+      }
       const date = new Date(row.date);
       return date.toISOString();
     },
@@ -80,11 +84,7 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
                 projectLink && "group-hover:border-primary cursor-pointer",
               )}
             >
-              <p
-                className={
-                  "truncate flex-1 min-w-0 text-primary border-transparent"
-                }
-              >
+              <p className="truncate flex-1 min-w-0 text-primary border-transparent">
                 {row.getValue("project")}
               </p>
               {projectLink && (

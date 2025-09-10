@@ -1,12 +1,17 @@
-const { FlatCompat } = require("@eslint/eslintrc");
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const eslint = require("@eslint/js");
-const tseslint = require("typescript-eslint");
-const unusedImports = require("eslint-plugin-unused-imports");
+import { FlatCompat } from "@eslint/eslintrc";
+import eslint from "@eslint/js";
+import importPlugin from "eslint-plugin-import";
+import reactPlugin from "eslint-plugin-react";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import unusedImports from "eslint-plugin-unused-imports";
+import tseslint from "typescript-eslint";
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const compat = new FlatCompat({ baseDirectory: __dirname });
 
 const ignores = [
   "**/*.lock",
@@ -29,15 +34,23 @@ const ignores = [
   "playwright-report/",
 ];
 
-module.exports = [
+export default [
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
+  ...compat.extends("next", "next/core-web-vitals"),
   ...compat.extends("prettier"),
-  ...compat.plugins("simple-import-sort"),
 
   {
     plugins: {
+      // key is the rule prefix used in config
       "unused-imports": unusedImports,
+      "simple-import-sort": simpleImportSort,
+      import: importPlugin,
+      react: reactPlugin,
+      "react-hooks": reactHooksPlugin,
+    },
+    settings: {
+      react: { version: "detect" },
     },
     rules: {
       "no-debugger": "error",

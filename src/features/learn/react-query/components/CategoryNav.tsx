@@ -1,6 +1,7 @@
+import { useEffect, useRef, useState } from "react";
+
 import { Button } from "@/components/Button";
 import { cn } from "@/lib/utils";
-import { useEffect, useRef, useState } from "react";
 
 interface CategoryNavProps {
   categories: string[];
@@ -21,7 +22,9 @@ export function CategoryNav({
 
   useEffect(() => {
     const scrollElement = scrollRef.current;
-    if (!scrollElement) return;
+    if (!scrollElement) {
+      return;
+    }
 
     const checkScrollPosition = () => {
       const { scrollLeft, scrollWidth, clientWidth } = scrollElement;

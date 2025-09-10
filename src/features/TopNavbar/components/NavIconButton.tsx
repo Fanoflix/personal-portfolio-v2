@@ -1,7 +1,8 @@
-import TooltipWrapper from "@/components/Tooltip/TooltipWrapper";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
+
+import TooltipWrapper from "@/components/Tooltip/TooltipWrapper";
+import { cn } from "@/lib/utils";
 
 export default function NavIconButton({
   onClick,

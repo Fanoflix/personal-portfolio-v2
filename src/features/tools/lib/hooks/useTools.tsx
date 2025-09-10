@@ -2,8 +2,9 @@
 
 import { Building2 } from "lucide-react";
 import { createContext, useContext, useEffect, useState } from "react";
-import { Tool, ToolCategory, ToolsContextType } from "../types";
+
 import { ShouldBuyBackEquity } from "../../corporate/canIRetire/shouldBuyBackEquity";
+import { Tool, ToolCategory, ToolsContextType } from "../types";
 
 const STORAGE_KEY = "selected-tool";
 const selectedToolQueryParam = "tool";

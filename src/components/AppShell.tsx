@@ -2,6 +2,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { PropsWithChildren } from "react";
+
 import { layoutVariants } from "../features/framer-animations/variants";
 import { cn } from "../lib/utils";
 
