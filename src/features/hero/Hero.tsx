@@ -31,7 +31,7 @@ export default function Hero() {
         Engineering.
       </p>
 
-      <p>
+      <div>
         I play
         <InlineImageWithTooltip
           alt="Diablo"
@@ -51,7 +51,7 @@ export default function Hero() {
         as well. I mentor and give advice on{" "}
         <InlineLink href="https://topmate.io/ammarnasir/">Topmate</InlineLink>{" "}
         for free. Leave a message, let&apos;s talk.
-      </p>
+      </div>
     </StaggeredContainer>
   );
 }
