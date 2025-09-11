@@ -10,9 +10,11 @@ import { Button } from "../Button";
 export default function CopyToClipboard({
   text,
   initialIcon = <Copy size={16} strokeWidth={1.5} />,
+  showBackground = true,
 }: {
   text: string;
   initialIcon?: React.ReactNode;
+  showBackground?: boolean;
 }) {
   const { copy, isCopied } = useCopyToClipboard();
 
@@ -27,9 +29,10 @@ export default function CopyToClipboard({
       variant="ghost"
       onClick={handleCopyText}
       className={cn(
-        "cursor-pointer",
-        "hover:bg-secondary p-1",
+        "size-7 cursor-pointer p-1",
+        "hover:bg-secondary",
         isCopied && "bg-green-200/20 hover:bg-green-200/20",
+        !showBackground && "hover:bg-transparent",
       )}
     >
       <AnimatePresence key={isCopied ? "copied" : "copy"}>

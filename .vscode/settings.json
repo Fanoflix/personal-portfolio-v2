@@ -8,7 +8,7 @@
     "class:\\s*?[\"'`]([^\"'`]*).*?,",
     "[^\"'`\\s]*class\\s*?[\"'`]([^\"'`]*).*?,"
   ],
-  "cSpell.words": ["Ammar", "hoverable"],
+  "cSpell.words": ["Ammar", "hoverable", "Zeacon"],
   "eslint.useFlatConfig": true,
   "eslint.enable": true,
   "eslint.run": "onType",

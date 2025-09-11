@@ -4,6 +4,8 @@ import { FlaskConical, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 import EmailTooltipContent from "@/features/contact/components/EmailTooltipContent";
 import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
@@ -19,6 +21,7 @@ import ToggleTheme from "./components/ToggleTheme";
 import { iconHeightWidth } from "./constants";
 
 export default function Navbar() {
+  const { theme } = useTheme();
   const { copy, isCopied } = useCopyToClipboard();
   const pathname = usePathname();
 
@@ -27,6 +30,14 @@ export default function Navbar() {
       await copy(MY_EMAIL);
     }
   };
+
+  // This is to prevent hydration issues
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const invertOrNot = isClient && theme === "light" ? "invert" : "";
 
   return (
     <nav className="sticky top-0 z-50 flex h-max w-full justify-center backdrop-blur-lg md:h-12">
@@ -101,7 +112,7 @@ export default function Navbar() {
               </Link> */}
 
               <NavIconButton
-                sideOffset={4}
+                sideOffset={5}
                 className={cn(isCopied && "opacity-100")}
                 href="#"
                 onClick={handleCopyEmail}
@@ -110,7 +121,14 @@ export default function Navbar() {
                 }
               >
                 <CopyToClipboard
-                  initialIcon={<Mail size={18} strokeWidth={1.75} />}
+                  showBackground={false}
+                  initialIcon={
+                    <Mail
+                      className={invertOrNot}
+                      size={18}
+                      strokeWidth={1.75}
+                    />
+                  }
                   text={MY_EMAIL}
                 />
               </NavIconButton>
