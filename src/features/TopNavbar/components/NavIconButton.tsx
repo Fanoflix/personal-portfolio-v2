@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from "react";
 
 import TooltipWrapper from "@/components/Tooltip/TooltipWrapper";
 import { cn } from "@/lib/utils";
@@ -9,15 +9,17 @@ export default function NavIconButton({
   href,
   className,
   tooltipContent,
+  sideOffset = 12,
   children,
 }: PropsWithChildren & {
   href: string;
-  tooltipContent: string;
+  tooltipContent: string | React.ReactElement;
+  sideOffset?: number;
   className?: string;
   onClick?: () => void;
 }) {
   return (
-    <TooltipWrapper tooltipContent={tooltipContent}>
+    <TooltipWrapper sideOffset={sideOffset} tooltipContent={tooltipContent}>
       <div
         className={cn(
           "opacity-60 invert hover:bg-transparent hover:opacity-100 dark:invert-0",

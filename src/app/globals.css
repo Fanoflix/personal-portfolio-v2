@@ -66,14 +66,17 @@
   --radius-sm: calc(var(--radius) - 4px);
 
   --shadow-tooltip-b:
-    8px 10px 10px -13px rgba(255, 255, 255, 1),
-    -8px 9px 10px -13px rgba(255, 255, 255, 1),
-    0px 23px 40px -10px rgba(255, 255, 255, 1);
+    8px 10px 7px -13px rgba(255, 255, 255, 1),
+    -8px 9px 7px -13px rgba(255, 255, 255, 1),
+    0px 16px 19px -12px rgba(255, 255, 255, 0.3);
+
   --shadow-tooltip-t:
-    8px -10px 10px -13px rgba(255, 255, 255, 1),
-    -8px -9px 10px -13px rgba(255, 255, 255, 1),
-    0px -23px 40px -10px rgba(255, 255, 255, 1);
+    8px -10px 7px -13px rgba(255, 255, 255, 1),
+    -8px -10px 7px -13px rgba(255, 255, 255, 1),
+    0px -16px 19px -12px rgba(255, 255, 255, 0.3);
+
   --shadow-tooltip-r: -12px 0px 12px -10px rgba(255, 255, 255, 1);
+
   --shadow-tooltip-l: 12px 0px 12px -10px rgba(255, 255, 255, 1);
 
   --drop-shadow-orange: 0 0 5px rgba(249, 115, 22, 0.8);
@@ -257,7 +260,7 @@
   --border: hsl(236 13% 12%);
   --input: hsl(0 -5% 22%);
   --ring: hsl(0 0% 83.1%);
-  --chart-1: hsl(220 70% 50%);
+  --chart-1: hsl(198 100% 50%);
   --chart-2: hsl(160 60% 45%);
   --chart-3: hsl(30 80% 55%);
   --chart-4: hsl(280 65% 60%);

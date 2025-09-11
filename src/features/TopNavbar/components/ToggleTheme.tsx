@@ -59,7 +59,7 @@ export default function ToggleTheme() {
 
   return (
     <button
-      className="flex opacity-60 invert hover:bg-transparent hover:opacity-100 dark:invert-0"
+      className="flex cursor-pointer opacity-60 invert hover:bg-transparent hover:opacity-100 dark:invert-0"
       onClick={toggleTheme}
       disabled={isAnimating}
     >

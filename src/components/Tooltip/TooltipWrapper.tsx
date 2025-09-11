@@ -36,7 +36,7 @@ export default function TooltipWrapper({
             // Shape (Padding, width, height etc)
             "py-2",
             // Background color and text color
-            "bg-muted dark:bg-popover text-popover-foreground",
+            "bg-destructive-foreground dark:bg-popover text-popover-foreground",
             // Border-color
             "border-secondary-foreground",
             // Border sides and shadow for each side
@@ -45,7 +45,7 @@ export default function TooltipWrapper({
             "dark:data-[side=right]:shadow-tooltip-r data-[side=right]:border-l",
             "dark:data-[side=left]:shadow-tooltip-l data-[side=left]:border-r",
             // Slide and zoom animations
-            "data-[side=bottom]:slide-in-from-top-3",
+            "data-[side=bottom]:slide-in-from-bottom-65",
             // Text classes
             "text-sm",
             contentClassName,

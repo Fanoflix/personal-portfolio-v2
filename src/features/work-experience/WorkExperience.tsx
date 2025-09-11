@@ -20,8 +20,8 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
         <p>
           <InlineLink href="https://metal.so">Metal</InlineLink> provides
           founders with precise data to identify best-fit investors and
-          accelerate their fundraising journey. It's pretty cool, check it out
-          at <InlineLink href="https://metal.so">metal.so</InlineLink>.
+          accelerate their fundraising journey. It&apos;s pretty cool, check it
+          out at <InlineLink href="https://metal.so">metal.so</InlineLink>.
         </p>
 
         <div className="flex flex-col gap-1.5">
@@ -30,7 +30,7 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
           </span>
           <p className="flex flex-col gap-2">
             <span>
-              As the second Frontend-focused hire at Metal, I operate as a
+              As the second Frontend-focused hire at Metal, I now operate as a
               <i>&quot;product engineer&quot;</i>, contributing to design, UX,
               Frontend, Backend and Product side of things.
             </span>

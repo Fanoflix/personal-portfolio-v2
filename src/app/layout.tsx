@@ -7,7 +7,8 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 
 import AppShell from "@/components/AppShell";
-import TopNavbar from "@/components/TopNavbar";
+import TopNavbar from "@/features/TopNavbar/TopNavbar";
+
 const inter = localFont({
   src: "../../public/fonts/web/InterVariable.woff2",
   variable: "--font-inter",

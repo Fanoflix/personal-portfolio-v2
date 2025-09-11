@@ -1,20 +1,43 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import { FlaskConical } from "lucide-react";
+import { FlaskConical, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
-import { NavBarVariants } from "../features/framer-animations/variants";
-import NavIconButton from "../features/TopNavbar/components/NavIconButton";
-import ToggleTheme from "../features/TopNavbar/components/ToggleTheme";
-import { iconHeightWidth } from "../features/TopNavbar/constants";
-import { cn } from "../lib/utils";
-import MyLogo from "./MyLogo/MyLogo";
-import { TextShimmer } from "./TextShimmer/TextShimmer";
+import EmailTooltipContent from "@/features/contact/components/EmailTooltipContent";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { MY_EMAIL } from "@/lib/constants";
+
+import CopyToClipboard from "../../components/CopyToClipboardIcon/CopyToClipboard";
+import MyLogo from "../../components/MyLogo/MyLogo";
+import { TextShimmer } from "../../components/TextShimmer/TextShimmer";
+import { cn } from "../../lib/utils";
+import { NavBarVariants } from "../framer-animations/variants";
+import NavIconButton from "./components/NavIconButton";
+import ToggleTheme from "./components/ToggleTheme";
+import { iconHeightWidth } from "./constants";
 
 export default function Navbar() {
+  const { theme } = useTheme();
+  const { copy, isCopied } = useCopyToClipboard();
   const pathname = usePathname();
+
+  const handleCopyEmail = async () => {
+    if (!isCopied) {
+      await copy(MY_EMAIL);
+    }
+  };
+
+  // This is to prevent hydration issues
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const invertOrNot = isClient && theme === "light" ? "invert" : "";
 
   return (
     <nav className="sticky top-0 z-50 flex h-max w-full justify-center backdrop-blur-lg md:h-12">
@@ -23,7 +46,7 @@ export default function Navbar() {
           <motion.section
             className={cn(
               "flex w-full flex-col items-center justify-between text-center sm:flex-row",
-              "px-2 py-4 md:py-3",
+              "px-0 py-4 md:py-3",
               "gap-3",
             )}
             key={pathname}
@@ -44,7 +67,7 @@ export default function Navbar() {
               </Link>
             </div>
 
-            <div className="flex items-center justify-center gap-6 md:gap-4">
+            <div className="flex items-center justify-center gap-3 md:gap-3.5">
               <Link
                 prefetch
                 className="text-text hover:text-primary flex items-center gap-0.5 text-[14px]"
@@ -78,7 +101,6 @@ export default function Navbar() {
                   Quiz
                 </TextShimmer>
               </Link>
-
               {/* TODO AMMAR enable this when the feature gets completed */}
               {/* <Link
                 prefetch
@@ -88,6 +110,28 @@ export default function Navbar() {
                 <Wrench strokeWidth={2} className="w-3.5 h-3.5 text-primary" />
                 Tools
               </Link> */}
+
+              <NavIconButton
+                sideOffset={5}
+                className={cn(isCopied && "opacity-100")}
+                href="#"
+                onClick={handleCopyEmail}
+                tooltipContent={
+                  <EmailTooltipContent onClick={handleCopyEmail} />
+                }
+              >
+                <CopyToClipboard
+                  showBackground={false}
+                  initialIcon={
+                    <Mail
+                      className={invertOrNot}
+                      size={18}
+                      strokeWidth={1.75}
+                    />
+                  }
+                  text={MY_EMAIL}
+                />
+              </NavIconButton>
 
               <NavIconButton
                 href="https://github.com/fanoflix"
