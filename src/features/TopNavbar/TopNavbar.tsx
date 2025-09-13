@@ -112,8 +112,11 @@ export default function Navbar() {
               </Link> */}
 
               <NavIconButton
-                sideOffset={5}
-                className={cn(isCopied && "opacity-100")}
+                sideOffset={10}
+                className={cn(
+                  "flex items-center",
+                  isCopied && "h-max opacity-100",
+                )}
                 href="#"
                 onClick={handleCopyEmail}
                 tooltipContent={
@@ -125,7 +128,7 @@ export default function Navbar() {
                   initialIcon={
                     <Mail
                       className={invertOrNot}
-                      size={18}
+                      size={17}
                       strokeWidth={1.75}
                     />
                   }

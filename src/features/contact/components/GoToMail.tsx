@@ -31,7 +31,7 @@ export default function GoToMail({
       variant="ghost"
       onClick={handleCopyText}
       className={cn(
-        "size-7 cursor-pointer p-0.25",
+        "size-5.5 cursor-pointer p-0.25",
         "hover:bg-secondary",
         isAnimationTriggered && "bg-chart-1/25 hover:bg-chart-1/25",
       )}
@@ -63,8 +63,8 @@ export default function GoToMail({
               <LoaderPinwheel
                 className="animate-spin"
                 stroke="var(--chart-1)"
-                size={18}
-                strokeWidth={1}
+                size={17}
+                strokeWidth={0.75}
               />
             ) : (
               initialIcon
