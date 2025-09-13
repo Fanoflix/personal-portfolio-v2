@@ -9,7 +9,7 @@ export default function NavIconButton({
   href,
   className,
   tooltipContent,
-  sideOffset = 12,
+  sideOffset = 13,
   children,
 }: PropsWithChildren & {
   href: string;
@@ -31,6 +31,7 @@ export default function NavIconButton({
           target={href !== "#" ? "_blank" : undefined}
           rel={href !== "#" ? "noopener noreferrer" : undefined}
           onClick={onClick}
+          className="contents"
         >
           {children}
         </Link>

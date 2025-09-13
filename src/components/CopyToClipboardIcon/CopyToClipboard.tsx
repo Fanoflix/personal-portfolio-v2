@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Copy, CopyCheck } from "lucide-react";
+import { Check, Copy } from "lucide-react";
 import React from "react";
 
 import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
@@ -29,10 +29,10 @@ export default function CopyToClipboard({
       variant="ghost"
       onClick={handleCopyText}
       className={cn(
-        "size-7 cursor-pointer p-1",
+        "size-5.5 cursor-pointer p-1",
         "hover:bg-secondary",
         isCopied && "bg-green-200/20 hover:bg-green-200/20",
-        !showBackground && "hover:bg-transparent",
+        !showBackground && !isCopied && "hover:bg-transparent",
       )}
     >
       <AnimatePresence key={isCopied ? "copied" : "copy"}>
@@ -57,7 +57,7 @@ export default function CopyToClipboard({
           key={isCopied ? "copied" : "copy"}
         >
           {isCopied ? (
-            <CopyCheck stroke="var(--chart-2)" size={16} strokeWidth={1.5} />
+            <Check stroke="var(--chart-2)" size={16} strokeWidth={1.5} />
           ) : (
             initialIcon
           )}
