@@ -2,12 +2,12 @@ export interface Tool {
   id: string;
   name: string;
   description: string;
-  category: string;
+  category: CategoriesIds;
   component: React.ComponentType;
 }
 
 export interface ToolCategory {
-  id: string;
+  id: CategoriesIds;
   name: string;
   icon?: React.ComponentType<{ className?: string }>;
 }
@@ -18,3 +18,5 @@ export interface ToolsContextType {
   tools: Tool[];
   categories: ToolCategory[];
 }
+
+export type CategoriesIds = "career" | "corporate";

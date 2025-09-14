@@ -4,7 +4,7 @@ import { PropsWithChildren } from "react";
 
 import { cn } from "@/lib/utils";
 
-import { ToolSelector } from "./components/ToolSelector";
+import { ToolSelector } from "./components/ToolSelector/ToolSelector";
 
 const DynamicToolsProviderWithNoSSR = dynamic(
   () =>
