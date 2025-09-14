@@ -4,6 +4,8 @@ import { PropsWithChildren } from "react";
 
 import { cn } from "@/lib/utils";
 
+import { ToolSelector } from "./components/ToolSelector";
+
 const DynamicToolsProviderWithNoSSR = dynamic(
   () =>
     import("@/features/tools/lib/hooks/useTools").then(
@@ -34,6 +36,8 @@ export default function ToolsLayout({ children }: PropsWithChildren) {
             WebkitMaskComposite: "intersect",
           }}
         />
+
+        <ToolSelector />
 
         <div className="relative z-10 flex w-full justify-center overflow-hidden pt-24">
           {children}

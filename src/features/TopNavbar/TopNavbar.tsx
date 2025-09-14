@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import { FlaskConical, Mail } from "lucide-react";
+import { FlaskConical, Mail, Wrench } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -101,15 +101,15 @@ export default function Navbar() {
                   Quiz
                 </TextShimmer>
               </Link>
-              {/* TODO AMMAR enable this when the feature gets completed */}
-              {/* <Link
+
+              <Link
                 prefetch
-                className="text-[14px] text-text hover:text-primary flex items-center gap-0.5"
+                className="text-text hover:text-primary flex items-center gap-0.5 text-[14px]"
                 href="/tools"
               >
-                <Wrench strokeWidth={2} className="w-3.5 h-3.5 text-primary" />
+                <Wrench strokeWidth={2} className="text-primary h-3.5 w-3.5" />
                 Tools
-              </Link> */}
+              </Link>
 
               <NavIconButton
                 sideOffset={10}

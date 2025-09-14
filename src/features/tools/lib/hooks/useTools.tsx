@@ -3,13 +3,12 @@
 import { Building2 } from "lucide-react";
 import { createContext, useContext, useEffect, useState } from "react";
 
-import { ShouldBuyBackEquity } from "../../corporate/canIRetire/shouldBuyBackEquity";
+import { ShouldBuyBackEquity } from "../../categories/corporate/canIRetire/shouldBuyBackEquity";
 import { Tool, ToolCategory, ToolsContextType } from "../types";
 
 const STORAGE_KEY = "selected-tool";
 const selectedToolQueryParam = "tool";
 
-// Define categories
 const categories: ToolCategory[] = [
   {
     id: "corporate",
@@ -18,11 +17,10 @@ const categories: ToolCategory[] = [
   },
 ];
 
-// Define tools
 const tools: Tool[] = [
   {
     id: "shouldBuyBackEquity",
-    name: "Should I Buy Back Equity?",
+    name: "Equity Calculation",
     description: "Calculate if buying back equity makes financial sense",
     category: "corporate",
     component: ShouldBuyBackEquity,
@@ -32,12 +30,12 @@ const tools: Tool[] = [
 const ToolsContext = createContext<ToolsContextType | undefined>(undefined);
 
 export function ToolsProvider({ children }: { children: React.ReactNode }) {
-  const [selectedTool, setSelectedToolState] = useState<string | null>(
+  const [selectedTool, setSelectedTool] = useState<string | null>(
     localStorage.getItem(STORAGE_KEY) || tools[0]?.id || null,
   );
 
-  const setSelectedTool = (toolId: string) => {
-    setSelectedToolState(toolId);
+  const setSelectedToolAndLocalStorageState = (toolId: string) => {
+    setSelectedTool(toolId);
     localStorage.setItem(STORAGE_KEY, toolId);
 
     // Update URL
@@ -52,14 +50,14 @@ export function ToolsProvider({ children }: { children: React.ReactNode }) {
     const urlTool = url.searchParams.get(selectedToolQueryParam);
     if (urlTool && tools.find((tool) => tool.id === urlTool)) {
       url.searchParams.set(selectedToolQueryParam, urlTool);
-      setSelectedToolState(urlTool);
+      setSelectedToolAndLocalStorageState(urlTool);
       localStorage.setItem(STORAGE_KEY, urlTool);
     }
   }, []);
 
   const value: ToolsContextType = {
     selectedTool,
-    setSelectedTool,
+    setSelectedTool: setSelectedToolAndLocalStorageState,
     tools,
     categories,
   };
