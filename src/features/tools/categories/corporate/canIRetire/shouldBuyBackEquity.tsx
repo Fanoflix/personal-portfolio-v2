@@ -1,5 +1,6 @@
 "use client";
 
+import NumberFlow from "@number-flow/react";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/Button/button";
@@ -10,14 +11,6 @@ import { useShouldBuyBackEquity } from "./useShouldBuyBackEquity";
 export function ShouldBuyBackEquity() {
   const { inputs, derived, updateField, reset } = useShouldBuyBackEquity();
   const [valuationText, setValuationText] = useState<string>("");
-
-  const formatCurrency = (value: number) =>
-    new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(value);
 
   const formatPercent = (value: number) =>
     new Intl.NumberFormat("en-US", {
@@ -174,8 +167,23 @@ export function ShouldBuyBackEquity() {
       <div className="border-border bg-accent/15 mt-6 rounded-lg border p-6">
         <div className="flex items-baseline justify-between">
           <span className="text-muted-foreground">Cashout</span>
-          <span className="text-foreground text-xl font-semibold">
-            {formatCurrency(derived.cashoutUsd)}
+          <span className="text-foreground text-3xl font-black">
+            <NumberFlow
+              value={derived.cashoutUsd}
+              format={{
+                roundingIncrement: 100,
+                roundingMode: "expand",
+                style: "currency",
+                currency: "USD",
+                trailingZeroDisplay: "stripIfInteger",
+              }}
+              trend={0}
+              spinTiming={{
+                duration: 400,
+                easing:
+                  "linear(0, 0.0034 0.81%, 0.0284, 0.0731, 0.1323 5.65%, 0.6245 16.13%, 0.8101 20.97%, 0.8821, 0.94, 0.9848 28.23%, 1.0263 31.45%, 1.0403 33.06%, 1.0543, 1.0615, 1.0633, 1.0612, 1.0564 45.16%, 1.015 59.68%, 1.0071, 1.0016 67.74%, 0.9977 72.58%, 0.9961 78.22%, 0.9991 100%)",
+              }}
+            />
           </span>
         </div>
         {derived.hasCliffBlockingCashout && (
