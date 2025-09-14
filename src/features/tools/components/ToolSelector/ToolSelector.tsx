@@ -26,9 +26,9 @@ export function ToolSelector() {
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger className="group/toolSelector" asChild>
-        <div className="flex max-w-max items-center">
-          <div className="group-hover/toolSelector:bg-accent/50 border-input flex h-8 w-12 items-center justify-center rounded-l border-t border-b border-l p-1">
-            <div className="bg-accent group-hover/toolSelector:border-primary/10 flex h-6 w-10 items-center justify-center rounded-xs border text-center text-sm">
+        <div className="flex w-max items-center">
+          <div className="group-hover/toolSelector:bg-accent/50 border-input flex h-8 items-center justify-center rounded-l border-t border-b border-l p-1">
+            <div className="bg-accent flex h-5.5 w-10 items-center justify-center rounded-xs border text-center text-xs tracking-wide">
               Tool
             </div>
           </div>

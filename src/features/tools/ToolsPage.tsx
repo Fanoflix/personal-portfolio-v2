@@ -12,11 +12,11 @@ export function ToolsPage() {
   const ToolComponent = currentTool?.component;
 
   return (
-    <div className="flex h-max w-full justify-center">
+    <div className="flex h-max w-full justify-start">
       {ToolComponent ? (
         <StaggeredContainer
           stagger={0.2}
-          containerClassName="h-full flex items-start justify-center"
+          containerClassName="h-full flex items-start justify-start"
         >
           <ToolComponent />
         </StaggeredContainer>

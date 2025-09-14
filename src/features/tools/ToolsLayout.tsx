@@ -38,8 +38,7 @@ export default function ToolsLayout({ children }: PropsWithChildren) {
         />
 
         <ToolSelector />
-
-        <div className="relative z-10 flex w-full justify-center overflow-hidden pt-24">
+        <div className="relative z-10 flex w-full flex-col items-center gap-12 overflow-hidden pt-24">
           {children}
         </div>
       </div>

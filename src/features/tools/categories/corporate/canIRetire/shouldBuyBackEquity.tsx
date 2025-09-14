@@ -1,211 +1,189 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { Button } from "@/components/Button/button";
 import { cn } from "@/lib/utils";
 
 import { useShouldBuyBackEquity } from "./useShouldBuyBackEquity";
 
 export function ShouldBuyBackEquity() {
-  const { equityData, result, calculate, updateField, reset } =
-    useShouldBuyBackEquity();
+  const { inputs, derived, updateField, reset } = useShouldBuyBackEquity();
+  const [valuationText, setValuationText] = useState<string>("");
 
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat("en-US", {
+  const formatCurrency = (value: number) =>
+    new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(value);
-  };
 
-  const getRecommendationColor = (recommendation: string) => {
-    switch (recommendation) {
-      case "buy":
-        return "text-green-600 dark:text-green-400";
-      case "hold":
-        return "text-red-600 dark:text-red-400";
-      default:
-        return "text-yellow-600 dark:text-yellow-400";
+  const formatPercent = (value: number) =>
+    new Intl.NumberFormat("en-US", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 5,
+    }).format(value);
+
+  const formatNumberWithCommas = (value: number) =>
+    new Intl.NumberFormat("en-US", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+      useGrouping: true,
+    }).format(Number.isFinite(value) ? value : 0);
+
+  useEffect(() => {
+    setValuationText(formatNumberWithCommas(inputs.valuationUsd));
+  }, [inputs.valuationUsd]);
+
+  function clampTenure(months: number) {
+    if (Number.isNaN(months)) {
+      return 0;
     }
-  };
+    if (months < 0) {
+      return 0;
+    }
+    return months; // vesting calculation will cap at 48
+  }
 
   return (
-    <div className="max-w-site mx-auto w-full space-y-6">
+    <div className="max-w-site w-full space-y-4 p-0.5">
       <div className="space-y-4">
-        <h2 className="text-primary text-2xl font-bold">
-          Should I Buy Back Equity?
-        </h2>
-        <p className="text-text">
-          Enter your equity details to calculate if buying back equity makes
-          financial sense.
-        </p>
+        <h3 className="text-primary font-black">
+          <p className="text-primary/25 text-start leading-[0.95]">
+            <span className="text-primary">Equity </span>
+            Cash out Calculator.
+          </p>
+        </h3>
       </div>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className="space-y-2">
-          <label
-            htmlFor="currentValue"
-            className="text-foreground text-sm font-medium"
-          >
-            Current Equity Value
+        <div className="space-y-1 space-x-5">
+          <label htmlFor="valuation" className="text-text text-sm font-medium">
+            Estimated Company Valuation ($)
           </label>
           <input
-            id="currentValue"
-            type="number"
-            value={equityData.currentEquityValue || ""}
-            onChange={(e) =>
-              updateField("currentEquityValue", Number(e.target.value))
-            }
+            id="valuation"
+            type="text"
+            inputMode="numeric"
+            pattern="\\d*"
+            value={`$${valuationText}`}
+            onChange={(e) => {
+              const raw = e.target.value.replace(/[^0-9]/g, "");
+              const numeric = raw === "" ? 0 : Number(raw);
+              setValuationText(formatNumberWithCommas(numeric));
+              updateField("valuationUsd", numeric);
+            }}
             className={cn(
+              "text-sm",
               "border-border w-full rounded-md border px-3 py-2",
               "bg-background text-foreground",
               "focus:ring-ring focus:border-transparent focus:ring-2 focus:outline-hidden",
             )}
-            placeholder="$100,000"
+            placeholder="$25,000,000"
           />
         </div>
 
-        <div className="space-y-2">
-          <label
-            htmlFor="buybackPrice"
-            className="text-foreground text-sm font-medium"
-          >
-            Buyback Price
+        <div className="space-y-1 space-x-5">
+          <label htmlFor="equity" className="text-text text-sm font-medium">
+            Allocated Equity (%)
           </label>
           <input
-            id="buybackPrice"
+            id="equity"
             type="number"
-            value={equityData.buybackPrice || ""}
+            step="0.01"
+            min="0"
+            value={inputs.allocatedEquityPercent}
             onChange={(e) =>
-              updateField("buybackPrice", Number(e.target.value))
+              updateField("allocatedEquityPercent", Number(e.target.value))
             }
             className={cn(
+              "text-sm",
               "border-border w-full rounded-md border px-3 py-2",
               "bg-background text-foreground",
               "focus:ring-ring focus:border-transparent focus:ring-2 focus:outline-hidden",
             )}
-            placeholder="$80,000"
+            placeholder="0.1"
           />
         </div>
 
-        <div className="space-y-2">
-          <label
-            htmlFor="growthRate"
-            className="text-foreground text-sm font-medium"
-          >
-            Expected Annual Growth Rate (%)
+        <div className="space-y-1 space-x-5">
+          <label htmlFor="tenure" className="text-text text-sm font-medium">
+            Employment Tenure (months)
           </label>
           <input
-            id="growthRate"
-            type="number"
-            step="0.1"
-            value={equityData.expectedGrowthRate || ""}
-            onChange={(e) =>
-              updateField("expectedGrowthRate", Number(e.target.value))
-            }
-            className={cn(
-              "border-border w-full rounded-md border px-3 py-2",
-              "bg-background text-foreground",
-              "focus:ring-ring focus:border-transparent focus:ring-2 focus:outline-hidden",
-            )}
-            placeholder="15"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <label
-            htmlFor="timeHorizon"
-            className="text-foreground text-sm font-medium"
-          >
-            Time Horizon (years)
-          </label>
-          <input
-            id="timeHorizon"
+            id="tenure"
             type="number"
             min="1"
-            value={equityData.timeHorizon || ""}
-            onChange={(e) => updateField("timeHorizon", Number(e.target.value))}
+            step="1"
+            value={inputs.tenureMonths}
+            onChange={(e) =>
+              updateField("tenureMonths", clampTenure(Number(e.target.value)))
+            }
             className={cn(
+              "text-sm",
               "border-border w-full rounded-md border px-3 py-2",
               "bg-background text-foreground",
               "focus:ring-ring focus:border-transparent focus:ring-2 focus:outline-hidden",
             )}
-            placeholder="3"
+            placeholder="24"
+          />
+        </div>
+
+        <div className="space-y-1 space-x-5">
+          <label className="text-text text-sm font-medium">
+            Vesting Period
+          </label>
+          <input
+            aria-label="Vesting Period"
+            readOnly
+            value={`4 years (${derived.vestingMonths} months)`}
+            className={cn(
+              "text-sm",
+              "border-border w-full rounded-md border px-3 py-2",
+              "bg-muted text-muted-foreground",
+            )}
           />
         </div>
       </div>
 
-      <div className="flex gap-3">
-        <Button onClick={calculate} className="flex-1">
-          Calculate
-        </Button>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="space-y-1 space-x-5">
+          <label className="text-text text-sm font-medium">
+            Vested Equity (%)
+          </label>
+          <input
+            aria-label="Vested Equity"
+            readOnly
+            value={formatPercent(derived.vestedEquityPercent)}
+            className={cn(
+              "text-sm",
+              "border-border w-full rounded-md border px-3 py-2",
+              "bg-muted text-muted-foreground",
+            )}
+          />
+        </div>
+      </div>
+
+      <div className="flex justify-end">
         <Button onClick={reset} variant="outline">
           Reset
         </Button>
       </div>
 
-      {result && (
-        <div className="border-border bg-card mt-6 rounded-lg border p-6">
-          <h3 className="text-card-foreground mb-4 text-lg font-semibold">
-            Analysis Results
-          </h3>
-
-          <div className="space-y-3">
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">
-                Future Equity Value:
-              </span>
-              <span className="text-foreground font-medium">
-                {formatCurrency(result.futureEquityValue)}
-              </span>
-            </div>
-
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">Cost of Buyback:</span>
-              <span className="text-foreground font-medium">
-                {formatCurrency(result.costOfBuyback)}
-              </span>
-            </div>
-
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">Net Benefit:</span>
-              <span
-                className={cn(
-                  "font-medium",
-                  result.netBenefit >= 0
-                    ? "text-green-600 dark:text-green-400"
-                    : "text-red-600 dark:text-red-400",
-                )}
-              >
-                {formatCurrency(result.netBenefit)}
-              </span>
-            </div>
-
-            <hr className="border-border" />
-
-            <div className="flex items-center justify-between">
-              <span className="text-muted-foreground">Recommendation:</span>
-              <div className="text-right">
-                <div
-                  className={cn(
-                    "font-semibold capitalize",
-                    getRecommendationColor(result.recommendation),
-                  )}
-                >
-                  {result.recommendation === "buy"
-                    ? "Buy Back"
-                    : result.recommendation === "hold"
-                      ? "Keep Equity"
-                      : "Neutral"}
-                </div>
-                <div className="text-muted-foreground text-sm">
-                  {result.confidenceLevel}% confidence
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="border-border bg-accent/15 mt-6 rounded-lg border p-6">
+        <div className="flex items-baseline justify-between">
+          <span className="text-muted-foreground">Cashout</span>
+          <span className="text-foreground text-xl font-semibold">
+            {formatCurrency(derived.cashoutUsd)}
+          </span>
         </div>
-      )}
+        {derived.hasCliffBlockingCashout && (
+          <p className="text-muted-foreground pt-3 text-sm">
+            No cash out because the 1-year cliff hasn’t ended yet.
+          </p>
+        )}
+      </div>
     </div>
   );
 }
