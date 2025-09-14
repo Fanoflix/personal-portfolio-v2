@@ -95,7 +95,7 @@ export default function Navbar() {
                 />
                 <TextShimmer
                   className="hover:text-primary"
-                  duration={1}
+                  duration={0.75}
                   spread={2.7}
                 >
                   Quiz
