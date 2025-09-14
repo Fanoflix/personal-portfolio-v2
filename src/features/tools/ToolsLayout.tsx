@@ -17,7 +17,7 @@ const DynamicToolsProviderWithNoSSR = dynamic(
 export default function ToolsLayout({ children }: PropsWithChildren) {
   return (
     <DynamicToolsProviderWithNoSSR>
-      <div className="h-[calc(100vh-80px)] w-full p-4 md:p-12">
+      <div className="h-[calc(100vh-110px)] w-full p-4 md:p-12">
         <div
           className={cn(
             "absolute inset-0 -z-50 h-full",

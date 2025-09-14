@@ -46,7 +46,7 @@ export default function Navbar() {
           <motion.section
             className={cn(
               "flex w-full flex-col items-center justify-between text-center sm:flex-row",
-              "px-0 py-4 md:py-3",
+              "px-2 py-4 md:py-3",
               "gap-3",
             )}
             key={pathname}
@@ -55,7 +55,7 @@ export default function Navbar() {
             animate="visible"
             exit="out"
           >
-            <div className="flex items-center justify-center gap-2 text-[14px] text-nowrap">
+            <div className="flex items-center justify-center gap-2 text-[12px] text-nowrap md:text-[14px]">
               <MyLogo />
               <Link
                 prefetch
@@ -70,29 +70,24 @@ export default function Navbar() {
             <div className="flex items-center justify-center gap-3 md:gap-3.5">
               <Link
                 prefetch
-                className="text-text hover:text-primary flex items-center gap-0.5 text-[14px]"
+                className="text-text hover:text-primary flex items-center gap-0.5 text-[12px] md:text-[14px]"
                 href="/#home"
               >
                 Home
               </Link>
-
               <Link
                 prefetch
-                className="text-text hover:text-primary text-[14px]"
+                className="text-text hover:text-primary text-[12px] md:text-[14px]"
                 href="/#work"
               >
                 Work
               </Link>
-
               <Link
                 prefetch
-                className="text-text flex items-center gap-0.5 text-[14px]"
+                className="text-text hover:text-primary flex items-center gap-0.5 text-[12px] md:text-[14px]"
                 href="/learn/react-query"
               >
-                <FlaskConical
-                  strokeWidth={2}
-                  className="text-primary h-3.5 w-3.5 animate-pulse"
-                />
+                <FlaskConical strokeWidth={1} size={14.5} />
                 <TextShimmer
                   className="hover:text-primary"
                   duration={0.75}
@@ -101,13 +96,12 @@ export default function Navbar() {
                   Quiz
                 </TextShimmer>
               </Link>
-
               <Link
                 prefetch
-                className="text-text hover:text-primary flex items-center gap-0.5 text-[14px]"
+                className="text-text hover:text-primary flex items-center gap-0.5 text-[12px] md:text-[14px]"
                 href="/tools"
               >
-                <Wrench strokeWidth={2} className="text-primary h-3.5 w-3.5" />
+                <Wrench strokeWidth={1.5} size={14.5} />
                 Tools
               </Link>
 
@@ -135,7 +129,6 @@ export default function Navbar() {
                   text={MY_EMAIL}
                 />
               </NavIconButton>
-
               <NavIconButton
                 href="https://github.com/fanoflix"
                 tooltipContent="Github"
@@ -169,7 +162,6 @@ export default function Navbar() {
                   height={iconHeightWidth}
                 />
               </NavIconButton>
-
               <ToggleTheme />
             </div>
           </motion.section>

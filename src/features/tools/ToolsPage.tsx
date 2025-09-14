@@ -25,7 +25,6 @@ export function ToolsPage() {
           stagger={0.2}
           containerClassName="h-full flex justify-center"
         >
-          l
           <div className="space-y-4 text-center">
             <h2 className="text-primary text-2xl font-bold">
               Welcome to Tools
