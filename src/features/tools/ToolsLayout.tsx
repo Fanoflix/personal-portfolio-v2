@@ -4,6 +4,8 @@ import { PropsWithChildren } from "react";
 
 import { cn } from "@/lib/utils";
 
+import { ToolSelector } from "./components/ToolSelector/ToolSelector";
+
 const DynamicToolsProviderWithNoSSR = dynamic(
   () =>
     import("@/features/tools/lib/hooks/useTools").then(
@@ -15,7 +17,7 @@ const DynamicToolsProviderWithNoSSR = dynamic(
 export default function ToolsLayout({ children }: PropsWithChildren) {
   return (
     <DynamicToolsProviderWithNoSSR>
-      <div className="h-[calc(100vh-80px)] w-full p-4 md:p-12">
+      <div className="h-[calc(100vh-110px)] w-full p-4 md:p-12">
         <div
           className={cn(
             "absolute inset-0 -z-50 h-full",
@@ -35,7 +37,8 @@ export default function ToolsLayout({ children }: PropsWithChildren) {
           }}
         />
 
-        <div className="relative z-10 flex w-full justify-center overflow-hidden pt-24">
+        <ToolSelector />
+        <div className="relative z-10 flex w-full flex-col items-center gap-12 overflow-hidden pt-24">
           {children}
         </div>
       </div>
