@@ -45,7 +45,7 @@ export function ShouldBuyBackEquity() {
         <h3 className="text-primary font-black">
           <p className="text-primary/25 text-start leading-[0.95]">
             <span className="text-primary">Equity </span>
-            Cash out Calculator.
+            Cash out calculator.
           </p>
         </h3>
       </div>
