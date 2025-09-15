@@ -36,7 +36,7 @@ function computeCashoutUsd(
   vestedEquityPercent: number,
   tenureMonths: number,
 ): number {
-  if (tenureMonths <= CLIFF_MONTHS) {
+  if (tenureMonths < CLIFF_MONTHS) {
     return 0;
   }
   const vestedFraction = vestedEquityPercent / 100; // convert percent to fraction
@@ -72,7 +72,7 @@ export function useShouldBuyBackEquity(): {
         vestedEquityPercent,
         inputs.tenureMonths,
       ),
-      hasCliffBlockingCashout: inputs.tenureMonths <= CLIFF_MONTHS,
+      hasCliffBlockingCashout: inputs.tenureMonths < CLIFF_MONTHS,
     };
   }, [inputs]);
 

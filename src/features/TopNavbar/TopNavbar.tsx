@@ -87,7 +87,7 @@ export default function Navbar() {
                 className="text-text hover:text-primary flex items-center gap-0.5 text-[12px] md:text-[14px]"
                 href="/learn/react-query"
               >
-                <FlaskConical strokeWidth={1} size={14.5} />
+                <FlaskConical strokeWidth={1.75} size={14.5} />
                 <TextShimmer
                   className="hover:text-primary"
                   duration={0.75}
@@ -101,7 +101,7 @@ export default function Navbar() {
                 className="text-text hover:text-primary flex items-center gap-0.5 text-[12px] md:text-[14px]"
                 href="/tools"
               >
-                <Wrench strokeWidth={1.5} size={14.5} />
+                <Wrench strokeWidth={1.75} size={14.5} />
                 Tools
               </Link>
 
