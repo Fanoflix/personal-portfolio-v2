@@ -193,7 +193,7 @@ export function ShouldBuyBackEquity() {
           </span>
         </div>
         {derived.hasCliffBlockingCashout && (
-          <p className="text-muted-foreground pt-3 text-sm">
+          <p className="pt-3 text-sm text-orange-400">
             No cash out because the 1-year cliff hasn’t ended yet.
           </p>
         )}
