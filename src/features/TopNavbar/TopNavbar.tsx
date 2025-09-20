@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import { FlaskConical, Mail, Wrench } from "lucide-react";
+import { FlaskConical, Mail, MousePointerClick, Wrench } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -103,6 +103,15 @@ export default function Navbar() {
               >
                 <Wrench strokeWidth={1.75} size={14.5} />
                 Tools
+              </Link>
+
+              <Link
+                prefetch
+                className="text-text hover:text-primary flex items-center gap-0.5 text-[12px] md:text-[14px]"
+                href="/snippets"
+              >
+                <MousePointerClick strokeWidth={1.75} size={14.5} />
+                Snippets (WIP)
               </Link>
 
               <NavIconButton
