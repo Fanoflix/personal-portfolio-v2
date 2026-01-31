@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 
 const GRID = {
-  scale: 2, // multiplier
-  rows: 7,
-  cols: 7,
+  scale: 1, // multiplier
+  rows: 12,
+  cols: 12,
 };
-const GAP = 2 * GRID.scale; // px;
+const GAP = 5 * GRID.scale; // px;
 const BORDER_RADIUS = 2; // px;
 const PIXEL = {
-  height: 2 * GRID.scale, // px
-  width: 2 * GRID.scale, // px
+  height: 5 * GRID.scale, // px
+  width: 5 * GRID.scale, // px
 };
 
 // TODO; Make this FPS
-const FRAME_DURATION = 160; // ms
+const FRAME_DURATION = 150; // ms
 
 export default function RetroLoader() {
   const [currentFrame, setCurrentFrame] = useState(0);
@@ -60,7 +60,7 @@ export default function RetroLoader() {
         >
           {Array.from({ length: GRID.cols }).map((_, col) => (
             <div
-              className={`transition-colors duration-75 ${
+              className={`transition-colors duration-[120ms] ease-[cubic-bezier(1,2,1,2)] ${
                 isCellLit(row, col) ? "bg-primary" : "bg-secondary"
               }`}
               style={{
