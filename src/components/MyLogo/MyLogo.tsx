@@ -4,7 +4,11 @@ import { useCallback, useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
-export default function MyLogo() {
+export default function MyLogo({
+  containerClassName,
+}: {
+  containerClassName?: string;
+}) {
   const [isClient, setIsClient] = useState(false);
   const [isAnimationAlreadyPlayed, setIsAnimationAlreadyPlayed] =
     useState(false);
@@ -176,6 +180,7 @@ export default function MyLogo() {
       className={cn(
         "logo-svg z-100 m-auto flex items-center justify-center",
         "max-h-7 min-h-7 max-w-7 min-w-7",
+        containerClassName,
       )}
     >
       <svg id="base" className="overflow-visible" viewBox="0 0 153 200">

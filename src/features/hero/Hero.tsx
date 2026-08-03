@@ -5,20 +5,25 @@ import { StaggeredContainer } from "../framer-animations/components/StaggeredCon
 
 export default function Hero() {
   return (
-    <StaggeredContainer containerClassName="flex flex-col gap-7 w-full md:w-4/6 text-pretty">
-      <h1 className="text-primary flex flex-col items-start leading-[0.65] font-black">
+    <StaggeredContainer containerClassName="flex flex-col gap-7 w-full text-pretty">
+      <h1 className="text-primary flex flex-col items-start leading-[0.8] font-black">
         Ammar.
+        {/* No z-index here on purpose: the h1's cut-out shadow relies on this
+            block sitting *behind* the line above it, and a utility class would
+            beat the base-layer rule that puts it there. */}
         <div className="flex flex-wrap">
-          <span className="text-primary/25 leading-[0.95]">Engineer.</span>
-          <span className="text-primary/25 leading-[0.95]">Frontend.</span>
-          <span className="text-primary/15 leading-[0.95]">Product.</span>
-          <span className="text-primary/10 leading-[0.95]">Communicator.</span>
-          <span className="text-primary/10 leading-[0.95]">Designer.</span>
+          <span className="text-primary/25 leading-[0.85]">Engineer.</span>
+          <span className="text-primary/25 leading-[0.85]">Frontend.</span>
+          <span className="text-primary/15 leading-[0.85]">Product.</span>
+          <span className="text-primary/10 leading-[0.85]">
+            Communicator.
+          </span>{" "}
+          <span className="text-primary/10 leading-[0.85]">Designer.</span>
         </div>
       </h1>
 
       <p>
-        26y. Software Engineer. Full stack — focused on the Frontend. Working at{" "}
+        Engineer. Full stack — focused on the Frontend. Working at{" "}
         <InlineLink href="https://www.metal.so/">Metal (YC W23)</InlineLink>.
       </p>
 
@@ -27,8 +32,6 @@ export default function Hero() {
         <b className="text-primary font-medium text-nowrap">Product Engineer</b>
         , which includes doing anything and everything possible
         (FE/BE/Product-thinking/Design) to flesh out the best work possible.
-        Though, I am largely creative, experienced and excellent at Frontend
-        Engineering.
       </p>
 
       <p>

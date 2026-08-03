@@ -13,6 +13,12 @@ const Table = React.forwardRef<
   const tableContainerRef = useRef<HTMLDivElement>(null);
   const [showFiller, setShowFiller] = useState(true);
   const [fillerHeight, setFillerHeight] = useState(0);
+  /**
+   * Mount flag, deliberately write-only: nothing reads it, the re-render it
+   * causes is the entire point — it's what lets the theme-dependent markup
+   * below settle after hydration.
+   */
+  // eslint-disable-next-line react/hook-use-state
   const [, setMounted] = useState(false);
   const fillerRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
