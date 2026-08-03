@@ -73,9 +73,9 @@ export function TagsAnimatedList({ tags }: TagsAnimatedListProps) {
 }
 
 const TagsContainerMotion: Variants = {
+  // Only the keys each variant actually reads are destructured; the annotations
+  // still describe the whole `custom` payload every variant is handed.
   rest: ({
-    overlappedWidth,
-    totalWidthOfAllSpecialTags,
     expandedWidth,
   }: {
     overlappedWidth: number;
@@ -89,9 +89,7 @@ const TagsContainerMotion: Variants = {
     },
   }),
   hover: ({
-    overlappedWidth,
     expandedWidth,
-    totalWidthOfAllSpecialTags,
   }: {
     overlappedWidth: number;
     expandedWidth: number;
@@ -108,23 +106,20 @@ const TagsContainerMotion: Variants = {
 const SingleTagMotion: Variants = {
   rest: ({
     index,
-    cumulativeWidth,
     totalWidthOfAllSpecialTags,
   }: {
     index: number;
     cumulativeWidth: number;
     totalWidthOfAllSpecialTags: number;
   }) => ({
-    translateX: index == 0 ? 0 : -totalWidthOfAllSpecialTags + (index - 1) * -6,
+    translateX: index === 0 ? 0 : -totalWidthOfAllSpecialTags + (index - 1) * -6,
     transition: {
       duration: 0.3,
       ease: "circOut",
     },
   }),
   hover: ({
-    index,
     cumulativeWidth,
-    totalWidthOfAllSpecialTags,
   }: {
     index: number;
     cumulativeWidth: number;

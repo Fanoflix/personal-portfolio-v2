@@ -6,13 +6,13 @@ import { PropsWithChildren } from "react";
 import { layoutVariants } from "../features/framer-animations/variants";
 import { cn } from "../lib/utils";
 
-export default function ll({ children }: PropsWithChildren) {
+export default function AppShell({ children }: PropsWithChildren) {
   const pathname = usePathname();
 
   return (
     <div
       className={cn(
-        "md:w-site w-full px-3 md:px-0",
+        "xl:w-site sm:w-site-sm w-full px-3 md:px-0",
         "flex flex-col items-center justify-center pb-6",
       )}
     >

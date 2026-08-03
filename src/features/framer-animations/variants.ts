@@ -3,7 +3,7 @@ import { Variants } from "framer-motion";
 export const layoutVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 15,
+    y: 20,
     filter: "blur(10px)",
   },
   visible: {
@@ -11,10 +11,10 @@ export const layoutVariants: Variants = {
     y: 0,
     filter: "blur(0px)",
     transition: {
-      duration: 0.35,
+      duration: 0.25,
       ease: "easeInOut",
       filter: {
-        duration: 1,
+        duration: 0.4,
       },
     },
   },

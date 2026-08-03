@@ -122,11 +122,11 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
 
 export default function WorkExperience() {
   return (
-    <div className="flex w-full flex-col gap-7 md:w-3/4">
-      <h1 className="flex flex-col leading-[0.65] font-black">
+    <div className="flex w-full flex-col gap-7">
+      <h1 className="flex flex-col leading-[0.8] font-black">
         Experiences.
         <div className="flex flex-wrap">
-          <span className="text-primary/25 leading-[0.95]">3 years.</span>
+          <span className="text-primary/25 leading-[0.75]">4+ years.</span>
         </div>
       </h1>
 

@@ -23,8 +23,8 @@
   --text-9xl: 127px;
 
   --animate-flame-flicker: flame-flicker 1.2s ease-out infinite;
-  --animate-accordion-down: accordion-down 0.16s ease;
-  --animate-accordion-up: accordion-up 0.16s ease;
+  --animate-accordion-down: accordion-down 0.12s ease-out;
+  --animate-accordion-up: accordion-up 0.12s ease-out;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -81,7 +81,8 @@
 
   --drop-shadow-orange: 0 0 5px rgba(249, 115, 22, 0.8);
 
-  --spacing-site: 78%;
+  --spacing-site: 55%;
+  --spacing-site-sm: 75%;
 
   @keyframes flame-flicker {
     0% {
@@ -285,8 +286,71 @@
     @apply text-base;
   }
 
+  /*
+    Sized in one place, mobile first. This lives on `h1` rather than on
+    `.dark h1` below because it isn't a theme concern — only the cut-out shadow
+    is.
+  */
   h1 {
-    @apply text-3xl font-bold;
+    @apply font-bold;
+    font-size: 24px;
+  }
+
+  /* `md`, matching the breakpoint the components use. */
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 32px;
+    }
+  }
+
+  /*
+    Headings are offset in the page's own background colour, so the shadow is
+    invisible except where it falls across the tight second line — it reads as
+    the top line eating into the one below it. `--background` rather than a
+    literal, so it stays correct in either theme.
+
+    `text-shadow` over `filter: drop-shadow()` deliberately — it paints per
+    glyph and, unlike a filter, doesn't open a new stacking context on headings
+    that Framer is already transforming.
+
+    The z-index is what makes a *downward* offset survive. These headings are
+    flex columns whose second child is a block of sub-lines that, in document
+    order, paints over the line above it — and so over its shadow too. Pushing
+    that child behind reverses it; `isolation` keeps the negative index from
+    escaping past the h1 into an ancestor's background.
+
+    Careful: a z-index utility on that child silently kills the whole effect,
+    since Tailwind's utilities layer beats this base layer no matter the
+    specificity. That's why `Hero`'s inner div deliberately carries none.
+  */
+  .dark h1 {
+    isolation: isolate;
+    text-shadow:
+      0px 5px 12px var(--background),
+      0px 3px 3px var(--background);
+  }
+
+  /*
+    The size above is meant for the heading's own line only, but `font-size`
+    inherits — so it has to be handed back on the way down. Pinning the child
+    here holds the sub-lines at the old heading size no matter what the line
+    above grows to, and the spans inside inherit that in turn.
+
+    `h1 > *` reaches only the sub-line block: the heading's own text is a bare
+    text node wrapped in an anonymous flex item, which no selector can match.
+    That is exactly why this works — the first line keeps the h1's size by
+    virtue of being unreachable.
+
+    `em`, not a fixed size, so the sub-line keeps its proportion to the heading
+    across breakpoints off a single knob — 0.72 is today's 23px against 32px.
+    A fixed 23px would sit within a pixel of the 24px heading on mobile and
+    flatten the hierarchy exactly where there's least room for it. Only one
+    level deep resolves it: the spans inside inherit the computed pixel value,
+    so nothing compounds.
+  */
+  h1 > * {
+    font-size: 0.78em;
+    z-index: -1;
   }
 
   h2 {

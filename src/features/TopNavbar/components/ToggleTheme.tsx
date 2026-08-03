@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { iconHeightWidth } from "../constants";
 
 // Animation configuration
-const ANIMATION_DURATION = 500; // ms
+const ANIMATION_DURATION = 300; // ms
 const HALF_ANIMATION_DURATION = ANIMATION_DURATION / 2;
 
 export default function ToggleTheme() {
@@ -53,7 +53,7 @@ export default function ToggleTheme() {
 
   const animationStyle = isAnimating
     ? {
-        animation: `theme-toggle ${ANIMATION_DURATION}ms linear`,
+        animation: `theme-toggle ${ANIMATION_DURATION}ms ease-out`,
       }
     : {};
 

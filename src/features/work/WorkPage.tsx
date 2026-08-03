@@ -27,10 +27,10 @@ export default function WorkPage() {
   return (
     <div className="mx-auto" id="work">
       <StaggeredContainer containerClassName="flex flex-col gap-4">
-        <h1 className="flex flex-col leading-[0.65] font-black">
+        <h1 className="flex flex-col leading-[0.75] font-black">
           Work.
           <div className="flex flex-wrap">
-            <span className="text-primary/25 leading-[0.95]">
+            <span className="text-primary/25 leading-[0.75]">
               Contributions over the years.
             </span>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import { FlaskConical, Mail, Wrench } from "lucide-react";
+import { Mail, Wrench } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -41,7 +41,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 flex h-max w-full justify-center backdrop-blur-lg md:h-12">
-      <div className="md:w-site border-border w-full border-b">
+      <div className="xl:w-site sm:w-site-sm border-border w-full border-b">
         <AnimatePresence mode="wait">
           <motion.section
             className={cn(
@@ -82,27 +82,21 @@ export default function Navbar() {
               >
                 Work
               </Link>
+              {/* Quiz moved into Extras — one entry point for the side
+                  projects instead of the nav growing a link per experiment. */}
               <Link
                 prefetch
                 className="text-text hover:text-primary flex items-center gap-0.5 text-[12px] md:text-[14px]"
-                href="/learn/react-query"
+                href="/extras"
               >
-                <FlaskConical strokeWidth={1.75} size={14.5} />
+                <Wrench strokeWidth={1.75} size={14.5} />
                 <TextShimmer
                   className="hover:text-primary"
                   duration={0.75}
                   spread={2.7}
                 >
-                  Quiz
+                  Extras
                 </TextShimmer>
-              </Link>
-              <Link
-                prefetch
-                className="text-text hover:text-primary flex items-center gap-0.5 text-[12px] md:text-[14px]"
-                href="/tools"
-              >
-                <Wrench strokeWidth={1.75} size={14.5} />
-                Tools
               </Link>
 
               <NavIconButton
