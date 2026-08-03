@@ -65,7 +65,7 @@ export const NavBarVariants: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      type: "easeIn",
+      ease: "easeIn",
       duration: 0.2,
     },
   },
