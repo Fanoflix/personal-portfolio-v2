@@ -22,7 +22,7 @@ export const CategoryColumn = ({ row }: { row: Row<WorkWithSubRows> }) => {
         key={label.name}
         className={cn(
           "flex items-center gap-1 overflow-visible text-xs font-medium",
-          "contrast-75",
+          "contrast-60",
           label.className,
         )}
       >
@@ -30,7 +30,7 @@ export const CategoryColumn = ({ row }: { row: Row<WorkWithSubRows> }) => {
         <span className="mb-1">
           {label.meta?.icon && (
             <label.meta.icon
-              strokeWidth={1.6}
+              strokeWidth={1.5}
               strokeLinecap="round"
               strokeLinejoin="miter"
               fill={mounted && theme === "dark" ? "none" : "currentColor"}

@@ -52,9 +52,9 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
         </div>
       );
     },
-    minSize: 150,
-    size: 80,
-    maxSize: 80,
+    minSize: 95,
+    size: 95,
+    maxSize: 100,
   },
   {
     accessorKey: "project.name",
@@ -77,7 +77,7 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
             </Link>
           )}
         >
-          <div className="group flex flex-nowrap items-center justify-between pr-10">
+          <div className="group flex flex-nowrap items-center justify-between pr-2">
             <div
               className={cn(
                 "text-primary flex min-w-0 items-center gap-2 border-b border-transparent pr-1 text-[12px] font-medium md:text-sm",
@@ -115,8 +115,8 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
     id: "category",
     accessorFn: (row) => WORK_LABELS[row.project.label].weight.toString(),
     header: "Category",
-    minSize: 200,
-    maxSize: 200,
+    minSize: 150,
+    maxSize: 150,
     cell: ({ row }) => {
       return <CategoryColumn row={row} />;
     },

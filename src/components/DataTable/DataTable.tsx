@@ -77,7 +77,7 @@ export function DataTable<TData extends { subRows?: TData[] }, TValue>({
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow
               key={headerGroup.id}
-              className="border-border bg-muted/20"
+              className="border-border bg-muted/25"
             >
               {headerGroup.headers.map((header) => (
                 <TableHead
@@ -151,7 +151,8 @@ function AnimatedTableRow<TData>({
       className={cn(
         "border-border",
         noBottomBorder && "border-b-0",
-        row.getCanExpand() && "border-border/50 border-t",
+        row.getCanExpand() &&
+          "dashed-t [--dash-color:color-mix(in_oklab,var(--color-primary)_25%,transparent)] [--dash-gap:8px] [--dash-length:10px] [--dash-thickness:0.35px] first:bg-none",
         typeof rowClassName === "function"
           ? rowClassName(row.original)
           : rowClassName,

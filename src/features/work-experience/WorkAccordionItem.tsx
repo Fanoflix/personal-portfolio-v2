@@ -40,7 +40,7 @@ export default function WorkAccordionItem({
     <div>
       <AccordionItem
         className={cn(
-          "via-primary/8 from-transparent via-[0.4%] to-transparent to-30% data-[state=open]:bg-linear-to-br",
+          "via-primary/4 from-transparent via-[0.4%] to-transparent to-30% data-[state=open]:bg-linear-to-br",
           "data-[state=open]:border-primary border-b-0 border-l border-transparent transition-all",
         )}
         value={workItem.companyName}
@@ -68,7 +68,7 @@ export default function WorkAccordionItem({
               </p>
 
               {workItem.current && (
-                <div className="min-h-2 min-w-2 rounded-full bg-green-500" />
+                <div className="min-h-2 min-w-2 rounded-full bg-green-500 drop-shadow-[2px_2px_7px_rgba(50,255,50,0.5)]" />
               )}
 
               <p className="text-primary/30">
