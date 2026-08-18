@@ -209,6 +209,30 @@
   }
 }
 
+/**
+ * A dashed top rule whose dash and gap you can actually set — `border-dashed`
+ * hands those to the browser and offers no way to influence them.
+ *
+ * Painted as a background gradient rather than a `border-image`, because these
+ * sit on table rows and collapsed table borders swallow `border-image`.
+ *
+ * Tune per element with the arbitrary properties, e.g.
+ * `dashed-t [--dash-length:10px] [--dash-gap:6px] [--dash-thickness:2px]`.
+ * Colour defaults to `currentColor`; override with `[--dash-color:…]` when the
+ * rule shouldn't track the element's text colour.
+ */
+@utility dashed-t {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--dash-color, currentcolor) 0 var(--dash-length, 6px),
+    transparent var(--dash-length, 6px)
+      calc(var(--dash-length, 6px) + var(--dash-gap, 4px))
+  );
+  background-repeat: no-repeat;
+  background-size: 100% var(--dash-thickness, 1px);
+  background-position: top left;
+}
+
 :root {
   --background: hsl(0 0% 100%);
   --foreground: hsl(0 0% 3.9%);

@@ -10,15 +10,17 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
     companyName: "Metal",
     companyUrl: "https://metal.com",
     jobTitle: "Mid-Senior Software Engineer (Early Hire)",
+    from: "September 18, 2023",
+    to: null,
+    current: true,
     content: (
       <StaggeredContainer
         containerClassName="flex flex-col gap-8"
         delayChildren={0.07}
       >
         <p>
-          <InlineLink href="https://metal.so">Metal </InlineLink> provides
-          founders with precise data to identify best-fit investors and
-          accelerate their fundraising journey. It&apos;s pretty cool, check it
+          <InlineLink href="https://metal.so">Metal</InlineLink> grants
+          superpowers to Founders for Fundraising. It is pretty cool, check it
           out at <InlineLink href="https://metal.so">metal.so</InlineLink>.
         </p>
 
@@ -28,18 +30,16 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
           </span>
           <p className="flex flex-col gap-2">
             <span>
-              As the second Frontend-focused hire at Metal, I now operate as a
-              <i>&quot;product engineer&quot;</i>, contributing to design, UX,
-              Frontend, Backend and Product side of things.
+              An early hire at Metal. I operate as a{" "}
+              <span className="text-primary">Product Engineer</span>,
+              contributing to design, UX, Frontend, Backend and Product side of
+              things.
             </span>
 
             <span>
-              Built multi-step Auth + Onboarding flow from scratch with UX and
-              performance in mind. Created core features across the application,
-              such as search & CRM to name a few. Set standards throughout the
-              team. Focused on providing a game-like user experience. Mentored
-              engineers, conducted code reviews, and held high-quality
-              interviews.
+              I put myself wherever the system needs me. I remove blockers,
+              improve the fluidity of our systems, and spend my free time fixing
+              things — sharpening DevX and UX as I go.
             </span>
           </p>
         </div>
@@ -48,16 +48,13 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
           <span className="text-primary/15 text-xl leading-none font-black">
             Stack
           </span>
-          <span className="text-primary">
+          <span className="hover:text-primary">
             NextJS, ReactJs, Typescript, Tailwind, React-Query, Zustand, NestJS,
             Postgres, Redis
           </span>
         </div>
       </StaggeredContainer>
     ),
-    from: "September 18, 2023",
-    to: null,
-    current: true,
   },
   {
     logoUrl: "/logos/10p_logo.png",
