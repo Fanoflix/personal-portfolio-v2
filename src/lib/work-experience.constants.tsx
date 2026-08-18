@@ -9,7 +9,7 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
     logoHeight: 50,
     companyName: "Metal",
     companyUrl: "https://metal.com",
-    jobTitle: "Mid-Senior Software Engineer (Early Hire)",
+    jobTitle: "Software Engineer (Early Hire)",
     from: "September 18, 2023",
     to: null,
     current: true,
@@ -48,7 +48,7 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
           <span className="text-primary/15 text-xl leading-none font-black">
             Stack
           </span>
-          <span className="hover:text-primary">
+          <span>
             NextJS, ReactJs, Typescript, Tailwind, React-Query, Zustand, NestJS,
             Postgres, Redis
           </span>
@@ -103,7 +103,7 @@ export const WORK_EXPERIENCE_DATA: WorkItem[] = [
           <span className="text-primary/15 text-xl leading-none font-black">
             Stack
           </span>
-          <span className="text-primary">
+          <span>
             NextJS, ReactJs, Typescript, MaterialUI, Redux, NewRelic,
             FingerprintJS
           </span>

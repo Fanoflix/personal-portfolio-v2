@@ -13,7 +13,7 @@ export default function WorkExperience() {
         </div>
       </h1>
 
-      <p className="text-sm">
+      <p className="text-xs">
         You can expand or collapse each item for more details.
       </p>
       <Accordion
