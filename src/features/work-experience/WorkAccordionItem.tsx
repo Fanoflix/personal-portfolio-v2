@@ -68,7 +68,7 @@ export default function WorkAccordionItem({
               </p>
 
               {workItem.current && (
-                <div className="min-h-2 min-w-2 rounded-full bg-green-500 drop-shadow-[2px_2px_7px_rgba(50,255,50,0.5)]" />
+                <div className="animate-flame-flicker min-h-2 min-w-2 rounded-full bg-green-500 drop-shadow-[2px_2px_7px_rgba(50,255,50,0.5)]" />
               )}
 
               <p className="text-primary/30">
