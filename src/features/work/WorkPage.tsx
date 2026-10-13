@@ -52,6 +52,7 @@ export default function WorkPage() {
           sortingState={sortingState}
           setSortingState={setSortingState}
           noBottomBorder
+          className="backdrop-blur-md"
         />
       </StaggeredContainer>
     </div>

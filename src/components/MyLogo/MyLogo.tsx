@@ -1,19 +1,30 @@
 "use client";
 import anime from "animejs";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
 export default function MyLogo({
   containerClassName,
+  playOnClick = false,
 }: {
   containerClassName?: string;
+  playOnClick?: boolean;
 }) {
   const [isClient, setIsClient] = useState(false);
   const [isAnimationAlreadyPlayed, setIsAnimationAlreadyPlayed] =
     useState(false);
+  const svgRef = useRef<SVGSVGElement>(null);
 
   const morphLogoForward = useCallback(() => {
+    const svg = svgRef.current;
+    if (!svg) {
+      return;
+    }
+
+    const logoPart = (id: string) => svg.querySelector(`[id="${id}"]`);
+    anime.remove([svg, ...svg.querySelectorAll("polygon")]);
+
     const leftTopSpikeInitial =
       "13.2 110.8 5.3 112.2 0 113.5 27.9 140 28.1 128.1 13.2 110.8";
     const leftTopSpikeFinal =
@@ -68,7 +79,7 @@ export default function MyLogo({
     });
 
     base.add({
-      targets: "#base",
+      targets: svg,
       opacity: [0, 1],
       scaleY: [
         { value: 3, duration: 120, easing: "easeInQuad" },
@@ -86,14 +97,14 @@ export default function MyLogo({
 
     spikeRTopTimeLine
       .add({
-        targets: "#right_top_spike",
+        targets: logoPart("right_top_spike"),
         points: [rightTopSpikeInitial, rightTopSpikeFinal],
         duration: logoAnimDuration,
         loop: logoLoop,
       })
       .add(
         {
-          targets: "#ripple_left",
+          targets: logoPart("ripple_left"),
           translateX: [0, -rippleDistance],
 
           opacity: rippleOpacity,
@@ -104,7 +115,7 @@ export default function MyLogo({
       )
       .add(
         {
-          targets: "#ripple_left",
+          targets: logoPart("ripple_left"),
           translateX: [-rippleDistance, 0],
 
           opacity: rippleBackOpacity,
@@ -116,14 +127,14 @@ export default function MyLogo({
 
     spikeLTopTimeline
       .add({
-        targets: "#left_top_spike",
+        targets: logoPart("left_top_spike"),
         points: [leftTopSpikeInitial, leftTopSpikeFinal],
         duration: logoAnimDuration,
         loop: logoLoop,
       })
       .add(
         {
-          targets: "#ripple_right",
+          targets: logoPart("ripple_right"),
           translateX: [0, rippleDistance],
 
           opacity: rippleOpacity,
@@ -134,7 +145,7 @@ export default function MyLogo({
       )
       .add(
         {
-          targets: "#ripple_right",
+          targets: logoPart("ripple_right"),
           translateX: [rippleDistance, 0],
 
           opacity: rippleBackOpacity,
@@ -146,14 +157,14 @@ export default function MyLogo({
 
     // Bot
     spikeRBotTimeLine.add({
-      targets: "#right_bot_spike",
+      targets: logoPart("right_bot_spike"),
       points: [rightBotSpikeInitial, rightBotSpikeFinal],
       duration: logoAnimDuration,
       loop: logoLoop,
     });
 
     spikeLBotTimeline.add({
-      targets: "#left_bot_spike",
+      targets: logoPart("left_bot_spike"),
       points: [leftBotSpikeInitial, leftBotSpikeFinal],
       duration: logoAnimDuration,
       loop: logoLoop,
@@ -180,10 +191,17 @@ export default function MyLogo({
       className={cn(
         "logo-svg z-100 m-auto flex items-center justify-center",
         "max-h-7 min-h-7 max-w-7 min-w-7",
+        playOnClick && "cursor-pointer",
         containerClassName,
       )}
+      onClick={playOnClick ? morphLogoForward : undefined}
     >
-      <svg id="base" className="overflow-visible" viewBox="0 0 153 200">
+      <svg
+        ref={svgRef}
+        id="base"
+        className="overflow-visible"
+        viewBox="0 0 153 200"
+      >
         <polygon
           id="ripple_right"
           className="ripple fill-[rgb(130, 130, 130)] dark:fill-white"

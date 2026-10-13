@@ -31,6 +31,7 @@ interface DataTableProps<TData, TValue> {
   setSortingState?: Dispatch<SetStateAction<SortingState>>;
   noBottomBorder?: boolean;
   rowClassName?: string | ((row: TData) => string);
+  className?: string;
 }
 
 export function DataTable<TData extends { subRows?: TData[] }, TValue>({
@@ -40,6 +41,7 @@ export function DataTable<TData extends { subRows?: TData[] }, TValue>({
   setSortingState,
   noBottomBorder,
   rowClassName,
+  className,
 }: DataTableProps<TData, TValue>) {
   const isSortingEnabled = Boolean(setSortingState) && Boolean(sortingState);
 
@@ -71,7 +73,7 @@ export function DataTable<TData extends { subRows?: TData[] }, TValue>({
   });
 
   return (
-    <div className="border-border rounded-md border">
+    <div className={cn("border-border rounded-md border", className)}>
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
