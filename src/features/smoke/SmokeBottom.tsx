@@ -6,7 +6,7 @@ export default function SmokeBottom() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-x-0 bottom-0 h-[40vh] translate-y-1/3 opacity-30 invert dark:invert-0"
+      className="pointer-events-none absolute inset-x-0 bottom-0 h-[30vh] translate-y-1/5 opacity-30 invert dark:invert-0"
       style={{ zIndex: -10 }}
     >
       <Motes
@@ -18,7 +18,7 @@ export default function SmokeBottom() {
         contrast={1.1}
         brightness={0.1}
         trail={0.07}
-        charset={` \`.-#`}
+        charset={`   .;#`}
         background="transparent"
         ink="#adadad"
         accent="#d6d6d6"
