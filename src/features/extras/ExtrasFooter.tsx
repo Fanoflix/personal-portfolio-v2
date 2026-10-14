@@ -19,33 +19,38 @@ export default function ExtrasFooter() {
     // Stacks below `md`: on a phone the sentence always wraps, and once it does
     // the logo sits beside the *first* line only, leaving the rest hanging off
     // on its own.
-    <footer className="flex h-[196px] flex-col items-center justify-center gap-2 px-2 pb-4 text-sm md:flex-row md:items-end">
-      {/* Wrapped, because `MyLogo` carries `m-auto`. As a direct flex child that
-          auto margin absorbs every pixel of free space in the row and shoves
-          everything after it to the far edge. A content-sized wrapper leaves it
-          nothing to absorb. */}
-      <span className="shrink-0">
-        <MyLogo containerClassName="max-h-6 min-h-6 max-w-5 min-w-5 opacity-50 hover:opacity-100" />
-      </span>
-      {/* Only earns its place in a row — stacked, the line break already
-          separates the two. */}
-      <span
-        className="text-text hidden text-xl leading-6 font-thin md:inline"
-        aria-hidden
-      >
-        |
-      </span>
-      <p className="text-text text-center md:text-left">
-        Checkout some fun stuff I have created:{" "}
-        {EXTRAS.map(({ href, label, external }, index) => (
-          <Fragment key={href}>
-            {index > 0 && ", "}
-            <InlineLink external={external} href={href}>
-              {label}
-            </InlineLink>
-          </Fragment>
-        ))}
-      </p>
+    <footer className="flex h-[196px] flex-col items-center justify-center px-2 pb-4 text-sm md:justify-end">
+      <div className="bg-background/80 flex flex-col items-center gap-2 backdrop-blur-sm md:flex-row md:items-end">
+        {/* Wrapped, because `MyLogo` carries `m-auto`. As a direct flex child that
+            auto margin absorbs every pixel of free space in the row and shoves
+            everything after it to the far edge. A content-sized wrapper leaves it
+            nothing to absorb. */}
+        <span className="shrink-0">
+          <MyLogo
+            containerClassName="max-h-6 min-h-6 max-w-5 min-w-5 opacity-50 hover:opacity-100"
+            playOnClick
+          />
+        </span>
+        {/* Only earns its place in a row — stacked, the line break already
+            separates the two. */}
+        <span
+          className="text-text hidden text-xl leading-6 font-thin md:inline"
+          aria-hidden
+        >
+          |
+        </span>
+        <p className="text-text text-center md:text-left">
+          Checkout some fun stuff I have created:{" "}
+          {EXTRAS.map(({ href, label, external }, index) => (
+            <Fragment key={href}>
+              {index > 0 && ", "}
+              <InlineLink external={external} href={href}>
+                {label}
+              </InlineLink>
+            </Fragment>
+          ))}
+        </p>
+      </div>
     </footer>
   );
 }

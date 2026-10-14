@@ -1,14 +1,11 @@
 "use client";
 
 import { type ColumnDef } from "@tanstack/react-table";
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
-import { TagsAnimatedList } from "../../components/TagsAnimatedList/TagsAnimatedList";
-import { WrapConditionally } from "../../components/WrapConditionally/WrapConditionally";
 import { CategoryColumn } from "./CategoryColumn";
+import { ProjectCell } from "./ProjectCell";
 import { WORK_LABELS, WorkWithSubRows } from "./types";
 
 export const columns: ColumnDef<WorkWithSubRows, string>[] = [
@@ -60,54 +57,7 @@ export const columns: ColumnDef<WorkWithSubRows, string>[] = [
     accessorKey: "project.name",
     id: "project",
     header: "Project",
-    cell: ({ row }) => {
-      const projectLink = row.original.project.link;
-
-      return (
-        <WrapConditionally
-          condition={!!projectLink}
-          wrapper={(wrapperChildren) => (
-            <Link
-              href={projectLink || ""}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contents"
-            >
-              {wrapperChildren}
-            </Link>
-          )}
-        >
-          <div className="group flex flex-nowrap items-center justify-between pr-2">
-            <div
-              className={cn(
-                "text-primary flex min-w-0 items-center gap-2 border-b border-transparent pr-1 text-[12px] font-medium md:text-sm",
-                projectLink && "group-hover:border-primary cursor-pointer",
-              )}
-            >
-              <p className="text-primary min-w-0 flex-1 truncate border-transparent">
-                {row.getValue("project")}
-              </p>
-              {projectLink && (
-                <ArrowUpRight className="shrink-0" size={17} strokeWidth={3} />
-              )}
-            </div>
-
-            <div className="shrink-0">
-              <TagsAnimatedList
-                tags={[
-                  ...row.original.project.tags,
-                  {
-                    name:
-                      row.original.project.company?.companyName || "Personal",
-                    isSpecial: true,
-                  },
-                ]}
-              />
-            </div>
-          </div>
-        </WrapConditionally>
-      );
-    },
+    cell: ({ row }) => <ProjectCell work={row.original} />,
     minSize: 500,
     maxSize: 500,
   },

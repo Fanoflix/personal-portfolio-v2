@@ -1149,6 +1149,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lucasmarkes/motes-react@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@lucasmarkes/motes-react@npm:0.3.0"
+  dependencies:
+    "@lucasmarkes/motes": "npm:^0.3.0"
+  peerDependencies:
+    react: ">=18"
+  checksum: 10c0/2855af87917cad8d19c36d9ba60f06cb83712ddf25c566edf56536a834d1ebb37b4f05f18734baf6dc61806126857398719b9ff99f3598dcf032c2475826d289
+  languageName: node
+  linkType: hard
+
+"@lucasmarkes/motes@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@lucasmarkes/motes@npm:0.3.0"
+  checksum: 10c0/7f412dc5e6b613810fa40887d886a3293e967c4d4c44e1182a52b9f370079ec974d4a98bde763f12517a191a72ab0f9549959a82f2db7db987b96de314aa2df8
+  languageName: node
+  linkType: hard
+
 "@modelcontextprotocol/sdk@npm:^1.17.2":
   version: 1.17.5
   resolution: "@modelcontextprotocol/sdk@npm:1.17.5"
@@ -6858,6 +6876,7 @@ __metadata:
   resolution: "personal-portfolio-v2@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.14.0"
+    "@lucasmarkes/motes-react": "npm:^0.3.0"
     "@number-flow/react": "npm:^0.5.10"
     "@radix-ui/react-accordion": "npm:^1.2.10"
     "@radix-ui/react-dialog": "npm:^1.1.15"

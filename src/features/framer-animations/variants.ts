@@ -17,6 +17,9 @@ export const layoutVariants: Variants = {
         duration: 0.4,
       },
     },
+    transitionEnd: {
+      filter: "none",
+    },
   },
 };
 
