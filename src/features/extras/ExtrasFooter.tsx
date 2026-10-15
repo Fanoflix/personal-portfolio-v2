@@ -27,7 +27,7 @@ export default function ExtrasFooter() {
             nothing to absorb. */}
         <span className="shrink-0">
           <MyLogo
-            containerClassName="max-h-6 min-h-6 max-w-5 min-w-5 opacity-50 hover:opacity-100"
+            containerClassName="h-6 w-5 opacity-50 hover:opacity-100"
             playOnClick
           />
         </span>

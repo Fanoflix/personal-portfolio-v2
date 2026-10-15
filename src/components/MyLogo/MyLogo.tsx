@@ -183,14 +183,14 @@ export default function MyLogo({
   }, [isClient, isAnimationAlreadyPlayed, morphLogoForward]);
 
   if (!isClient) {
-    return <div className="max-h-7 min-h-7 max-w-7 min-w-7" />;
+    return <div className="size-7 shrink-0" />;
   }
 
   return (
     <div
       className={cn(
         "logo-svg z-100 m-auto flex items-center justify-center",
-        "max-h-7 min-h-7 max-w-7 min-w-7",
+        "size-7 shrink-0",
         playOnClick && "cursor-pointer",
         containerClassName,
       )}
@@ -199,7 +199,7 @@ export default function MyLogo({
       <svg
         ref={svgRef}
         id="base"
-        className="overflow-visible"
+        className="block size-full overflow-visible"
         viewBox="0 0 153 200"
       >
         <polygon
