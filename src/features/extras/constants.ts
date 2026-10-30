@@ -12,8 +12,8 @@ export const EXTRAS: {
   external?: boolean;
 }[] = [
   {
-    href: "https://fanoflix.github.io/webfun/",
-    label: "webfun",
+    href: "https://fanoflix.github.io/side-quests/",
+    label: "sidequests",
     description: "Interactive graphics and motion experiments",
   },
   {
